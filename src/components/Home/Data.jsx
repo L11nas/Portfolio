@@ -9,7 +9,7 @@ const Data = () => {
         Your vision, my code, let's create something extraordinary.
       </p>
       <a href='contact' className='button button--flex'>
-        <button id='helloButton'>Say hello</button>
+        <button id='helloButton'>Say Hello</button>
       </a>
     </div>
   );

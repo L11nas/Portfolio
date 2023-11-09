@@ -1,11 +1,16 @@
 import React from 'react';
+
 import './App.css';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import About from './components/about/About';
-import Skills from './components/skills/Sklills';
+import Skills from './components/skills/Skills';
 import Services from './components/services/Services';
-import Qualification from './components/qualification/Qualification';
+import WorkSection from './components/WorkSection/WorkSection';
+import Contact from './components/contact/Contact';
+import Footer from './components/footer/Footer';
+import ScrollUp from './components/scrollup/ScrollUp';
+
 const App = () => {
   return (
     <>
@@ -15,8 +20,11 @@ const App = () => {
         <About />
         <Skills />
         <Services />
-        <Qualification />
+        <WorkSection />
+        <Contact />
       </main>
+      <Footer />
+      <ScrollUp />
     </>
   );
 };

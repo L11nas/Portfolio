@@ -33,10 +33,29 @@
 }
 .about__subtitle {
   font-size: var(--tiny-font-size);
+  color: var(--title-color);
 }
 
 .about__description {
   padding: 0 4rem 0 0;
+}
+.dark-mode .about__box {
+  background-color: #333333;
+  color: #fff;
+  /* Add other dark mode styles */
+}
+.dark-mode .about__icon {
+  color: #fff; /* Adjust as needed */
+}
+
+.dark-mode .about__title {
+  color: #fff; /* Adjust as needed */
+}
+.dark-mode .about__subtitle {
+  color: #fff;
+}
+.dark-mode .section__title {
+  color: #fff;
 }
 @media screen and (max-width: 992px) {
   .about__container {

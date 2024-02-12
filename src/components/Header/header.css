@@ -1,10 +1,11 @@
 .header {
   width: 100%;
   position: fixed;
-  top: 0;
+  top: 0px;
+  padding: 15px;
   left: 0;
   z-index: var(--z-fixed);
-  background-color: var(--body-color);
+  background-color: var(--container-color);
 }
 .nav {
   height: calc(var(--header-height)+1.5rem);
@@ -41,7 +42,34 @@
 /*Active links*/
 .active-link,
 .nav__link:hover {
-  color: var(--title-color-dark);
+  color: yellow;
+}
+/*change bacground header*/
+.scroll-header {
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
+}
+.dark-mode {
+  background-color: #000;
+  color: #fff;
+  /* Add other dark mode styles */
+}
+.dark-mode-toggle {
+  color: #000;
+}
+.dark-mode .dark-mode-toggle {
+  color: #fff;
+}
+.dark-mode .nav__icon {
+  color: #fff;
+}
+.dark-mode .nav__link {
+  color: #fff;
+}
+.dark-mode .nav__logo {
+  color: #fff;
+}
+.dark-mode .nav__menu {
+  background-color: black;
 }
 
 @media screen and (max-width: 768px) {
@@ -59,7 +87,7 @@
     left: 0;
     width: 100%;
     background-color: var(--body-color);
-    padding: 2rem 1.5rem 4;
+    padding: 2rem 1.5rem 4rem;
     box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
     border-radius: 1.5rem 1.5rem 0 0;
     transition: 0.3s;

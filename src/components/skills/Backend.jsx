@@ -1,8 +1,9 @@
 import React from 'react';
-
+import { useDarkMode } from '../../ThemeContext';
 const Backend = () => {
+  const { darkMode } = useDarkMode();
   return (
-    <div className='skills__content'>
+    <div className={`skills__content ${darkMode ? 'dark-mode' : ''}`}>
       <h3 className='skills__title'>Backend Developer</h3>
 
       <div className='skills__box'>

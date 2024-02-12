@@ -1,5 +1,5 @@
 import React from 'react';
-import scrollSvg from '/public/scroll-down.svg';
+import scrollSvg from '/scroll-down.svg';
 const ScrollDown = () => {
   return (
     <div className='home__scroll'>

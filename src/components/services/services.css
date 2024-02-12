@@ -3,10 +3,13 @@
   justify-content: center;
   column-gap: 1.8rem;
 }
+
 .services__content {
   position: relative;
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 6rem 0 2rem 2.5rem;
+  border-radius: 1.2rem;
+  background-color: var(--container-color);
 }
 .services__icon {
   display: block;
@@ -105,6 +108,33 @@
   opacity: 1;
   visibility: visible;
 }
+.dark-mode .services__modal {
+  background-color: #333333;
+}
+.dark-mode .services__modal-content {
+  background-color: #222222; /* Dark background color for the modal */
+  color: #fff; /* Light text color for the modal content */
+}
+
+.dark-mode .services__modal-title {
+  color: #fff; /* Light text color for the modal title */
+}
+.services__modal-icon {
+  color: #fff;
+}
+.dark-mode .services__content {
+  background-color: #333333;
+}
+.dark-mode .services__icon {
+  color: #fff;
+}
+.dark-mode .services__title {
+  color: #fff;
+}
+.dark-mode .services__button {
+  color: #fff;
+}
+
 @media screen and (max-width: 992px) {
   .services__container {
     grid-template-columns: repeat(3.218px);

@@ -1,6 +1,10 @@
 import React from 'react';
 
 const Data = () => {
+  const handleSayHello = () => {
+    // Change the URL to '/contact'
+    window.location.href = '#contact';
+  };
   return (
     <div className='home__data'>
       <h1 className='home__title'>Linas Ulevičius</h1>
@@ -8,9 +12,10 @@ const Data = () => {
       <p className='home__description'>
         Your vision, my code, let's create something extraordinary.
       </p>
-      <a href='contact' className='button button--flex'>
-        <button id='helloButton'>Say Hello</button>
-      </a>
+
+      <button id='helloButton' onClick={handleSayHello}>
+        Say Hello
+      </button>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import Work1 from '/hikingtourpage.jpg';
 
 import Work4 from '/womenshoe.jpg';
+import Work2 from '/Portfoliogit.png';
 
 export const projectsData = [
   {
@@ -9,6 +10,13 @@ export const projectsData = [
     title: 'Website',
     category: 'Web',
     Link: 'https://l11nas.github.io/Hiking-tour-page-html-css/',
+  },
+  {
+    id: 2,
+    image: Work2,
+    title: 'Website',
+    category: 'Web',
+    Link: 'https://l11nas.github.io/Portfolio/',
   },
 
   {

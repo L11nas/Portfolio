@@ -25,7 +25,6 @@
     "node": "^21.1.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
-    "react-carousel": "^4.3.0",
     "react-custom-scroll": "^7.0.0",
     "react-custom-scrollbar": "^1.0.0",
     "react-dom": "^18.2.0",

@@ -10,11 +10,11 @@ const Data = () => {
       <h1 className='home__title'>Linas Ulevičius</h1>
       <h3 className='home__subtitle'>Front End Developer</h3>
       <p className='home__description'>
-        Your vision, my code, let's create something extraordinary.
+        Jūsų vizija, mano kodas, sukurkime kažka nepaprasto!
       </p>
 
       <button id='helloButton' onClick={handleSayHello}>
-        Say Hello
+        Labas
       </button>
     </div>
   );

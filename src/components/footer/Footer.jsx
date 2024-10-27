@@ -12,13 +12,13 @@ const Footer = () => {
           <h1 className='footer__title'>Linas</h1>
           <ul className='footer__list'>
             <li>
-              <a href='#about' className='footer__link'>
-                About
+              <a href='#Apie' className='footer__link'>
+                Apie
               </a>
             </li>
             <li>
-              <a href='#portfolio' className='footer__link'>
-                Project
+              <a href='#Portfolio' className='footer__link'>
+                Projektas
               </a>
             </li>
           </ul>
@@ -33,7 +33,7 @@ const Footer = () => {
             </a>
 
             <a
-              href='https://www.linkedin.com/in/linas-ulevi%C4%8Dius-48366113b/'
+              href='https://lt.linkedin.com/in/linas-ulevi%C4%8Dius-48366113b'
               className='footer__social-link'
               target='_blank'
               rel='noopener noreferrer'
@@ -49,7 +49,7 @@ const Footer = () => {
               <i className='bx bxl-github'></i>
             </a>
           </div>
-          <span className='footer__copy'>All Rights Reserved</span>
+          <span className='footer__copy'>Visos teisės saugomos &reg;Linas</span>
         </div>
       </footer>
     </div>

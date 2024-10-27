@@ -1,5 +1,6 @@
 .contact__container {
-  grid-template-columns: repeat(2, max-content);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   justify-content: center;
   column-gap: 6rem;
   padding-bottom: 3rem;
@@ -12,6 +13,13 @@
   font-weight: var(--font-medium);
   margin-bottom: var(--mb-1-5);
 }
+.section__title {
+  text-align: center;
+  font-size: var(--h1-font-size);
+  font-weight: var(--font-medium);
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
 .section__subtitle {
   color: #333333;
 }
@@ -21,7 +29,7 @@
 .contact__info {
   display: grid;
   row-gap: 1rem;
-  grid-template-columns: 300px;
+  grid-template-columns: 1fr;
 }
 .contact__card {
   background-color: var(--container-color);
@@ -62,7 +70,9 @@
 }
 
 .contact__form {
-  width: 360px;
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
 }
 .contact__form-div {
   position: relative;
@@ -100,7 +110,7 @@
 .contact__form-area textarea {
   resize: none;
 }
-
+/*Add dark mode*/
 .dark-mode .contact__form-input {
   background-color: #333333;
 }
@@ -122,22 +132,22 @@
 .dark-mode .contact__title {
   color: #fff;
 }
-/* Add this to your existing styles or create a new section for error message styles */
+/* styles error message */
 
 .error-message {
-  background-color: #f8d7da; /* Light red background color */
-  color: #721c24; /* Dark red text color */
-  padding: 0.75rem; /* Adjust padding as needed */
-  border: 1px solid #f5c6cb; /* Border color */
-  border-radius: 0.25rem; /* Border radius */
-  margin-top: 1rem; /* Adjust margin as needed */
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 0.75rem;
+  border: 1px solid #f5c6cb;
+  border-radius: 0.25rem;
+  margin-top: 1rem;
 }
 
 /* Dark mode styles for error message */
 .dark-mode .error-message {
-  background-color: #843b3b; /* Dark red background color for dark mode */
-  color: #ffffff; /* White text color for dark mode */
-  border: 1px solid #6b2c2c; /* Border color for dark mode */
+  background-color: #843b3b;
+  color: #ffffff;
+  border: 1px solid #6b2c2c;
 }
 
 /* Media queries for responsiveness */
@@ -166,6 +176,9 @@
   }
 
   @media screen and (max-width: 576px) {
+    .contact__card {
+      padding: 0.75rem;
+    }
     .contact__info {
       grid-template-columns: 1fr;
     }

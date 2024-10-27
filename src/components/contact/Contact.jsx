@@ -21,10 +21,10 @@ const Contact = () => {
     }
     emailjs
       .sendForm(
-        'service_cq925wv',
-        'template_tpbxg1u',
+        'service_dtqqarb',
+        'template_g42d1ub',
         form.current,
-        '_rcfn7hJ6U87uOIyl'
+        'WAg-BAm7YKHEF91P4'
       )
       .then((response) => {
         console.log('Email sent successfully:', response);
@@ -44,36 +44,37 @@ const Contact = () => {
       return;
     }
 
-    setFormData({ name: '', email: '', project: '' });
     setErrorMessage('');
-
-    sendEmail(); // Move the call to sendEmail here, after resetting the form data
+    sendEmail(); // Call sendEmail only if there are no errors
   };
+
   return (
     <div className={darkMode ? 'dark-mode' : ''}>
-      <section className='contact section' id='contact'>
-        <h2 className='section__title'>Get in touch</h2>
-        <span className='section__subtitle'>Contact me</span>
+      <section className='contact section' id='Kontaktai'>
+        <h2 className='section__title'>Susisiekite</h2>
 
         <div className='contact__container container grid'>
-          <div className='contact__content '>
-            <h3 className='contact__title'>Talk to me</h3>
+          <div className='contact__content'>
+            <h3 className='contact__title'>Pasikalbėk su manimi</h3>
 
             <div className='contact__info'>
+              {/* Contact Cards */}
+              {/* El.paštas */}
               <div className='contact__card'>
                 <i className='bx bx-mail-send contact__card-icon'></i>
-                <h3 className='contact__card-title'>Email</h3>
+                <h3 className='contact__card-title'>El.paštas</h3>
                 <span className='contact__card-data'>
-                  linaswebstudio@gmail.com
+                  linas.webdev@gmail.com
                 </span>
                 <a
-                  href='mailto:linaswebstudio@gmail.com'
+                  href='mailto:linas.webdev@gmail.com'
                   className='contact__button'
                 >
-                  Write me{' '}
-                  <i className='bx bx-right-arrow-alt contact__button-icon '></i>
+                  Parašyk man{' '}
+                  <i className='bx bx-right-arrow-alt contact__button-icon'></i>
                 </a>
               </div>
+              {/* Whatsapp */}
               <div className='contact__card'>
                 <i className='bx bxl-whatsapp contact__card-icon'></i>
                 <h3 className='contact__card-title'>Whatsapp</h3>
@@ -82,38 +83,38 @@ const Contact = () => {
                   href='https://wa.me/+37067206686'
                   className='contact__button'
                 >
-                  Write me{' '}
-                  <i className='bx bx-right-arrow-alt contact__button-icon '></i>
+                  Parašyk man{' '}
+                  <i className='bx bx-right-arrow-alt contact__button-icon'></i>
                 </a>
               </div>
+              {/* Messenger */}
               <div className='contact__card'>
                 <i className='bx bxl-messenger contact__card-icon'></i>
                 <h3 className='contact__card-title'>Messenger</h3>
                 <span className='contact__card-data'>Linas</span>
                 <a
-                  href='https://m.me/USER_OR_PAGE_ID
-'
+                  href='https://www.facebook.com/linas.ulevicius.3'
                   className='contact__button'
                 >
-                  Write me{' '}
-                  <i className='bx bx-right-arrow-alt contact__button-icon '></i>
+                  Parašyk man{' '}
+                  <i className='bx bx-right-arrow-alt contact__button-icon'></i>
                 </a>
               </div>
             </div>
           </div>
 
           <div className='contact__content'>
-            <h3 className='contact__title'>Write me your project</h3>
+            <h3 className='contact__title'>Parašyk man apie savo projektą</h3>
             <form ref={form} onSubmit={handleSubmit} className='contact__form'>
               <div className='contact__form-div'>
-                <label className='contact__form-tag'>Name</label>
+                <label className='contact__form-tag'>Vardas</label>
                 <input
                   type='text'
                   name='name'
                   className={`contact__form-input ${
                     darkMode ? 'dark-mode' : ''
                   }`}
-                  placeholder='Insert Your name'
+                  placeholder='Įrašyk savo vardą'
                   value={formData.name}
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
@@ -121,14 +122,14 @@ const Contact = () => {
                 />
               </div>
               <div className='contact__form-div'>
-                <label className='contact__form-tag'>Mail</label>
+                <label className='contact__form-tag'>El.paštas</label>
                 <input
                   type='email'
                   name='email'
                   className={`contact__form-input ${
                     darkMode ? 'dark-mode' : ''
                   }`}
-                  placeholder='insert Your email'
+                  placeholder='Įrašyk savo el.paštą'
                   value={formData.email}
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
@@ -136,7 +137,7 @@ const Contact = () => {
                 />
               </div>
               <div className='contact__form-div contact__form-area'>
-                <label className='contact__form-tag'>Project</label>
+                <label className='contact__form-tag'>Projektas</label>
                 <textarea
                   name='project'
                   cols='30'
@@ -144,7 +145,7 @@ const Contact = () => {
                   className={`contact__form-input ${
                     darkMode ? 'dark-mode' : ''
                   }`}
-                  placeholder='Write your project'
+                  placeholder='Rašyk apie projektą'
                   value={formData.project}
                   onChange={(e) =>
                     setFormData({ ...formData, project: e.target.value })
@@ -152,7 +153,7 @@ const Contact = () => {
                 ></textarea>
               </div>
               <button type='submit' id='helloButton'>
-                Send Message
+                Siųsti žinutę
               </button>
               {errorMessage && <p className='error-message'>{errorMessage}</p>}
             </form>

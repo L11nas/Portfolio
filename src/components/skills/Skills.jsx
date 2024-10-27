@@ -8,8 +8,8 @@ const Skills = () => {
 
   return (
     <div className={darkMode ? 'dark-mode' : ''}>
-      <section className='skills section' id='skills'>
-        <h2 className='section__title'>Skills</h2>
+      <section className='skills section' id='Įgūdžiai'>
+        <h2 className='section__title'>Įgūdžiai</h2>
         <span className='section__subtitle'></span>
         <div className='skills__container container grid'>
           <Frontend />

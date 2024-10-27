@@ -1,19 +1,30 @@
 .about__container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  align-items: center;
-  column-gap: 4rem;
+  align-items: start; /* Keičiame iš center į start */
+  column-gap: 1rem;
+  row-gap: 2rem;
+  padding: 2rem;
 }
+
 .about__img {
-  width: 350px;
+  width: 300px; /* Sumažiname, kad tilptų geriau */
   border-radius: 1.5rem;
   justify-self: center;
+  margin-left: 2rem; /* Sumažiname nuo 5rem iki 2rem */
 }
+
+.about__data {
+  padding-left: 1rem;
+}
+
 .about__info {
-  grid-template-columns: repeat(3, 140px);
-  gap: 0.5rem;
-  margin-bottom: var(--mb-2);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Lyginam su repeat(3, 1fr) */
+  gap: 1rem;
+  justify-content: start; /* Centruojame */
 }
+
 .about__box {
   background-color: var(--container-color);
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -22,74 +33,51 @@
   padding: 1rem 1.25rem;
 }
 
-.about__icon {
-  font-size: 1.5rem;
-  color: var(--title-color);
-  margin-bottom: var(--mb-0-5);
-}
-.about__title {
-  font-size: var(--small-font-size);
-  font-weight: var(--font-medium);
-}
-.about__subtitle {
-  font-size: var(--tiny-font-size);
-  color: var(--title-color);
+.about__description {
+  padding: 1rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  text-align: justify; /* Lyginame tekstą */
 }
 
-.about__description {
-  padding: 0 4rem 0 0;
-}
+/* Tamsioji tema */
 .dark-mode .about__box {
   background-color: #333333;
   color: #fff;
-  /* Add other dark mode styles */
 }
-.dark-mode .about__icon {
-  color: #fff; /* Adjust as needed */
-}
-
-.dark-mode .about__title {
-  color: #fff; /* Adjust as needed */
-}
+.dark-mode .about__icon,
+.dark-mode .about__title,
 .dark-mode .about__subtitle {
   color: #fff;
 }
 .dark-mode .section__title {
   color: #fff;
 }
+
+/* Mažesni ekranai */
 @media screen and (max-width: 992px) {
   .about__container {
     grid-template-columns: 1fr;
-    row-gap: 2.5rem;
+    row-gap: 1.5rem;
   }
   .about__img {
     width: 220px;
-  }
-  .about__box {
-    padding: 0.75rem 0.5rem;
-  }
-  .about__data {
-    text-align: center;
-  }
-  .about__info {
-    justify-content: center;
+    margin: 0 auto;
   }
   .about__description {
-    padding: 0 5rem;
+    padding: 0 1rem;
     margin-bottom: 2rem;
   }
 }
 
 @media screen and (max-width: 576px) {
   .about__info {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
   }
   .about__description {
-    padding: 0;
-  }
-}
-@media screen and (max-width: 350px) {
-  .about__info {
-    grid-template-columns: repeat(2, 1fr);
+    padding: 0.5rem;
+    font-size: 0.9rem;
   }
 }

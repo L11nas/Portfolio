@@ -4,7 +4,7 @@ const Frontend = () => {
   const { darkMode } = useDarkMode();
   return (
     <div className={`skills__content ${darkMode ? 'dark-mode' : ''}`}>
-      <h3 className='skills__title'>Frontend Developer</h3>
+      <h3 className='skills__title'>Frontend</h3>
 
       <div className='skills__box'>
         <div className='skills__group'>
@@ -12,7 +12,7 @@ const Frontend = () => {
             <i className='bx bx-badge-check'></i>
             <div>
               <h3 className='skills__name'>HTML</h3>
-              <span className='skills__level'>Basic</span>
+              <span className='skills__level'>Mid-level</span>
             </div>
           </div>
 
@@ -20,7 +20,7 @@ const Frontend = () => {
             <i className='bx bx-badge-check'></i>
             <div>
               <h3 className='skills__name'>CSS</h3>
-              <span className='skills__level'>Basic</span>
+              <span className='skills__level'>Mid-level</span>
             </div>
           </div>
 
@@ -28,7 +28,7 @@ const Frontend = () => {
             <i className='bx bx-badge-check'></i>
             <div>
               <h3 className='skills__name'>JavaScript</h3>
-              <span className='skills__level'>Basic</span>
+              <span className='skills__level'>Mid-level</span>
             </div>
           </div>
 
@@ -36,7 +36,7 @@ const Frontend = () => {
             <i className='bx bx-badge-check'></i>
             <div>
               <h3 className='skills__name'>Git</h3>
-              <span className='skills__level'>Basic</span>
+              <span className='skills__level'>Mid-level</span>
             </div>
           </div>
 
@@ -44,7 +44,7 @@ const Frontend = () => {
             <i className='bx bx-badge-check'></i>
             <div>
               <h3 className='skills__name'>ReactJS</h3>
-              <span className='skills__level'>Intermediate</span>
+              <span className='skills__level'>Mid-level</span>
             </div>
           </div>
         </div>

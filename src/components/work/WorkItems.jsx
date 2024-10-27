@@ -1,45 +1,34 @@
-import React, { useState } from 'react';
-
-import WorksItemModal from './WorksItemModal';
-import { useDarkMode } from '../../ThemeContext';
+import React from 'react';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import './work.css';
 
 const WorkItems = ({ item }) => {
-  const { darkMode } = useDarkMode();
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
   return (
-    <div className={darkMode ? 'dark-mode' : ''}>
-      <div className='work__card' key={item.id}>
-        <img src={item.image} alt='' className='work__img' />
-        <h3 className='work__title'>{item.title}</h3>
-        <a
-          href={item.Link}
-          className='work__button'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Demo <i className='bx bx-right-arrow-alt work__button-icon'></i>
-        </a>
-
-        <WorksItemModal
-          isOpen={isModalOpen}
-          onRequestClose={closeModal}
-          demoContent={[
-            'public/work1.jpg',
-            'public/work2.jpg',
-            'public/work3.jpg',
-          ]}
-          darkMode={darkMode}
+    <div className='work__card'>
+      <img src={item.image} alt={item.title} className='work__img' />
+      <h3 className='work__title'>{item.title}</h3>
+      <p className='work__status'>{item.status}</p>
+      <a
+        href={item.Link}
+        className='work__button'
+        target='_blank'
+        rel='noopener noreferrer'
+      >
+        Demo <i className='bx bx-right-arrow-alt work__button-icon'></i>
+      </a>
+      <a
+        href={item.githubLink}
+        target='_blank'
+        rel='noopener noreferrer'
+        className='work__github-link'
+        aria-label='GitHub'
+      >
+        <GitHubIcon
+          style={{ fontSize: '24px', marginLeft: '8px', color: 'black' }}
         />
-      </div>
+      </a>
     </div>
   );
 };
+
 export default WorkItems;

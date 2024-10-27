@@ -1,25 +1,18 @@
+.portfolio-title {
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 40px;
+  font-size: 2rem;
+  font-weight: bold;
+}
 .custom-modal-class {
-  /* Your custom styles here */
   border: 2px solid red;
-}
-/* work.css */
-
-.dark-mode .MuiDialog-paper {
-  background-color: #333333;
-  color: #fff;
-  border-radius: 1rem; /* Adjust the border radius for the modal */
-}
-
-.modal-close-button {
-  background-color: white;
 }
 
 .custom-image-item {
-  margin-right: 40px; /* Adjust the margin-right value to change the gap */
-  border-radius: 1rem; /* Adjust the border radius for the images */
+  margin-right: 40px;
+  border-radius: 1rem;
 }
-
-/* Add more styles as needed */
 
 .work__filters {
   display: flex;
@@ -43,23 +36,30 @@
 }
 
 .work__container {
-  grid-template-columns: repeat(2, max-content);
+  grid-template-columns: repeat(2, 1fr);
   gap: 3rem;
   justify-content: center;
+  padding-bottom: 40px;
 }
 
 .work__card {
+  width: 500px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: start;
+  padding: 1rem;
   background-color: var(--container-color);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 1.25rem;
   border-radius: 1rem;
+  overflow: hidden;
 }
 .work__img {
   width: 100%;
-  height: 200px;
+  height: 150px;
   object-fit: cover;
   border-radius: 1rem;
-  margin-bottom: var(--mb-1);
+  margin-bottom: 1rem;
 }
 .work__title {
   font-size: var(--normal-font-size);
@@ -85,8 +85,6 @@
   color: var(--container-color);
 }
 
-/* modal.css */
-
 .modal-content-inner {
   width: 500px;
   position: relative;
@@ -96,14 +94,15 @@
 }
 
 .modal-close-button {
-  position: absolute;
-  top: 1rem; /* Adjust the top position as needed */
-  right: 1rem; /* Adjust the right position as needed */
-  font-size: 1.5rem;
+  background-color: transparent;
+  border: none;
   color: var(--title-color);
+  font-size: 1.25rem;
   cursor: pointer;
 }
-
+.modal-close-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
 .modal-title,
 .modal-description {
   text-align: center;
@@ -123,9 +122,16 @@
 
 /* Add dark mode styles */
 .dark-mode .work__container {
+  background-color: #333;
+}
+.dark-mode .work__container {
   background-color: #000;
 }
-
+.dark-mode .MuiDialog-paper {
+  background-color: #333333;
+  color: #fff;
+  border-radius: 1rem;
+}
 .dark-mode .work__card {
   background-color: #000;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -160,9 +166,9 @@
   visibility: hidden;
   transition: 0.3s;
   border-radius: 3rem;
-  width: 80%; /* Adjust the width as needed */
-  max-width: 800px; /* Adjust the max-width as needed */
-  height: 80vh; /* Adjust the height as needed */
+  width: 80%;
+  max-width: 800px;
+  height: 80vh;
 }
 
 .modal-content-inner {
@@ -184,24 +190,32 @@
 }
 
 .custom-image-item {
-  margin-right: 40px; /* Adjust the margin-right value to change the gap */
+  margin-right: 40px;
 }
 
-/* Dark mode styles for the modal content */
-.modal-content.dark-mode {
-  background-color: #000; /* Adjust the background color for dark mode */
+.modal-content .dark-mode {
+  background-color: #000;
+}
+.dark-mode .portfolio-title {
+  color: white;
 }
 
-/* Dark mode styles for the modal content inner */
 .dark-mode .modal-content-inner {
-  background-color: #333333; /* Adjust the background color for dark mode */
+  background-color: #333333;
 }
 
-/* Dark mode styles for the modal close button */
 .dark-mode .modal-close-button {
   background-color: white;
 }
+.work__modal-button {
+  background-color: #d3cba4;
+}
 
+.work__status {
+  color: red;
+  font-weight: bold;
+  margin: 10px 0;
+}
 @media screen and (max-width: 992px) {
   .work__container {
     gap: 1.25rem;
@@ -236,5 +250,34 @@
   }
   .work__filters {
     column-gap: 0.25rem;
+  }
+}
+@media screen and (max-width: 360px) {
+  .work__container {
+    grid-template-columns: 1fr;
+    padding: 0 0.5rem;
+  }
+
+  .work__card {
+    width: 100%;
+    height: auto;
+    padding: 0.5rem;
+  }
+
+  .work__title {
+    font-size: 1.2rem;
+  }
+
+  .work__status {
+    font-size: 0.9rem;
+  }
+
+  .work__img {
+    height: 120px;
+  }
+
+  .work__item {
+    font-size: 0.9rem;
+    padding: 0.2rem 0.5rem;
   }
 }

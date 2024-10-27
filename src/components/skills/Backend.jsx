@@ -4,7 +4,7 @@ const Backend = () => {
   const { darkMode } = useDarkMode();
   return (
     <div className={`skills__content ${darkMode ? 'dark-mode' : ''}`}>
-      <h3 className='skills__title'>Backend Developer</h3>
+      <h3 className='skills__title'>Backend</h3>
 
       <div className='skills__box'>
         <div className='skills__group'>
@@ -12,7 +12,7 @@ const Backend = () => {
             <i className='bx bx-badge-check'></i>
             <div>
               <h3 className='skills__name'>NodeJS</h3>
-              <span className='skills__level'>Basic</span>
+              <span className='skills__level'>Bazinis</span>
             </div>
           </div>
 
@@ -20,7 +20,7 @@ const Backend = () => {
             <i className='bx bx-badge-check'></i>
             <div>
               <h3 className='skills__name'>SQL</h3>
-              <span className='skills__level'>Basic</span>
+              <span className='skills__level'>Bazinis</span>
             </div>
           </div>
 
@@ -28,7 +28,7 @@ const Backend = () => {
             <i className='bx bx-badge-check'></i>
             <div>
               <h3 className='skills__name'>NoSQL-MongoDB</h3>
-              <span className='skills__level'>Basic</span>
+              <span className='skills__level'>Bazinis</span>
             </div>
           </div>
         </div>

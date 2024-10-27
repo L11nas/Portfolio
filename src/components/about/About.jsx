@@ -9,15 +9,21 @@ const About = () => {
 
   return (
     <div className={darkMode ? 'dark-mode' : ''}>
-      <section className='about__section' id='about'>
-        <h2 className='section__title'>About Me</h2>
+      <section className='about__section' id='Apie'>
+        <h2 className='section__title'>Apie mane</h2>
         <span className='section__subtitle'></span>
         <div className='about__container container__grid'>
-          <img src={img} alt='' className='about__img' />
+          <img src={img} alt='mano nuotrauka' className='about__img' />
 
           <div className='about__data'>
             <Info />
-            <p className='about__description'></p>
+            <p className='about__description'>
+              Esu front-end junior programuotojas, kuris domisi įdomiomis ir
+              nestandartinėmis idėjomis. Mano aistra kurti interaktyvias ir
+              vizualiai patrauklias naudotojo sąsajas skatina nuolat mokytis ir
+              tobulėti. Man patinka eksperimentuoti su naujomis technologijomis
+              ir sprendimais, kad įgyvendinčiau savo vizijas.
+            </p>
           </div>
         </div>
       </section>

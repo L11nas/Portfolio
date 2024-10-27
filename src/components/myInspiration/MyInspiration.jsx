@@ -1,9 +1,10 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import Box from '@mui/material/Box';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import { useDarkMode } from '../../ThemeContext';
+import './myinspiration.css'; // Make sure to import the CSS file
 
 export default function TitlebarBelowMasonryImageList() {
   const { darkMode } = useDarkMode();
@@ -17,11 +18,11 @@ export default function TitlebarBelowMasonryImageList() {
           alignItems: 'center',
           justifyContent: 'center',
           marginBottom: '100px',
-          marginTop: '100px',
+          marginTop: '0px',
           color: darkMode ? '#fff' : '#333',
         }}
       >
-        <div id='MyInspirationSection'>My Inspiration</div>
+        <div id='Mano Įkvėpimas'>Mano įkvėpimas</div>
       </h1>
       <Box
         sx={{
@@ -31,20 +32,9 @@ export default function TitlebarBelowMasonryImageList() {
           padding: '16px',
           borderRadius: '16px',
           maxWidth: '800px',
-          margintop: '20px',
           margin: '0 auto',
-
-          backgroundColor: darkMode ? '#000' : 'var(--container-color)',
+          backgroundColor: darkMode ? '#333' : 'var(--container-color)',
           color: darkMode ? '#fff' : '#333',
-          '@media screen and (max-width: 992px)': {
-            backgroundColor: darkMode ? '#111' : '#f0f0f0', // Example change for screens up to 992px
-          },
-          '@media screen and (max-width: 768px)': {
-            padding: '8px', // Example change for screens up to 768px
-          },
-          '@media screen and (max-width: 576px)': {
-            flexDirection: 'column-reverse', // Example change for screens up to 576px
-          },
         }}
       >
         <Box
@@ -60,13 +50,14 @@ export default function TitlebarBelowMasonryImageList() {
             {itemData.map((item) => (
               <ImageListItem key={item.img}>
                 <img
-                  srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                  srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x, ${item.img}?w=124&fit=crop&auto=format 1x`}
                   src={`${item.img}?w=248&fit=crop&auto=format`}
                   alt={item.title}
                   loading='lazy'
+                  className='hover-image' // Add this class
                   style={{ borderRadius: '8px' }}
                 />
-                <ImageListItemBar position='below' title={item.author} />
+                <ImageListItemBar position='below' title={item.title} />
               </ImageListItem>
             ))}
           </ImageList>
@@ -75,121 +66,100 @@ export default function TitlebarBelowMasonryImageList() {
     </div>
   );
 }
+
 const itemData = [
+  { img: '/personal/kaunomaratonas.jpg', title: 'Kauno maratonas' },
+  { img: '/personal/ironman.jpg', title: 'Ironman' },
+  { img: '/personal/134835.jpg', title: 'Sulėtekio maratonas' },
+  { img: '/personal/maratonas2024.jpg', title: 'Kauno maratonas' },
+  { img: '/img/191319.jpg', title: 'Ironman Maastricht' },
   {
-    img: '/personal/kaunomaratonas.jpg',
-    title: 'Bed',
+    img: 'img/1623610342632.jpg',
+    title: 'Jonavos maratonas',
   },
   {
-    img: '/personal/ironman.jpg',
-    title: 'Books',
+    img: '/img/1648968564148.jpg',
+    title: 'Druskininkų pusmaratonis',
   },
   {
-    img: '/personal/20211205_134835.jpg',
-    title: 'Boo',
+    img: '/img/1655576449371.jpg',
+    title: 'Olimpinė diena',
   },
   {
-    img: '/personal/Kauno maratonas2024.jpg',
-    title: 'Laikas 3.19 val.',
+    img: '/img/1657362673507.jpg',
+    title: 'Karaliaus Mindaugo',
   },
   {
-    img: '/My inspiration foto/20220807_191319.jpg',
-    title: '0',
+    img: '/img/1657466566251.jpg',
+    title: 'Širvintų maratonas',
   },
   {
-    img: '/My inspiration foto/FB_IMG_1623610342632.jpg',
-    title: '0',
+    img: '/img/135855.jpg',
+    title: 'Kauno maratonas',
   },
   {
-    img: '/My inspiration foto/FB_IMG_1648968564148.jpg',
-    title: '0',
+    img: '/img/195650.jpg',
+    title: 'Ironman Tallin',
   },
   {
-    img: '/My inspiration foto/FB_IMG_1655576449371.jpg',
-    title: '0',
+    img: '/img/121614.jpg',
+    title: 'Vilniaus pusmaratonis',
   },
   {
-    img: '/My inspiration foto/FB_IMG_1657362673507.jpg',
-    title: '0',
+    img: '/img/154525.jpg',
+    title: 'Jonava',
   },
   {
-    img: '/My inspiration foto/FB_IMG_1657466566251.jpg',
-    title: '0',
+    img: '/img/164925.jpg',
+    title: 'Druskininkų pusmaratonis',
   },
   {
-    img: '/My inspiration foto/GarminConnect_20200606-135855.jpg',
-    title: '0',
+    img: '/img/155812.jpg',
+    title: 'Sūduvos taurė',
   },
   {
-    img: '/My inspiration foto/GarminConnect_20200910-195650.jpg',
-    title: '0',
+    img: '/img/162233.jpg',
+    title: 'Medininkai',
   },
   {
-    img: '/My inspiration foto/GarminConnect_20200913-121614.jpg',
-    title: '0',
+    img: '/img/165846.jpg',
+    title: 'Alytaus pusmaratonis',
   },
   {
-    img: '/My inspiration foto/GarminConnect_20220213-154525.jpg',
-    title: '0',
+    img: '/img/sauletekis.jpg',
+    title: 'Saulėtekio maratonas',
   },
   {
-    img: '/My inspiration foto/GarminConnect_20220402-164925.jpg',
-    title: '0',
+    img: '/img/342.jpg',
+    title: 'Mindauginės',
   },
   {
-    img: '/My inspiration foto/GarminConnect_20220515-155812.jpg',
-    title: '0',
+    img: '/img/551.jpg',
+    title: 'Širvintų maratonas',
+  },
+
+  {
+    img: '/img/673.jpg',
+    title: 'Vilties bėgimas',
   },
   {
-    img: '/My inspiration foto/GarminConnect_20220731-162233.jpg',
-    title: '0',
+    img: 'img/V.jpg',
+    title: 'Ironman Tallin',
   },
   {
-    img: '/My inspiration foto/GarminConnect_20220808-222142.jpg',
-    title: '0',
+    img: '/img/317033579575096.jpeg',
+    title: 'Ironman',
   },
   {
-    img: '/My inspiration foto/GarminConnect_20220828-165846.jpg',
-    title: '0',
+    img: '/img/437614981753426.jpeg',
+    title: 'Ironman',
   },
   {
-    img: '/My inspiration foto/IMG_20211208_231133_350.jpg',
-    title: '0',
+    img: '/img/4965070230287149.jpeg',
+    title: 'Estafetė 5x5',
   },
   {
-    img: '/My inspiration foto/IMG_20220424_151744_513.jpg',
-    title: '0',
-  },
-  {
-    img: '/My inspiration foto/IMG_20220706_234300_342.jpg',
-    title: '0',
-  },
-  {
-    img: '/My inspiration foto/IMG_20220710_172107_551.jpg',
-    title: '0',
-  },
-  {
-    img: '/My inspiration foto/IMG_20220808_224428_673.jpg',
-    title: '0',
-  },
-  {
-    img: '/My inspiration foto/IMG-a170c9ecd1e512e0460d27c9709d8eaa-V.jpg',
-    title: '0',
-  },
-  {
-    img: '/My inspiration foto/received_317033579575096.jpeg',
-    title: '0',
-  },
-  {
-    img: '/My inspiration foto/received_437614981753426.jpeg',
-    title: '0',
-  },
-  {
-    img: '/My inspiration foto/received_4965070230287149.jpeg',
-    title: '0',
-  },
-  {
-    img: '/My inspiration foto/Screenshot_20210803_225159.jpg',
-    title: '0',
+    img: '/img/225159.jpg',
+    title: 'Labdaros bėgimas',
   },
 ];

@@ -9,14 +9,10 @@ const Data = () => {
       <h1 className='home__title'>Linas Ulevičius</h1>
       <h3 className='home__subtitle'>Front End programuotojas</h3>
       <p className='home__description'>
-        Jūsų vizija, mano kodas, sukurkime ką nors nepaprasto.
+        Jūsų vizija, mano kodas, sukurkime kažką nepaprasto!
       </p>
 
-      <button
-        id='helloButton'
-        onClick={handleSayHello}
-        aria-label='Go to contact section'
-      >
+      <button id='helloButton' onClick={handleSayHello}>
         Labas
       </button>
     </div>

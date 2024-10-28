@@ -22,7 +22,9 @@ export default function TitlebarBelowMasonryImageList() {
           color: darkMode ? '#fff' : '#333',
         }}
       >
-        <div id='Mano Įkvėpimas'>Mano įkvėpimas</div>
+        <div className='Insipration' id='Mano Įkvėpimas'>
+          Mano įkvėpimas
+        </div>
       </h1>
       <Box
         sx={{

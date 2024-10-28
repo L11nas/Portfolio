@@ -20,7 +20,11 @@ const ScrollUp = () => {
   }, []);
 
   return (
-    <a href='#' className='scrollup scrollup__icon' aria-label='Return to top'>
+    <a
+      href='#top'
+      className='scrollup scrollup__icon'
+      aria-label='Return to top'
+    >
       <i className='bx bx-up-arrow-circle'></i>
     </a>
   );

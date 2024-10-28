@@ -37,8 +37,11 @@
     bottom: 4rem;
   }
 }
-@media screen and (max-width: 350px) {
-  .scrollup {
+@media screen and (max-width: 360px) {
+  .show-scroll {
+    bottom: 8rem;
+  }
+  .scrollup-icon {
     right: 1rem;
   }
 }

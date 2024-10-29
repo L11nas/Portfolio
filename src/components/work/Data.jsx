@@ -18,7 +18,7 @@ export const projectsData = [
     image: Work2,
     title: 'Portfolio',
     category: 'Puslapiai',
-    Link: 'https://l11nas.github.io/Portfolio/',
+    Link: 'https://linaswebdev.netlify.app',
     githubLink: 'https://github.com/L11nas/Portfolio.git',
   },
   {

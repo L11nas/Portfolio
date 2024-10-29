@@ -41,7 +41,7 @@ const Info = () => {
           className='about__icon'
         />
         <h3 className='about__title'>Iam Junior</h3>
-        <h4>Web programavimas su JavaSript</h4>
+        <h4>Web programavimas su JavaScript</h4>
         <span className='about__subtitle'>
           Baigimo atestatas<i className='bx bx-award'></i>
         </span>

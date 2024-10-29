@@ -11,7 +11,7 @@
   width: 300px; /* Sumažiname, kad tilptų geriau */
   border-radius: 1.5rem;
   justify-self: center;
-  margin-left: 2rem; /* Sumažiname nuo 5rem iki 2rem */
+  margin-left: 4rem; /* Sumažiname nuo 5rem iki 2rem */
 }
 .about__icon {
   width: 100px; /* Nustatykite norimą plotį */

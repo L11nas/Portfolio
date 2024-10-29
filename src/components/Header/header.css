@@ -1,6 +1,6 @@
 .header {
   width: 100%;
-  position: fixed;
+  position: absolute;
   top: 0px;
   padding: 10px;
   left: 0;
@@ -10,16 +10,16 @@
 }
 .logo-text {
   font-size: 2rem; /* Pakeiskite dydį pagal poreikį */
-  font-weight: bold; /* Storis */
-  color: #333; /* Pagrindinė spalva */
-  text-transform: uppercase; /* Didžiosios raidės */
-  letter-spacing: 2px; /* Tarpai tarp raidžių */
-  transition: color 0.3s; /* Perėjimo efektas */
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: color 0.3s;
 }
 
 .logo-text:hover {
-  color: #007bff; /* Spalva užvedus pelės žymeklį */
-  text-shadow: 1px 1px 5px rgba(0, 123, 255, 0.5); /* Šešėlis užvedus pelės žymeklį */
+  color: #007bff;
+  text-shadow: 1px 1px 5px rgba(0, 123, 255, 0.5);
 }
 .nav {
   height: calc(var(--header-height)+1.5rem);
@@ -59,7 +59,7 @@
 .nav__close,
 .nav__toggle {
   display: none;
-  font-size: 1.5rem; /* Tinkamas piktogramų dydis */
+  font-size: 1.5rem;
   margin-right: 0.5rem;
 }
 
@@ -68,13 +68,8 @@
   color: yellow;
 }
 .header.scroll-header {
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.7
-  ); /* Truputį tamsesnė balta su 85% nepermatomumo */
-  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.2); /* Tamsesnis šešėlis */
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.2);
 }
 
 .dark-mode .header {

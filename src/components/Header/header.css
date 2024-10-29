@@ -2,11 +2,11 @@
   width: 100%;
   position: fixed;
   top: 0px;
-  padding: 15px;
+  padding: 10px;
   left: 0;
   z-index: var(--z-fixed);
-  background-color: var(--container-color);
-  transition: background-color 0.3s;
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
 }
 .logo-text {
   font-size: 2rem; /* Pakeiskite dydį pagal poreikį */
@@ -67,7 +67,33 @@
 .nav__link:hover {
   color: yellow;
 }
+.header.scroll-header {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.7
+  ); /* Truputį tamsesnė balta su 85% nepermatomumo */
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.2); /* Tamsesnis šešėlis */
+}
 
+.dark-mode .header {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.1
+  ); /* Skaidrus fonas tamsiu režimu pradžioje */
+}
+
+.dark-mode .header.scroll-header {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.7
+  ); /* Tamsesnis fonas su 85% nepermatomumo */
+}
 .scroll-header {
   box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
 }
@@ -91,9 +117,7 @@
 .dark-mode .nav__logo {
   color: #fff;
 }
-.dark-mode .nav__menu {
-  background-color: black;
-}
+
 .dark-mode .nav__close {
   color: #fff;
 }

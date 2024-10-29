@@ -4,23 +4,47 @@ import { useDarkMode } from '../../ThemeContext';
 const Info = () => {
   const { darkMode } = useDarkMode();
 
+  const handleIconClick = (url) => {
+    window.open(url, '_blank'); // Atidaro nuorodą naujame lange
+  };
+
+  const codeAcademyLogo = '/img/codeAcademyLogo.jpg';
+  const iamJuniorLogo = '/img/iamJuniorLogo.jpg';
+
   return (
     <div className={`about__info grid ${darkMode ? 'dark-mode' : ''}`}>
-      <div className='about__box'>
-        <i className='bx bx-award about__icon'></i>
-
-        <h3 className='about__title'>Patirtis</h3>
-        <span className='about__subtitle'>1,5 metai.</span>
+      <div
+        className='about__box'
+        id='academy'
+        onClick={() => handleIconClick('/img/codeacademy.jpg')}
+        style={{ cursor: 'pointer' }}
+      >
+        <img
+          src={codeAcademyLogo}
+          alt='Code Academy Logo'
+          className='about__icon'
+        />
+        <h3 className='about__title'>Code Academy</h3>
+        <h4>Front-end programuotojas</h4>
+        <span className='about__subtitle'>
+          Baigimo atestatas<i className='bx bx-award'></i>
+        </span>
       </div>
-      <div className='about__box'>
-        <i className='bx bx-briefcase-alt about__icon'></i>
-        <h3 className='about__title'>Užbaigti projektai</h3>
-        <span className='about__subtitle'>2 projektai</span>
-      </div>
-      <div className='about__box'>
-        <i className='bx bx-support about__icon'></i>
-        <h3 className='about__title'>Pagalba</h3>
-        <span className='about__subtitle'>24/7</span>
+      <div
+        className='about__box'
+        onClick={() => handleIconClick('/img/Pažymėjimas.png')}
+        style={{ cursor: 'pointer' }}
+      >
+        <img
+          src={iamJuniorLogo}
+          alt='Iam Junior Logo'
+          className='about__icon'
+        />
+        <h3 className='about__title'>Iam Junior</h3>
+        <h4>Web programavimas su JavaSript</h4>
+        <span className='about__subtitle'>
+          Baigimo atestatas<i className='bx bx-award'></i>
+        </span>
       </div>
     </div>
   );

@@ -13,7 +13,30 @@
   justify-self: center;
   margin-left: 2rem; /* Sumažiname nuo 5rem iki 2rem */
 }
-
+.about__icon {
+  width: 100px; /* Nustatykite norimą plotį */
+  height: auto; /* Išlaikys proporcijas */
+  border-radius: 10px; /* Apvalina kampus */
+  margin-bottom: 0.5rem; /* Pridėkite tarpą po logotipu */
+  object-fit: contain;
+  transition: transform 0.3s; /* Pridėkite perėjimo efektą */
+  display: block;
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+#academy {
+  margin-top: 4rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.about__box:hover .about__icon {
+  transform: scale(1.05); /* Poveikio efektas užvedus pelės žymeklį */
+}
+.about__subtitle {
+  font-size: 12px;
+  color: #555; /* Dark Gray */
+}
 .about__data {
   padding-left: 1rem;
 }
@@ -26,6 +49,7 @@
 }
 
 .about__box {
+  text-align: center;
   background-color: var(--container-color);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 0.75rem;

@@ -40,6 +40,8 @@ export const projectsData = [
     image: work6,
     category: 'Puslapiai',
     status: 'Dar ruošiamas',
+    Link: 'https://begimoplanas.netlify.app/',
+    githubLink: 'https://github.com/L11nas/Runwebas.git',
   },
 ];
 

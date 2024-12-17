@@ -1,6 +1,5 @@
 import React from 'react';
 import './about.css';
-import img from '/src/assets/portfolio.jpg';
 import Info from './Info';
 import { useDarkMode } from '../../ThemeContext';
 
@@ -13,8 +12,6 @@ const About = () => {
         <h2 className='section__title'>Apie mane</h2>
         <span className='section__subtitle'></span>
         <div className='about__container container__grid'>
-          <img src={img} alt='mano nuotrauka' className='about__img' />
-
           <div className='about__data'>
             <Info />
             <p className='about__description'>

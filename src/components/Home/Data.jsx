@@ -6,7 +6,7 @@ const Data = () => {
   };
   return (
     <div className='home__data'>
-      <h1 className='home__title'>Linas Ulevičius</h1>
+      <h1 className='home__title'>Linas</h1>
       <h3 className='home__subtitle'>Front End programuotojas</h3>
       <p className='home__description'>
         Jūsų vizija, mano kodas, sukurkime kažką nepaprasto!

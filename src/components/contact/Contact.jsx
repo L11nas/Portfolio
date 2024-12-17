@@ -50,7 +50,7 @@ const Contact = () => {
 
   return (
     <div className={darkMode ? 'dark-mode' : ''}>
-      <section className='contact section' id='contact'>
+      <section className='contact section' id='Kontaktai'>
         <h2 className='section__title'>Susisiekite</h2>
 
         <div className='contact__container container grid'>

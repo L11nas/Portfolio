@@ -1,68 +1,93 @@
 .about__container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  align-items: start; /* Keičiame iš center į start */
-  column-gap: 1rem;
-  row-gap: 2rem;
-  padding: 2rem;
+  display: flex; /* Galima naudoti grid vietoj flex */
+  flex-direction: column; /* Viskas vertikaliai išdėstyta */
+  justify-content: center; /* Centruojame vertikaliai */
+  align-items: center; /* Centruojame horizontaliai */
+  gap: 1rem; /* Tarpas tarp elementų */
 }
 
-.about__img {
-  width: 300px; /* Sumažiname, kad tilptų geriau */
-  border-radius: 1.5rem;
-  justify-self: center;
-  margin-left: 4rem; /* Sumažiname nuo 5rem iki 2rem */
-}
 .about__icon {
-  width: 100px; /* Nustatykite norimą plotį */
-  height: auto; /* Išlaikys proporcijas */
-  border-radius: 10px; /* Apvalina kampus */
-  margin-bottom: 0.5rem; /* Pridėkite tarpą po logotipu */
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 1rem;
+  border-radius: 50%; /* Apvalūs paveikslėliai */
   object-fit: contain;
-  transition: transform 0.3s; /* Pridėkite perėjimo efektą */
+  background-color: #fff; /* Pridėkite foną, jei reikia */
+  padding: 10px; /* Šiek tiek vietos aplink logotipą */
   display: block;
-  margin-top: 2rem;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
+.about__section {
+  display: grid;
+  place-items: center; /* Centruojame ir horizontaliai, ir vertikaliai */
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: var(--background-color);
+}
+
 #academy {
   margin-top: 4rem;
   margin-left: auto;
   margin-right: auto;
 }
 .about__box:hover .about__icon {
-  transform: scale(1.05); /* Poveikio efektas užvedus pelės žymeklį */
+  transform: scale(1.05);
 }
 .about__subtitle {
-  font-size: 12px;
-  color: #555; /* Dark Gray */
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 0.5rem;
+  margin-top: 3px;
 }
+.section__title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.section__subtitle {
+  text-align: center;
+  color: #777;
+  margin-bottom: 2rem;
+}
+
+/* Tamsioji tema */
+.dark-mode .about__box {
+  background-color: #333333;
+  color: #fff;
+}
+
 .about__data {
   padding-left: 1rem;
 }
 
 .about__info {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Lyginam su repeat(3, 1fr) */
-  gap: 1rem;
-  justify-content: start; /* Centruojame */
+  grid-template-columns: repeat(2, 1fr); /* Lyginam su repeat(3, 1fr) */
+  gap: 4rem;
 }
 
 .about__box {
   text-align: center;
   background-color: var(--container-color);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+
   border-radius: 0.75rem;
   text-align: center;
-  padding: 1rem 1.25rem;
+  padding: 1.5rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.about__box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .about__description {
-  padding: 1rem;
+  max-width: 600px; /* Apribokite teksto plotį */
   font-size: 1rem;
   line-height: 1.6;
   color: var(--text-color);
-  text-align: justify; /* Lyginame tekstą */
+  text-align: center; /* Gražiai išlygintas tekstas */
+  margin-top: 3rem;
 }
 
 /* Tamsioji tema */
@@ -78,7 +103,15 @@
 .dark-mode .section__title {
   color: #fff;
 }
+@media screen and (max-width: 768px) {
+  .about__container {
+    grid-template-columns: 1fr; /* Viena stulpelis visame ekrane */
+  }
 
+  .about__info {
+    grid-template-columns: 1fr; /* Viena kortelė vienoje eilėje */
+  }
+}
 /* Mažesni ekranai */
 @media screen and (max-width: 992px) {
   .about__container {

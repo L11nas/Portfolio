@@ -15,7 +15,6 @@ const Info = () => {
     <div className={`about__info grid ${darkMode ? 'dark-mode' : ''}`}>
       <div
         className='about__box'
-        id='academy'
         onClick={() => handleIconClick('/img/codeacademy.jpg')}
         style={{ cursor: 'pointer' }}
       >
@@ -25,11 +24,12 @@ const Info = () => {
           className='about__icon'
         />
         <h3 className='about__title'>Code Academy</h3>
-        <h4>Front-end programuotojas</h4>
-        <span className='about__subtitle'>
-          Baigimo atestatas<i className='bx bx-award'></i>
+        <h4 className='about__subtitle'>Front-end programuotojas</h4>
+        <span>
+          Baigimo atestatas <i className='bx bx-award'></i>
         </span>
       </div>
+
       <div
         className='about__box'
         onClick={() => handleIconClick('/img/Pažymėjimas.png')}
@@ -41,9 +41,9 @@ const Info = () => {
           className='about__icon'
         />
         <h3 className='about__title'>Iam Junior</h3>
-        <h4>Web programavimas su JavaScript</h4>
-        <span className='about__subtitle'>
-          Baigimo atestatas<i className='bx bx-award'></i>
+        <h4 className='about__subtitle'>Web programavimas su JavaScript</h4>
+        <span>
+          Baigimo atestatas <i className='bx bx-award'></i>
         </span>
       </div>
     </div>

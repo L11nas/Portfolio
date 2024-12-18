@@ -21,10 +21,10 @@ const Contact = () => {
     }
     emailjs
       .sendForm(
-        'service_dtqqarb',
-        'template_g42d1ub',
+        'service_cq925wv',
+        'template_tpbxg1u',
         form.current,
-        'WAg-BAm7YKHEF91P4'
+        'oGVarAmtx8lNifnjE'
       )
       .then((response) => {
         console.log('Email sent successfully:', response);

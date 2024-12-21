@@ -24,7 +24,12 @@ const WorkItems = ({ item }) => {
         aria-label='GitHub'
       >
         <GitHubIcon
-          style={{ fontSize: '24px', marginLeft: '8px', color: 'black' }}
+          style={{
+            fontSize: '24px',
+            marginLeft: '8px',
+            color: 'black',
+            marginTop: '8px',
+          }}
         />
       </a>
     </div>

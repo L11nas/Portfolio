@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './header.css';
 import { useDarkMode } from '../../ThemeContext';
-import { Switch } from '@mui/material';
 
 const Header = () => {
   const { toggleDarkMode, darkMode } = useDarkMode();
@@ -18,11 +17,7 @@ const Header = () => {
 
     handleInitialScroll();
 
-    const handleScroll = () => {
-      const header = document.querySelector('.header');
-      if (window.scrollY > 80) header.classList.add('scroll-header');
-      else header.classList.remove('scroll-header');
-    };
+    const handleScroll = () => {};
 
     window.addEventListener('scroll', handleScroll);
     return () => {
@@ -49,6 +44,16 @@ const Header = () => {
         <a href='index.html' className='nav__logo'>
           <span className='logo-text'>Linaswebdev</span>
         </a>
+
+        <div className='dark-mode-toggle' onClick={handleToggleDarkMode}>
+          <i className={`bx ${darkMode ? 'bx-sun' : 'bx-moon'}`} />
+          <span>{darkMode ? 'Light Mode' : 'Dark Mode'}</span>
+        </div>
+
+        <div className='nav__toggle' onClick={() => showMenu(!toggle)}>
+          <i className='bx bx-menu' aria-label='Toggle menu'></i>
+        </div>
+
         <div className={toggle ? 'nav__menu show-menu' : 'nav__menu'}>
           <i
             className='bx bx-x nav__close'
@@ -75,8 +80,8 @@ const Header = () => {
                   }
                 >
                   <i
-                    className={`bx bx-${
-                      item === 'Mano Įkvėpimas'
+                    className={`bx bx-$
+                      {item === 'Mano Įkvėpimas'
                         ? 'heart'
                         : item === 'Portfolio'
                         ? 'rocket'
@@ -92,19 +97,6 @@ const Header = () => {
               </li>
             ))}
           </ul>
-          <div className='dark-mode-toggle' onClick={handleToggleDarkMode}>
-            {darkMode ? 'White Mode' : 'Dark Mode'}
-            <Switch
-              checked={darkMode}
-              color='default'
-              name='darkModeSwitch'
-              inputProps={{ 'aria-label': 'toggle dark mode' }}
-            />
-          </div>
-        </div>
-
-        <div className='nav__toggle' onClick={() => showMenu(!toggle)}>
-          <i className='bx bx-menu' aria-label='Toggle menu'></i>
         </div>
       </nav>
     </header>

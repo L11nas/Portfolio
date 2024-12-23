@@ -1,5 +1,8 @@
 import React, { createContext, useContext, useState } from 'react';
-import { createTheme } from '@mui/material/styles';
+import {
+  createTheme,
+  ThemeProvider as MuiThemeProvider,
+} from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
 const ThemeContext = createContext();
@@ -19,8 +22,11 @@ export const ThemeProvider = ({ children }) => {
 
   return (
     <ThemeContext.Provider value={{ darkMode, toggleDarkMode }}>
-      <CssBaseline theme={darkTheme} />
-      {children}
+      {/* Apklijuok visus komponentus su MuiThemeProvider ir pritaikyk tema */}
+      <MuiThemeProvider theme={darkTheme}>
+        <CssBaseline />
+        {children}
+      </MuiThemeProvider>
     </ThemeContext.Provider>
   );
 };

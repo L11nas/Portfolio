@@ -11,6 +11,7 @@ const Contact = () => {
     name: '',
     email: '',
     project: '',
+    privacyPolicy: false,
   });
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -28,7 +29,7 @@ const Contact = () => {
       )
       .then((response) => {
         console.log('Email sent successfully:', response);
-        setFormData({ name: '', email: '', project: '' }); // Reset the form after successful email send
+        setFormData({ name: '', email: '', project: '', privacyPolicy: false });
       })
       .catch((error) => {
         console.error('Error sending email:', error);
@@ -38,14 +39,20 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Check if any of the required fields are empty
-    if (!formData.name || !formData.email || !formData.project) {
-      setErrorMessage('Fields are empty. Please fill them.');
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.project ||
+      !formData.privacyPolicy
+    ) {
+      setErrorMessage(
+        'Fields are empty or Privacy Policy is not accepted. Please fill all required fields.'
+      );
       return;
     }
 
     setErrorMessage('');
-    sendEmail(); // Call sendEmail only if there are no errors
+    sendEmail();
   };
 
   return (
@@ -58,8 +65,6 @@ const Contact = () => {
             <h3 className='contact__title'>Pasikalbėk su manimi</h3>
 
             <div className='contact__info'>
-              {/* Contact Cards */}
-              {/* El.paštas */}
               <div className='contact__card'>
                 <i className='bx bx-mail-send contact__card-icon'></i>
                 <h3 className='contact__card-title'>El.paštas</h3>
@@ -74,7 +79,6 @@ const Contact = () => {
                   <i className='bx bx-right-arrow-alt contact__button-icon'></i>
                 </a>
               </div>
-              {/* Whatsapp */}
               <div className='contact__card'>
                 <i className='bx bxl-whatsapp contact__card-icon'></i>
                 <h3 className='contact__card-title'>Whatsapp</h3>
@@ -87,7 +91,6 @@ const Contact = () => {
                   <i className='bx bx-right-arrow-alt contact__button-icon'></i>
                 </a>
               </div>
-              {/* Messenger */}
               <div className='contact__card'>
                 <i className='bx bxl-messenger contact__card-icon'></i>
                 <h3 className='contact__card-title'>Messenger</h3>
@@ -151,6 +154,30 @@ const Contact = () => {
                     setFormData({ ...formData, project: e.target.value })
                   }
                 ></textarea>
+              </div>
+              <div className='contact__form-div'>
+                <label className='contact__form-checkbox'>
+                  <input
+                    type='checkbox'
+                    name='privacyPolicy'
+                    required
+                    checked={formData.privacyPolicy}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        privacyPolicy: e.target.checked,
+                      })
+                    }
+                  />
+                  Sutinku su{' '}
+                  <a
+                    href='/privatumo-politika'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
+                    Privatumo politika
+                  </a>
+                </label>
               </div>
               <button type='submit' id='helloButton'>
                 Siųsti žinutę

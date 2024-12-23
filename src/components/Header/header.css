@@ -98,9 +98,34 @@
   background-color: #000;
   color: #fff;
 }
+/*patobulinimas*/
 .dark-mode-toggle {
-  color: #000;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
+.dark-mode-toggle:hover {
+  color: #ffcc00; /* Saulės spalva */
+  text-shadow: 0 0 5px rgba(255, 204, 0, 0.8);
+}
+.dark-mode-toggle i {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode-toggle i.bx-sun {
+  transform: rotate(0deg);
+  color: #ffcc00;
+}
+
+.dark-mode-toggle i.bx-moon {
+  transform: rotate(180deg);
+  color: #5555ff;
+}
+
 .dark-mode .dark-mode-toggle {
   color: #fff;
 }
@@ -117,7 +142,10 @@
 .dark-mode .nav__close {
   color: #fff;
 }
-
+.dark-mode-toggle {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
 @media screen and (max-width: 768px) {
   .header {
     top: initial;
@@ -178,7 +206,9 @@
   .dark-mode .nav__menu {
     background-color: #333; /* Tamsesnis fonas dark mode */
   }
-
+  .dark-mode-toggle {
+    font-size: 0.9rem;
+  }
   /* Tekstas "White Mode" ir "Black Mode" spalvos dark mode */
   .dark-mode .dark-mode-toggle {
     color: #fff; /* Baltas tekstas dark mode */
@@ -187,7 +217,7 @@
   /* Užrašų spalva dark mode */
   .dark-mode .nav__link,
   .dark-mode .nav__icon {
-    color: #000; /* Juoda spalva pavadinimams ir ikonoms, jei dark mode reikia kontrasto */
+    color: #fff; /* Juoda spalva pavadinimams ir ikonoms, jei dark mode reikia kontrasto */
   }
 }
 

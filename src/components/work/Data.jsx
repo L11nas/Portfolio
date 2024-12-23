@@ -39,6 +39,7 @@ export const projectsData = [
     id: 6,
     image: work6,
     category: 'Puslapiai',
+    title: 'Bėgimo plano puslapis',
     Link: 'https://begimoplanas.netlify.app/',
     githubLink: 'https://github.com/L11nas/Runwebas.git',
   },

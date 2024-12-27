@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import './contact.css';
 import { useDarkMode } from '../../ThemeContext';
+import PrivacyPolicyModal from '../privacyPolicy/PrivacyPolicyModal';
 
 const Contact = () => {
   const { darkMode } = useDarkMode();
@@ -14,6 +15,10 @@ const Contact = () => {
     privacyPolicy: false,
   });
   const [errorMessage, setErrorMessage] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   const sendEmail = () => {
     if (errorMessage) {
@@ -59,53 +64,51 @@ const Contact = () => {
     <div className={darkMode ? 'dark-mode' : ''}>
       <section className='contact section' id='Kontaktai'>
         <h2 className='section__title'>Susisiekite</h2>
-
         <div className='contact__container container grid'>
+          {/* "Pasikalbėk su manimi" skyrius */}
           <div className='contact__content'>
             <h3 className='contact__title'>Pasikalbėk su manimi</h3>
-
             <div className='contact__info'>
               <div className='contact__card'>
                 <i className='bx bx-mail-send contact__card-icon'></i>
-                <h3 className='contact__card-title'>El.paštas</h3>
+                <h3 className='contact__card-title'>Email</h3>
                 <span className='contact__card-data'>
-                  linas.webdev@gmail.com
+                  linaswebdev@email.com
                 </span>
-                <a
-                  href='mailto:linas.webdev@gmail.com'
-                  className='contact__button'
-                >
-                  Parašyk man{' '}
-                  <i className='bx bx-right-arrow-alt contact__button-icon'></i>
+                <a href='mailto:example@email.com' className='contact__button'>
+                  Parašyk
                 </a>
               </div>
               <div className='contact__card'>
                 <i className='bx bxl-whatsapp contact__card-icon'></i>
-                <h3 className='contact__card-title'>Whatsapp</h3>
+                <h3 className='contact__card-title'>WhatsApp</h3>
                 <span className='contact__card-data'>+37067206686</span>
                 <a
-                  href='https://wa.me/+37067206686'
+                  href='https://wa.me/37060000000'
+                  target='_blank'
+                  rel='noopener noreferrer'
                   className='contact__button'
                 >
-                  Parašyk man{' '}
-                  <i className='bx bx-right-arrow-alt contact__button-icon'></i>
+                  Parašyk
                 </a>
               </div>
               <div className='contact__card'>
                 <i className='bx bxl-messenger contact__card-icon'></i>
                 <h3 className='contact__card-title'>Messenger</h3>
-                <span className='contact__card-data'>Linas</span>
+                <span className='contact__card-data'>Facebook</span>
                 <a
-                  href='https://www.facebook.com/linas.ulevicius.3'
+                  href='https://m.me/yourusername'
+                  target='_blank'
+                  rel='noopener noreferrer'
                   className='contact__button'
                 >
-                  Parašyk man{' '}
-                  <i className='bx bx-right-arrow-alt contact__button-icon'></i>
+                  Parašyk
                 </a>
               </div>
             </div>
           </div>
 
+          {/* "Parašyk man apie savo projektą" skyrius */}
           <div className='contact__content'>
             <h3 className='contact__title'>Parašyk man apie savo projektą</h3>
             <form ref={form} onSubmit={handleSubmit} className='contact__form'>
@@ -170,13 +173,17 @@ const Contact = () => {
                     }
                   />
                   Sutinku su{' '}
-                  <a
-                    href='/privatumo-politika'
-                    target='_blank'
-                    rel='noopener noreferrer'
+                  <span
+                    className='privacy-policy-link'
+                    onClick={openModal}
+                    style={{
+                      cursor: 'pointer',
+                      textDecoration: 'underline',
+                      color: 'blue',
+                    }}
                   >
                     Privatumo politika
-                  </a>
+                  </span>
                 </label>
               </div>
               <button type='submit' id='helloButton'>
@@ -187,6 +194,7 @@ const Contact = () => {
           </div>
         </div>
       </section>
+      <PrivacyPolicyModal isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
 };

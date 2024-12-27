@@ -31,7 +31,6 @@ const Footer = () => {
             >
               <i className='bx bxl-facebook-circle'></i>
             </a>
-
             <a
               href='https://lt.linkedin.com/in/linas-ulevi%C4%8Dius-48366113b'
               className='footer__social-link'

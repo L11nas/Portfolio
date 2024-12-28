@@ -30,10 +30,10 @@ const Contact = () => {
 
     emailjs
       .send(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID,
-        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        import.meta.env.VITE_EMAILJS_SERVICE_ID, // Naudojame Vite aplinkos kintamuosius
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         templateParams,
-        process.env.REACT_APP_EMAILJS_USER_ID
+        import.meta.env.VITE_EMAILJS_USER_ID
       )
       .then((response) => {
         console.log('Email sent successfully:', response);
@@ -43,6 +43,7 @@ const Contact = () => {
         console.error('Error sending email:', error);
       });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 

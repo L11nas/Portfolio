@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
+import DOMPurify from 'dompurify'; // Įtraukiame DOMPurify
 import './contact.css';
 import { useDarkMode } from '../../ThemeContext';
 import PrivacyPolicyModal from '../privacyPolicy/PrivacyPolicyModal';
@@ -20,17 +21,19 @@ const Contact = () => {
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
-  const sendEmail = () => {
-    if (errorMessage) {
-      console.log('Email not sent due to error message:', errorMessage);
-      return;
-    }
+  const sendEmail = (name, email, project) => {
+    const templateParams = {
+      name,
+      email,
+      project,
+    };
+
     emailjs
-      .sendForm(
-        'service_cq925wv',
-        'template_tpbxg1u',
-        form.current,
-        'oGVarAmtx8lNifnjE'
+      .send(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        process.env.REACT_APP_EMAILJS_USER_ID
       )
       .then((response) => {
         console.log('Email sent successfully:', response);
@@ -40,14 +43,17 @@ const Contact = () => {
         console.error('Error sending email:', error);
       });
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const sanitizedName = DOMPurify.sanitize(formData.name);
+    const sanitizedEmail = DOMPurify.sanitize(formData.email);
+    const sanitizedProject = DOMPurify.sanitize(formData.project);
+
     if (
-      !formData.name ||
-      !formData.email ||
-      !formData.project ||
+      !sanitizedName ||
+      !sanitizedEmail ||
+      !sanitizedProject ||
       !formData.privacyPolicy
     ) {
       setErrorMessage(
@@ -57,7 +63,7 @@ const Contact = () => {
     }
 
     setErrorMessage('');
-    sendEmail();
+    sendEmail(sanitizedName, sanitizedEmail, sanitizedProject);
   };
 
   return (
@@ -75,7 +81,10 @@ const Contact = () => {
                 <span className='contact__card-data'>
                   linaswebdev@email.com
                 </span>
-                <a href='mailto:example@email.com' className='contact__button'>
+                <a
+                  href='mailto:linaswebdev@email.com?subject=Kontaktas iš portfolio&body=Labas, Linas!'
+                  className='contact__button'
+                >
                   Parašyk
                 </a>
               </div>
@@ -84,7 +93,7 @@ const Contact = () => {
                 <h3 className='contact__card-title'>WhatsApp</h3>
                 <span className='contact__card-data'>+37067206686</span>
                 <a
-                  href='https://wa.me/37060000000'
+                  href='https://wa.me/37067206686?text=Labas,%20Linas!'
                   target='_blank'
                   rel='noopener noreferrer'
                   className='contact__button'
@@ -97,7 +106,7 @@ const Contact = () => {
                 <h3 className='contact__card-title'>Messenger</h3>
                 <span className='contact__card-data'>Facebook</span>
                 <a
-                  href='https://m.me/yourusername'
+                  href='https://m.me/linas.ulevicius.3'
                   target='_blank'
                   rel='noopener noreferrer'
                   className='contact__button'
@@ -125,6 +134,7 @@ const Contact = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
+                  required
                 />
               </div>
               <div className='contact__form-div'>
@@ -140,6 +150,7 @@ const Contact = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
+                  required
                 />
               </div>
               <div className='contact__form-div contact__form-area'>
@@ -156,6 +167,7 @@ const Contact = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, project: e.target.value })
                   }
+                  required
                 ></textarea>
               </div>
               <div className='contact__form-div'>

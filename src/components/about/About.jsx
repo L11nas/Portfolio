@@ -10,7 +10,7 @@ const About = () => {
     <div className={darkMode ? 'dark-mode' : ''}>
       <section className='about__section' id='Apie'>
         <h2 className='section__title'>Apie mane</h2>
-        <span className='section__subtitle'></span>
+        <span className='section__subtitle'>Front-end programuotojas</span>
         <div className='about__container container__grid'>
           <div className='about__data'>
             <Info />

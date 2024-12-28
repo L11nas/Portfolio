@@ -20,7 +20,7 @@ const Info = () => {
       >
         <img
           src={codeAcademyLogo}
-          alt='Code Academy Logo'
+          alt='Code Academy logotipo nuotrauka, simbolizuojanti mano išsilavinimą front-end programavime'
           className='about__icon'
         />
         <h3 className='about__title'>Code Academy</h3>

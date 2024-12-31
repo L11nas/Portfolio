@@ -24,8 +24,10 @@ const ScrollUp = () => {
       href='#top'
       className='scrollup scrollup__icon'
       aria-label='Return to top'
+      role='button'
+      tabIndex={0}
     >
-      <i className='bx bx-up-arrow-circle'></i>
+      <i className='bx bx-up-arrow-circle' aria-hidden='true'></i>
     </a>
   );
 };

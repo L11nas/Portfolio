@@ -4,15 +4,22 @@ import './work.css';
 
 const WorkItems = ({ item }) => {
   return (
-    <div className='work__card'>
+    <div
+      className='work__card'
+      aria-labelledby={`title-${item.id}`}
+      role='article'
+    >
       <img src={item.image} alt={item.title} className='work__img' />
-      <h3 className='work__title'>{item.title}</h3>
-      <p className='work__status'>{item.status}</p>
+      <h3 id={`title-${item.id}`} className='work__title'>
+        {item.title}
+      </h3>
+      {item.status && <p className='work__status'>{item.status}</p>}
       <a
         href={item.Link}
         className='work__button'
         target='_blank'
         rel='noopener noreferrer'
+        aria-label={`View demo of ${item.title}`}
       >
         Demo <i className='bx bx-right-arrow-alt work__button-icon'></i>
       </a>
@@ -21,7 +28,7 @@ const WorkItems = ({ item }) => {
         target='_blank'
         rel='noopener noreferrer'
         className='work__github-link'
-        aria-label='GitHub'
+        aria-label={`GitHub repository for ${item.title}`}
       >
         <GitHubIcon
           style={{

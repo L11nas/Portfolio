@@ -1,18 +1,9 @@
-/*import Work1 from '/img/Mityba.jpg';*/
-import Work4 from '/womenshoe.jpg';
 import Work2 from '/Portfoliogit.png';
+import Work4 from '/womenshoe.jpg';
 import work5 from '/img/2.png';
 import work6 from '/img/runweb.jpg';
+
 export const projectsData = [
-  /*{
-    id: 1,
-    image: Work1,
-    title: 'Sveika mityba',
-    category: 'Puslapiai',
-    Link: 'https://l11nas.github.io/Sveika-mityba/',
-    githubLink: 'https://github.com/L11nas/Sveika-mityba.git',
-    status: 'Dar ruošiamas',
-  },*/
   {
     id: 2,
     image: Work2,
@@ -33,13 +24,14 @@ export const projectsData = [
     id: 5,
     image: work5,
     category: 'Dizainas',
+
     status: 'Dar ruošiamas',
   },
   {
     id: 6,
     image: work6,
-    category: 'Puslapiai',
     title: 'Bėgimo plano puslapis',
+    category: 'Puslapiai',
     Link: 'https://begimoplanas.netlify.app/',
     githubLink: 'https://github.com/L11nas/Runwebas.git',
   },

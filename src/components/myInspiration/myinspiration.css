@@ -1,12 +1,25 @@
+.inspiration-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--h1-font-size);
+}
+.inspiration-description {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  margin: 8px;
+}
 .hover-image {
-  transition: transform 0.3s ease; /* Smooth transition for the transform */
+  transition: transform 0.3s ease;
 }
 
 .hover-image:hover {
-  transform: scale(1.05); /* Scale the image up to 105% on hover */
+  transform: scale(1.05);
 }
 @media screen and (max-width: 360px) {
-  .Insipration {
+  .Inspiration {
     font-size: 24px;
   }
 }

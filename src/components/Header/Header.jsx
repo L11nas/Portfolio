@@ -17,7 +17,31 @@ const Header = () => {
 
     handleInitialScroll();
 
-    const handleScroll = () => {};
+    const handleScroll = () => {
+      const sections = [
+        'home',
+        'about',
+        'skills',
+        'services',
+        'portfolio',
+        'inspiration',
+        'contact',
+      ];
+      let scrollY = window.scrollY;
+
+      sections.forEach((section) => {
+        const sectionEl = document.getElementById(section);
+        console.log(section, sectionEl); // Debugging
+        if (sectionEl) {
+          if (
+            sectionEl.offsetTop <= scrollY &&
+            sectionEl.offsetTop + sectionEl.offsetHeight > scrollY
+          ) {
+            setActiveNav(`#${section}`);
+          }
+        }
+      });
+    };
 
     window.addEventListener('scroll', handleScroll);
     return () => {
@@ -40,7 +64,7 @@ const Header = () => {
 
   return (
     <header className={`header ${darkMode ? 'dark-mode' : ''}`}>
-      <nav className='nav container'>
+      <nav className='nav container' role='navigation'>
         <a href='index.html' className='nav__logo'>
           <span className='logo-text'>Linaswebdev</span>
         </a>
@@ -80,8 +104,8 @@ const Header = () => {
                   }
                 >
                   <i
-                    className={`bx bx-$
-                      {item === 'Mano Įkvėpimas'
+                    className={`bx bx-${
+                      item === 'Mano Įkvėpimas'
                         ? 'heart'
                         : item === 'Portfolio'
                         ? 'rocket'

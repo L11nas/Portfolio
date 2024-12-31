@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { projectsData } from './Data';
-import { projectsNav } from './Data';
+import { projectsData, projectsNav } from './Data';
 import WorkItems from './WorkItems';
 
 const Works = () => {
   const [item, setItem] = useState({ name: 'All' });
-  const [projects, setProjects] = useState([]);
+  const [projects, setProjects] = useState(projectsData);
   const [active, setActive] = useState(0);
+
   useEffect(() => {
     const categoryName = item.name.trim().toLowerCase();
-    if (categoryName === 'all') {
-      setProjects(projectsData);
-    } else {
-      const newProjects = projectsData.filter((project) => {
-        return project.category.trim().toLowerCase() === categoryName;
-      });
-      setProjects(newProjects);
-    }
+    const filteredProjects =
+      categoryName === 'all'
+        ? projectsData
+        : projectsData.filter(
+            (project) => project.category.trim().toLowerCase() === categoryName
+          );
+    setProjects(filteredProjects);
   }, [item]);
+
   const handleClick = (e, index) => {
     setItem({ name: e.target.textContent });
     setActive(index);
@@ -25,27 +25,33 @@ const Works = () => {
 
   return (
     <div>
-      <div className='work__filters'>
-        {projectsNav.map((navItem, index) => {
-          return (
-            <span
-              onClick={(e) => {
-                handleClick(e, index);
-              }}
-              className={`work__item ${active === index ? 'active__work' : ''}`}
-              key={index}
-            >
-              {navItem.name}
-            </span>
-          );
-        })}
+      <div
+        className='work__filters'
+        role='navigation'
+        aria-label='Project Categories'
+      >
+        {projectsNav.map((navItem, index) => (
+          <span
+            onClick={(e) => handleClick(e, index)}
+            className={`work__item ${active === index ? 'active__work' : ''}`}
+            key={index}
+            aria-current={active === index ? 'true' : 'false'}
+          >
+            {navItem.name}
+          </span>
+        ))}
       </div>
-      <div className='work__container container grid'>
-        {projects.map((project) => {
-          return <WorkItems item={project} key={project.id} />;
-        })}
+      <div className='work__container container grid' role='main'>
+        {projects.length > 0 ? (
+          projects.map((project) => (
+            <WorkItems item={project} key={project.id} />
+          ))
+        ) : (
+          <p>No projects found in this category.</p>
+        )}
       </div>
     </div>
   );
 };
+
 export default Works;

@@ -144,10 +144,17 @@
 .dark-mode .home__scroll-arrow {
   color: #fff;
 }
+.home__scroll-arrow {
+  color: white;
+}
+
+.dark-mode .home__scroll-arrow {
+  color: white;
+}
 /*Media*/
 @media screen and (max-width: 992px) {
   .home__content {
-    grid-template-columns: 100px repeat(2 1fr);
+    grid-template-columns: 100px repeat(2, 1fr);
     column-gap: 1.25rem;
   }
   .home__subtitle {
@@ -167,7 +174,7 @@
     height: 250px;
     box-shadow: inset 0 0 0 8px rgb(255 255 255 / 30%);
   }
-  .home-scroll {
+  .home__scroll {
     margin-left: 7.5rem;
   }
 }

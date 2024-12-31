@@ -36,20 +36,21 @@ const Services = () => {
               <i className='bx bx-right-arrow-alt services__button-icon'></i>
             </span>
             {activeTab === 1 && (
-              <div className='services__modal active__modal'>
+              <div
+                className={`services__modal active__modal ${
+                  darkMode ? 'dark-mode' : ''
+                }`}
+              >
                 <div className='services__modal-content'>
                   <h3 className='services__modal-title'>
                     Produkto dizainerio informacija
                   </h3>
-                  <p className='services__modal-description'></p>
                   <ul className='services__modal-services-grid'>
                     <li className='services__modal-service'>
                       <i className='bx bx-check-circle services__modal-icon'></i>
                       <p className='services__modal-info'>
                         Svetainių dizaino projektai, pritaikyti mobiliesiems
-                        įrenginiams. Koduodamas dizainą, sukurtą Figma
-                        platformoje, užtikrinu tinkamą jo adaptaciją įvairiems
-                        ekranų dydžiams.
+                        įrenginiams.
                       </p>
                     </li>
                     <li className='services__modal-service'>
@@ -68,6 +69,7 @@ const Services = () => {
                   <button
                     onClick={closeModal}
                     className='services__modal-close-button'
+                    aria-label='Uždaryti modalą'
                   >
                     Uždaryti
                   </button>
@@ -87,12 +89,15 @@ const Services = () => {
               <i className='bx bx-right-arrow-alt services__button-icon'></i>
             </span>
             {activeTab === 2 && (
-              <div className='services__modal active__modal'>
+              <div
+                className={`services__modal active__modal ${
+                  darkMode ? 'dark-mode' : ''
+                }`}
+              >
                 <div className='services__modal-content'>
                   <h3 className='services__modal-title'>
                     Ui/Ux dizaino informacija
                   </h3>
-                  <p className='services__modal-description'></p>
                   <ul className='services__modal-services-grid'>
                     <li className='services__modal-service'>
                       <i className='bx bx-check-circle services__modal-icon'></i>
@@ -103,19 +108,21 @@ const Services = () => {
                     <li className='services__modal-service'>
                       <i className='bx bx-check-circle services__modal-icon'></i>
                       <p className='services__modal-info'>
-                        Praktika kuriant dizaino sprendimus įvairiems projektams
+                        Praktika kuriant dizaino sprendimus
                       </p>
                     </li>
                     <li className='services__modal-service'>
                       <i className='bx bx-check-circle services__modal-icon'></i>
                       <p className='services__modal-info'>
-                        Dizaino ir maketavimo paslaugos smulkioms įmonėms- Canva
+                        Dizaino ir maketavimo paslaugos smulkioms įmonėms -
+                        Canva
                       </p>
                     </li>
                   </ul>
                   <button
                     onClick={closeModal}
                     className='services__modal-close-button'
+                    aria-label='Uždaryti modalą'
                   >
                     Uždaryti
                   </button>
@@ -135,25 +142,28 @@ const Services = () => {
               <i className='bx bx-right-arrow-alt services__button-icon'></i>
             </span>
             {activeTab === 3 && (
-              <div className='services__modal active__modal'>
+              <div
+                className={`services__modal active__modal ${
+                  darkMode ? 'dark-mode' : ''
+                }`}
+              >
                 <div className='services__modal-content'>
                   <h3 className='services__modal-title'>
                     Kita paslaugų informacija
                   </h3>
-                  <p className='services__modal-description'></p>
                   <ul className='services__modal-services-grid'>
                     <li className='services__modal-service'>
                       <i className='bx bx-check-circle services__modal-icon'></i>
                       <p className='services__modal-info'>
                         SQL lentelių kūrimas ir administravimas: efektyvus
-                        duomenų valdymas ir struktūrizavimas.
+                        duomenų valdymas.
                       </p>
                     </li>
                     <li className='services__modal-service'>
                       <i className='bx bx-check-circle services__modal-icon'></i>
                       <p className='services__modal-info'>
                         CRUD operacijų įgyvendinimas: pilnas duomenų valdymo
-                        ciklas – kurti, skaityti, atnaujinti ir šalinti.
+                        ciklas.
                       </p>
                     </li>
                     <li className='services__modal-service'>
@@ -167,6 +177,7 @@ const Services = () => {
                   <button
                     onClick={closeModal}
                     className='services__modal-close-button'
+                    aria-label='Uždaryti modalą'
                   >
                     Uždaryti
                   </button>

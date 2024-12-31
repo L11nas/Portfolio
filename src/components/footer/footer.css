@@ -51,7 +51,7 @@
 
 .footer__social-link:hover {
   color: var(--primary-color);
-  transform: scale(1.1); /* Pridėtas efektas: šiek tiek padidėja */
+  transform: scale(1.1);
 }
 
 .footer__copy {
@@ -80,7 +80,7 @@
 /* Tamsiam režimui socialinių nuorodų efektai */
 .dark-mode .footer__social-link:hover {
   color: var(--primary-color);
-  transform: scale(1.1); /* Pridėtas efektas: šiek tiek padidėja */
+  transform: scale(1.1);
 }
 
 /* Media */

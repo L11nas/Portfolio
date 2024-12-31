@@ -10,8 +10,12 @@ const Skills = () => {
     <div className={darkMode ? 'dark-mode' : ''}>
       <section className='skills section' id='Įgūdžiai'>
         <h2 className='section__title'>Įgūdžiai</h2>
-        <span className='section__subtitle'></span>
-        <div className='skills__container container grid'>
+        <span className='section__subtitle'>Mano techniniai įgūdžiai</span>
+        <div
+          className='skills__container container grid'
+          role='group'
+          aria-labelledby='igudziai'
+        >
           <Frontend />
           <Backend />
         </div>
@@ -19,4 +23,5 @@ const Skills = () => {
     </div>
   );
 };
+
 export default Skills;

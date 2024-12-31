@@ -1,130 +1,120 @@
-.about__container {
-  display: flex; /* Galima naudoti grid vietoj flex */
-  flex-direction: column; /* Viskas vertikaliai išdėstyta */
-  justify-content: center; /* Centruojame vertikaliai */
-  align-items: center; /* Centruojame horizontaliai */
-  gap: 1rem; /* Tarpas tarp elementų */
+:root {
+  --text-color: #333;
+
+  --title-color: #222;
+  --subtitle-color: #555;
 }
 
-.about__icon {
-  width: 100px;
-  height: 100px;
-  margin: 0 auto 1rem;
-  border-radius: 50%; /* Apvalūs paveikslėliai */
-  object-fit: contain;
-  background-color: #fff; /* Pridėkite foną, jei reikia */
-  padding: 10px; /* Šiek tiek vietos aplink logotipą */
-  display: block;
-  margin: 0 auto;
+.dark-mode {
+  --text-color: #ddd;
+  --container-color: #333;
+  --title-color: #fff;
+  --subtitle-color: #ccc;
 }
+
 .about__section {
   display: grid;
-  place-items: center; /* Centruojame ir horizontaliai, ir vertikaliai */
+  place-items: center;
   min-height: 100vh;
   padding: 2rem;
   background-color: var(--background-color);
 }
 
-#academy {
-  margin-top: 4rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-.about__box:hover .about__icon {
-  transform: scale(1.05);
-}
-.about__subtitle {
-  font-size: 14px;
-  color: #555;
-  margin-bottom: 0.5rem;
-  margin-top: 3px;
-}
 .section__title {
   font-size: 2rem;
   text-align: center;
-  margin-bottom: 0.5rem;
+  margin: 2rem 0 0.5rem;
+  color: var(--title-color);
 }
 
 .section__subtitle {
   text-align: center;
-  color: #777;
-  margin-bottom: 1rem;
+  color: var(--subtitle-color);
+  margin-bottom: 2rem;
 }
 
-/* Tamsioji tema */
-.dark-mode .about__box {
-  background-color: #333333;
-  color: #fff;
+.about__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 
 .about__data {
   padding-left: 1rem;
+  margin-bottom: 2rem;
+}
+
+.about__description {
+  max-width: 600px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  text-align: center;
+  margin-top: 3rem;
 }
 
 .about__info {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Lyginam su repeat(3, 1fr) */
+  grid-template-columns: repeat(2, 1fr);
   gap: 4rem;
 }
 
 .about__box {
   text-align: center;
   background-color: var(--container-color);
-
   border-radius: 0.75rem;
-  text-align: center;
   padding: 1.5rem;
   transition: transform 0.3s, box-shadow 0.3s;
 }
+
 .about__box:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.about__description {
-  max-width: 600px; /* Apribokite teksto plotį */
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--text-color);
-  text-align: center; /* Gražiai išlygintas tekstas */
-  margin-top: 3rem;
-}
-
 /* Tamsioji tema */
 .dark-mode .about__box {
-  background-color: #333333;
+  background-color: #333;
   color: #fff;
 }
-.dark-mode .about__icon,
-.dark-mode .about__title,
-.dark-mode .about__subtitle {
-  color: #fff;
-}
-.dark-mode .section__title {
-  color: #fff;
-}
-@media screen and (max-width: 768px) {
-  .about__container {
-    grid-template-columns: 1fr; /* Viena stulpelis visame ekrane */
-  }
 
+.dark-mode .about__description {
+  color: #ddd;
+}
+
+.dark-mode .section__title,
+.dark-mode .section__subtitle {
+  color: #fff;
+}
+
+.about__icon {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  object-fit: contain;
+  background-color: #fff;
+  padding: 10px;
+  display: block;
+}
+
+.about__box:hover .about__icon {
+  transform: scale(1.05);
+}
+
+/* Medijos užklausos */
+@media screen and (max-width: 768px) {
   .about__info {
-    grid-template-columns: 1fr; /* Viena kortelė vienoje eilėje */
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 }
-/* Mažesni ekranai */
+
 @media screen and (max-width: 992px) {
   .about__container {
-    grid-template-columns: 1fr;
     row-gap: 1.5rem;
-  }
-  .about__img {
-    width: 220px;
-    margin: 0 auto;
-  }
-  .about__description {
-    padding: 0 1rem;
-    margin-bottom: 2rem;
   }
 }
 
@@ -133,6 +123,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 0.5rem;
   }
+
   .about__description {
     padding: 0.5rem;
     font-size: 0.9rem;

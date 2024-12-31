@@ -1,11 +1,11 @@
 import React from 'react';
 import { useDarkMode } from '../../ThemeContext';
-
+import './about.css';
 const Info = () => {
   const { darkMode } = useDarkMode();
 
   const handleIconClick = (url) => {
-    window.open(url, '_blank'); // Atidaro nuorodą naujame lange
+    window.open(url, '_blank');
   };
 
   const codeAcademyLogo = '/img/codeAcademyLogo.jpg';

@@ -4,28 +4,21 @@ import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import { useDarkMode } from '../../ThemeContext';
-import './myinspiration.css'; // Make sure to import the CSS file
+import './myinspiration.css';
 
-export default function TitlebarBelowMasonryImageList() {
+export default function MyInspiration() {
   const { darkMode } = useDarkMode();
   const inspirationRef = useRef(null);
 
   return (
-    <div ref={inspirationRef} className={darkMode ? 'dark-mode' : ''}>
-      <h1
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          marginBottom: '100px',
-          marginTop: '0px',
-          color: darkMode ? '#fff' : '#333',
-        }}
-      >
-        <div className='Insipration' id='Mano Įkvėpimas'>
-          Mano įkvėpimas
-        </div>
+    <section ref={inspirationRef} className={darkMode ? 'dark-mode' : ''}>
+      <h1 className='inspiration-title' id='Mano Įkvėpimas'>
+        Mano įkvėpimas
       </h1>
+      <p className='inspiration-description'>
+        Ši kolekcija atspindi mano bėgimo patirtį ir motyvaciją. Kiekvienas
+        vaizdas turi savo istoriją.
+      </p>
       <Box
         sx={{
           display: 'flex',
@@ -56,7 +49,7 @@ export default function TitlebarBelowMasonryImageList() {
                   src={`${item.img}?w=248&fit=crop&auto=format`}
                   alt={item.title}
                   loading='lazy'
-                  className='hover-image' // Add this class
+                  className='hover-image'
                   style={{ borderRadius: '8px' }}
                 />
                 <ImageListItemBar position='below' title={item.title} />
@@ -65,7 +58,7 @@ export default function TitlebarBelowMasonryImageList() {
           </ImageList>
         </Box>
       </Box>
-    </div>
+    </section>
   );
 }
 
@@ -75,93 +68,26 @@ const itemData = [
   { img: '/personal/134835.jpg', title: 'Sulėtekio maratonas' },
   { img: '/personal/maratonas2024.jpg', title: 'Kauno maratonas' },
   { img: '/img/191319.jpg', title: 'Ironman Maastricht' },
-  {
-    img: 'img/1623610342632.jpg',
-    title: 'Jonavos maratonas',
-  },
-  {
-    img: '/img/1648968564148.jpg',
-    title: 'Druskininkų pusmaratonis',
-  },
-  {
-    img: '/img/1655576449371.jpg',
-    title: 'Olimpinė diena',
-  },
-  {
-    img: '/img/1657362673507.jpg',
-    title: 'Karaliaus Mindaugo',
-  },
-  {
-    img: '/img/1657466566251.jpg',
-    title: 'Širvintų maratonas',
-  },
-  {
-    img: '/img/135855.jpg',
-    title: 'Kauno maratonas',
-  },
-  {
-    img: '/img/195650.jpg',
-    title: 'Ironman Tallin',
-  },
-  {
-    img: '/img/121614.jpg',
-    title: 'Vilniaus pusmaratonis',
-  },
-  {
-    img: '/img/154525.jpg',
-    title: 'Jonava',
-  },
-  {
-    img: '/img/164925.jpg',
-    title: 'Druskininkų pusmaratonis',
-  },
-  {
-    img: '/img/155812.jpg',
-    title: 'Sūduvos taurė',
-  },
-  {
-    img: '/img/162233.jpg',
-    title: 'Medininkai',
-  },
-  {
-    img: '/img/165846.jpg',
-    title: 'Alytaus pusmaratonis',
-  },
-  {
-    img: '/img/sauletekis.jpg',
-    title: 'Saulėtekio maratonas',
-  },
-  {
-    img: '/img/342.jpg',
-    title: 'Mindauginės',
-  },
-  {
-    img: '/img/551.jpg',
-    title: 'Širvintų maratonas',
-  },
-
-  {
-    img: '/img/673.jpg',
-    title: 'Vilties bėgimas',
-  },
-  {
-    img: 'img/V.jpg',
-    title: 'Ironman Tallin',
-  },
-  {
-    img: '/img/317033579575096.jpeg',
-    title: 'Ironman',
-  },
-  {
-    img: '/img/437614981753426.jpeg',
-    title: 'Ironman',
-  },
-  {
-    img: '/img/4965070230287149.jpeg',
-    title: 'Estafetė 5x5',
-  },
-  {
-    img: '/img/225159.jpg',
-    title: 'Labdaros bėgimas',
-  },
+  { img: '/img/1623610342632.jpg', title: 'Jonavos maratonas' },
+  { img: '/img/1648968564148.jpg', title: 'Druskininkų pusmaratonis' },
+  { img: '/img/1655576449371.jpg', title: 'Olimpinė diena' },
+  { img: '/img/1657362673507.jpg', title: 'Karaliaus Mindaugo' },
+  { img: '/img/1657466566251.jpg', title: 'Širvintų maratonas' },
+  { img: '/img/135855.jpg', title: 'Kauno maratonas' },
+  { img: '/img/195650.jpg', title: 'Ironman Tallin' },
+  { img: '/img/121614.jpg', title: 'Vilniaus pusmaratonis' },
+  { img: '/img/154525.jpg', title: 'Jonava' },
+  { img: '/img/164925.jpg', title: 'Druskininkų pusmaratonis' },
+  { img: '/img/155812.jpg', title: 'Sūduvos taurė' },
+  { img: '/img/162233.jpg', title: 'Medininkai' },
+  { img: '/img/165846.jpg', title: 'Alytaus pusmaratonis' },
+  { img: '/img/sauletekis.jpg', title: 'Saulėtekio maratonas' },
+  { img: '/img/342.jpg', title: 'Mindauginės' },
+  { img: '/img/551.jpg', title: 'Širvintų maratonas' },
+  { img: '/img/673.jpg', title: 'Vilties bėgimas' },
+  { img: '/img/V.jpg', title: 'Ironman Tallin' },
+  { img: '/img/317033579575096.jpeg', title: 'Ironman' },
+  { img: '/img/437614981753426.jpeg', title: 'Ironman' },
+  { img: '/img/4965070230287149.jpeg', title: 'Estafetė 5x5' },
+  { img: '/img/225159.jpg', title: 'Labdaros bėgimas' },
 ];

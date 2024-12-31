@@ -10,7 +10,7 @@
   transition: background-color 0.3s ease;
 }
 .logo-text {
-  font-size: 2rem; /* Pakeiskite dydį pagal poreikį */
+  font-size: 2rem;
   font-weight: bold;
   color: #333;
   text-transform: uppercase;
@@ -69,26 +69,16 @@
   color: yellow;
 }
 .header.scroll-header {
-  background-color: #d3cba4; /* Juodas fonas, išlieka nepermatomas */
-  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.2); /* Šešėlis po header */
+  background-color: #d3cba4;
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.2);
 }
 
 .dark-mode .header {
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.1
-  ); /* Skaidrus fonas tamsiu režimu pradžioje */
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .dark-mode .header.scroll-header {
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.7
-  ); /* Tamsesnis fonas su 85% nepermatomumo */
+  background-color: rgba(0, 0, 0, 0.7);
 }
 .scroll-header {
   box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
@@ -201,29 +191,29 @@
   }
   .dark-mode .nav__link,
   .dark-mode .nav__icon {
-    color: #000; /* Nustato juodą spalvą pavadinimams ir ikonoms */
+    color: #000;
   }
   .dark-mode .nav__menu {
-    background-color: #333; /* Tamsesnis fonas dark mode */
+    background-color: #333;
   }
   .dark-mode-toggle {
     font-size: 0.9rem;
   }
-  /* Tekstas "White Mode" ir "Black Mode" spalvos dark mode */
+
   .dark-mode .dark-mode-toggle {
-    color: #fff; /* Baltas tekstas dark mode */
+    color: #fff;
   }
 
   /* Užrašų spalva dark mode */
   .dark-mode .nav__link,
   .dark-mode .nav__icon {
-    color: #fff; /* Juoda spalva pavadinimams ir ikonoms, jei dark mode reikia kontrasto */
+    color: #fff;
   }
 }
 
 @media screen and (max-width: 360px) {
   .header {
-    background-color: var(--container-color); /* Fono spalva mobiliajame */
+    background-color: var(--container-color);
   }
   .nav__menu {
     padding: 2rem 0.25rem 4rem;
@@ -232,25 +222,25 @@
     column-gap: 0;
   }
   .nav__icon {
-    font-size: 1.2rem; /* Mažesnis dydis mobiliesiems */
+    font-size: 1.2rem;
   }
   .dark-mode .nav__link,
   .dark-mode .nav__icon {
-    color: #000; /* Juoda spalva mobiliajame, kai plotis mažesnis nei 360px */
+    color: #000;
   }
   .dark-mode .nav__menu {
-    background-color: #333; /* Tamsesnis fonas dark mode */
+    background-color: #333;
   }
 
   /* Užrašai ir uždarymo mygtukas dark mode */
   .dark-mode .dark-mode-toggle,
   .dark-mode .nav__close {
-    color: #fff; /* Baltas tekstas ir uždarymo mygtukas dark mode */
+    color: #fff;
   }
 
   /* Juoda spalva dark mode tekstui */
   .dark-mode .nav__link,
   .dark-mode .nav__icon {
-    color: #fff; /* Baltas tekstas ir ikonos, kad kontrastuotų tamsiame fone */
+    color: #fff;
   }
 }

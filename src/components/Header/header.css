@@ -10,7 +10,7 @@
   transition: background-color 0.3s ease;
 }
 .logo-text {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   color: #333;
   text-transform: uppercase;
@@ -138,7 +138,7 @@
 }
 @media screen and (max-width: 768px) {
   .header {
-    top: initial;
+    top: 0;
   }
   .nav__list {
     flex-direction: column;
@@ -214,12 +214,17 @@
 @media screen and (max-width: 360px) {
   .header {
     background-color: var(--container-color);
+    padding: 5px;
   }
   .nav__menu {
     padding: 2rem 0.25rem 4rem;
   }
   .nav__list {
-    column-gap: 0;
+    padding: 1rem 0.5rem;
+    column-gap: 0.8;
+  }
+  .logo-text {
+    font-size: 1rem;
   }
   .nav__icon {
     font-size: 1.2rem;

@@ -1,6 +1,5 @@
 :root {
   --text-color: #333;
-
   --title-color: #222;
   --subtitle-color: #555;
 }
@@ -13,11 +12,13 @@
 }
 
 .about__section {
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
   padding: 2rem;
   background-color: var(--background-color);
+  flex-direction: column;
 }
 
 .section__title {
@@ -56,9 +57,10 @@
 }
 
 .about__info {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4rem;
+  display: flex;
+  flex-wrap: wrap; /* Leidžia kortelėms pertraukti eilutes */
+  justify-content: center; /* Sukrauna korteles į centrą */
+  gap: 2rem; /* Atstumas tarp kortelių */
 }
 
 .about__box {
@@ -67,6 +69,8 @@
   border-radius: 0.75rem;
   padding: 1.5rem;
   transition: transform 0.3s, box-shadow 0.3s;
+  flex: 1 1 48%; /* Kortelės užims 48% pločio ekranuose, kad būtų dvi kortelės eilutėje */
+  margin-bottom: 1rem;
 }
 
 .about__box:hover {
@@ -107,28 +111,29 @@
 /* Medijos užklausos */
 @media screen and (max-width: 768px) {
   .about__info {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    justify-content: center; /* Sukrauna korteles į centrą mažesniuose ekranuose */
   }
-}
 
-@media screen and (max-width: 992px) {
-  .about__container {
-    row-gap: 1.5rem;
+  .about__box {
+    flex: 1 1 100%; /* Kortelės užims 100% pločio, kad būtų viena po kitos */
   }
 }
 
 @media screen and (max-width: 576px) {
   .about__info {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .about__box {
+    flex: 1 1 100%; /* Užtikrina, kad kortelės užims visą plotį */
   }
 
   .about__description {
-    padding: 0.5rem;
     font-size: 0.9rem;
+    padding: 0.5rem;
   }
 }
+
 @media screen and (max-width: 375px) {
   .about__section {
     padding: 1rem;
@@ -143,18 +148,9 @@
     margin-bottom: 1.5rem;
   }
 
-  .about__container {
-    gap: 1rem;
-  }
-
   .about__description {
     font-size: 0.85rem;
     padding: 0.5rem;
-  }
-
-  .about__info {
-    grid-template-columns: 1fr;
-    gap: 1rem;
   }
 
   .about__box {

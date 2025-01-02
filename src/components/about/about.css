@@ -58,9 +58,9 @@
 
 .about__info {
   display: flex;
-  flex-wrap: wrap; /* Leidžia kortelėms pertraukti eilutes */
-  justify-content: center; /* Sukrauna korteles į centrą */
-  gap: 2rem; /* Atstumas tarp kortelių */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
 }
 
 .about__box {
@@ -69,7 +69,7 @@
   border-radius: 0.75rem;
   padding: 1.5rem;
   transition: transform 0.3s, box-shadow 0.3s;
-  flex: 1 1 48%; /* Kortelės užims 48% pločio ekranuose, kad būtų dvi kortelės eilutėje */
+  flex: 1 1 48%;
   margin-bottom: 1rem;
 }
 
@@ -111,11 +111,11 @@
 /* Medijos užklausos */
 @media screen and (max-width: 768px) {
   .about__info {
-    justify-content: center; /* Sukrauna korteles į centrą mažesniuose ekranuose */
+    justify-content: center;
   }
 
   .about__box {
-    flex: 1 1 100%; /* Kortelės užims 100% pločio, kad būtų viena po kitos */
+    flex: 1 1 100%;
   }
 }
 
@@ -125,7 +125,7 @@
   }
 
   .about__box {
-    flex: 1 1 100%; /* Užtikrina, kad kortelės užims visą plotį */
+    flex: 1 1 100%;
   }
 
   .about__description {

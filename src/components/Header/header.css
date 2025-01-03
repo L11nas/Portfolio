@@ -99,7 +99,7 @@
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 .dark-mode-toggle:hover {
-  color: #ffcc00; /* Saulės spalva */
+  color: #ffcc00;
   text-shadow: 0 0 5px rgba(255, 204, 0, 0.8);
 }
 .dark-mode-toggle i {

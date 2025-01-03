@@ -15,11 +15,10 @@ const About = () => {
           <div className='about__data'>
             <Info />
             <p className='about__description'>
-              Esu front-end junior programuotojas, kuris domisi įdomiomis ir
-              nestandartinėmis idėjomis. Mano aistra kurti interaktyvias ir
-              vizualiai patrauklias naudotojo sąsajas skatina nuolat mokytis ir
-              tobulėti. Man patinka eksperimentuoti su naujomis technologijomis
-              ir sprendimais, kad įgyvendinčiau savo vizijas.
+              Kaip front-end junior programuotojas, specializuojuosi kuriant
+              švarius ir funkcionalius dizainus, pritaikytus tiek stacionariems,
+              tiek mobiliems įrenginiams. Man patinka kurti dinamiškus
+              sprendimus, naudojant HTML, CSS, JavaScript ir React.
             </p>
           </div>
         </div>

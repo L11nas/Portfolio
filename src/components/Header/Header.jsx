@@ -59,6 +59,7 @@ const Header = () => {
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
       setActiveNav(navItem);
+      showMenu(false);
     }
   };
 

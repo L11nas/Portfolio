@@ -72,6 +72,16 @@
   background-color: #d3cba4;
   box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.2);
 }
+.language-toggle {
+  margin-left: 1rem;
+}
+.language-toggle button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  color: var(--text-color);
+}
 
 .dark-mode .header {
   background-color: rgba(0, 0, 0, 0.1);
@@ -136,12 +146,44 @@
   padding: 0.5rem;
   border-radius: 0.5rem;
 }
+.language-toggle {
+  margin-left: 1rem;
+}
+
+.language-toggle button {
+  background: none;
+  border: 2px solid var(--text-color); /* Pridėtas rėmelis */
+  border-radius: 0.5rem; /* Apvalinti kampai */
+  font-size: 1rem;
+  cursor: pointer;
+  color: var(--text-color);
+  padding: 0rem 0.5rem; /* Pridėtas vidinis užpildymas */
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease; /* Pridėtos animacijos */
+}
+
+.language-toggle button:hover {
+  background-color: var(
+    --text-color
+  ); /* Fono spalva, kai pelės žymeklis virš mygtuko */
+  color: #fff; /* Teksto spalva, kai virš mygtuko */
+  transform: scale(1.05); /* Didinimas, kai virš mygtuko */
+  text-decoration: none; /* Pašalinti pabraukimą */
+}
+
+.language-toggle button:focus {
+  outline: none; /* Pašalinti numatytąjį kontūrą */
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); /* Pridėtas kontūras, kai mygtukas yra pasirinktas */
+}
+
 @media screen and (max-width: 768px) {
   .header {
     top: 0;
   }
   .nav__list {
     flex-direction: column;
+  }
+  .dark-mode-toggle span {
+    display: none;
   }
   .nav {
     height: var(--header-height);
@@ -198,6 +240,8 @@
   }
   .dark-mode-toggle {
     font-size: 0.9rem;
+    gap: 0;
+    justify-content: center;
   }
 
   .dark-mode .dark-mode-toggle {

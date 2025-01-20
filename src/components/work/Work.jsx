@@ -3,54 +3,70 @@ import { projectsData, projectsNav } from './Data';
 import WorkItems from './WorkItems';
 import './work.css';
 import { useDarkMode } from '../../ThemeContext';
-const Works = () => {
+import { useLanguage } from '../../context/LanguageContext';
+
+const Work = () => {
   const { darkMode } = useDarkMode();
-  const [item, setItem] = useState({ name: 'Visi' });
+  const { language } = useLanguage();
   const [projects, setProjects] = useState([]);
-  const [active, setActive] = useState(0);
+  const [activeFilter, setActiveFilter] = useState('filter.all'); // Default filter key
 
   useEffect(() => {
-    const categoryName = item.name.trim().toLowerCase();
-    if (categoryName === 'visi') {
-      setProjects(projectsData);
-    } else {
-      const newProjects = projectsData.filter((project) => {
-        return project.category.trim().toLowerCase() === categoryName;
-      });
-      setProjects(newProjects);
-    }
-  }, [item]);
+    const filteredProjects =
+      activeFilter === 'filter.all'
+        ? projectsData
+        : projectsData.filter((project) =>
+            language === 'LT'
+              ? project.categoryLT ===
+                projectsNav.find((nav) => nav.key === activeFilter)?.nameLT
+              : project.category ===
+                projectsNav.find((nav) => nav.key === activeFilter)?.nameEN
+          );
+    setProjects(filteredProjects);
+  }, [activeFilter, language]);
 
-  const handleClick = (e, index) => {
-    setItem({ name: e.target.textContent });
-    setActive(index);
+  const handleFilterClick = (filterKey) => {
+    setActiveFilter(filterKey);
   };
 
   return (
-    <div id='Portfolio' className={darkMode ? 'dark-mode' : ''}>
-      <h1 className='portfolio-title'>Portfolio</h1> {/* Pridėta CSS klasė */}
-      <div className='work__filters'>
-        {projectsNav.map((navItem, index) => {
-          return (
-            <span
-              onClick={(e) => {
-                handleClick(e, index);
-              }}
-              className={`work__item ${active === index ? 'active__work' : ''}`}
-              key={index}
-            >
-              {navItem.name}
-            </span>
-          );
-        })}
+    <div id='projects' className={darkMode ? 'dark-mode' : ''}>
+      <h1 className='portfolio-title'>
+        {language === 'LT' ? 'Projektai' : 'Projects'}
+      </h1>
+      <div
+        className='work__filters'
+        role='navigation'
+        aria-label='Project Categories'
+      >
+        {projectsNav.map((filter, index) => (
+          <span
+            key={index}
+            onClick={() => handleFilterClick(filter.key)}
+            className={`work__item ${
+              activeFilter === filter.key ? 'active__work' : ''
+            }`}
+            aria-current={activeFilter === filter.key ? 'true' : 'false'}
+          >
+            {language === 'LT' ? filter.nameLT : filter.nameEN}
+          </span>
+        ))}
       </div>
       <div className='work__container container grid'>
-        {projects.map((project) => {
-          return <WorkItems item={project} key={project.id} />;
-        })}
+        {projects.length > 0 ? (
+          projects.map((project) => (
+            <WorkItems key={project.id} item={project} language={language} />
+          ))
+        ) : (
+          <p>
+            {language === 'LT'
+              ? 'Šioje kategorijoje projektų nerasta.'
+              : 'No projects found in this category.'}
+          </p>
+        )}
       </div>
     </div>
   );
 };
 
-export default Works;
+export default Work;

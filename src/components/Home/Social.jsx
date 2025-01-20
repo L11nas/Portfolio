@@ -1,6 +1,25 @@
 import React from 'react';
+import { useLanguage } from '../../context/LanguageContext';
 
 const Social = () => {
+  const { language } = useLanguage();
+
+  // Vertimų objektas
+  const translations = {
+    LT: {
+      instagramLabel: 'Instagram',
+      linkedinLabel: 'LinkedIn',
+      githubLabel: 'GitHub',
+    },
+    EN: {
+      instagramLabel: 'Instagram',
+      linkedinLabel: 'LinkedIn',
+      githubLabel: 'GitHub',
+    },
+  };
+
+  const t = translations[language];
+
   return (
     <div className='home__social'>
       <a
@@ -8,7 +27,7 @@ const Social = () => {
         className='home__social-icon'
         target='_blank'
         rel='noopener noreferrer'
-        aria-label='Instagram'
+        aria-label={t.instagramLabel}
       >
         <i className='uil uil-instagram'></i>
       </a>
@@ -18,7 +37,7 @@ const Social = () => {
         className='home__social-icon'
         target='_blank'
         rel='noopener noreferrer'
-        aria-label='LinkedIn'
+        aria-label={t.linkedinLabel}
       >
         <i className='uil uil-linkedin'></i>
       </a>
@@ -27,11 +46,12 @@ const Social = () => {
         className='home__social-icon'
         target='_blank'
         rel='noopener noreferrer'
-        aria-label='GitHub'
+        aria-label={t.githubLabel}
       >
         <i className='uil uil-github'></i>
       </a>
     </div>
   );
 };
+
 export default Social;

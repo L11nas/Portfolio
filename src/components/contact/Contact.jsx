@@ -1,12 +1,14 @@
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
-import DOMPurify from 'dompurify'; // Įtraukiame DOMPurify
+import DOMPurify from 'dompurify';
 import './contact.css';
 import { useDarkMode } from '../../ThemeContext';
+import { useLanguage } from '../../context/LanguageContext';
 import PrivacyPolicyModal from '../privacyPolicy/PrivacyPolicyModal';
 
 const Contact = () => {
   const { darkMode } = useDarkMode();
+  const { language } = useLanguage();
   const form = useRef();
 
   const [formData, setFormData] = useState({
@@ -58,7 +60,9 @@ const Contact = () => {
       !formData.privacyPolicy
     ) {
       setErrorMessage(
-        'Fields are empty or Privacy Policy is not accepted. Please fill all required fields.'
+        language === 'LT'
+          ? 'Laukai yra tušti arba privatumo politika nepriimta. Prašome užpildyti visus privalomus laukus.'
+          : 'Fields are empty or Privacy Policy is not accepted. Please fill all required fields.'
       );
       return;
     }
@@ -67,110 +71,111 @@ const Contact = () => {
     sendEmail(sanitizedName, sanitizedEmail, sanitizedProject);
   };
 
+  const translations = {
+    LT: {
+      sectionTitle: 'SUSISIEKITE',
+      talkToMe: 'Pasikalbėk su manimi',
+      projectInquiry: 'Parašyk man apie savo projektą',
+      name: 'Vardas',
+      email: 'El.paštas',
+      project: 'Projektas',
+      privacyPolicy: 'Sutinku su Privatumo politika',
+      privacyPolicyLink: '(Privatumo politika)', // Added translation for the link text
+      sendMessage: 'Siųsti žinutę',
+      namePlaceholder: 'Įrašyk savo vardą',
+      emailPlaceholder: 'Įrašyk savo el.paštą',
+      projectPlaceholder: 'Rašyk apie projektą',
+    },
+    EN: {
+      sectionTitle: 'CONTACT',
+      talkToMe: 'Talk to me',
+      projectInquiry: 'Tell me about your project',
+      name: 'Name',
+      email: 'Email',
+      project: 'Project',
+      privacyPolicy: 'I agree to the Privacy Policy',
+      privacyPolicyLink: '(Privacy Policy)', // Added translation for the link text
+      sendMessage: 'Send Message',
+      namePlaceholder: 'Enter your name',
+      emailPlaceholder: 'Enter your email',
+      projectPlaceholder: 'Write about the project',
+    },
+  };
+
+  const t = translations[language];
+
   return (
     <div className={darkMode ? 'dark-mode' : ''}>
-      <section className='contact section' id='Kontaktai'>
-        <h2 className='section__title'>Susisiekite</h2>
+      <section className='contact section' id='contact'>
+        <h2 className='section__title'>{t.sectionTitle}</h2>
         <div className='contact__container container grid'>
-          {/* "Pasikalbėk su manimi" skyrius */}
+          {/* "Talk to Me" Section */}
           <div className='contact__content'>
-            <h3 className='contact__title'>Pasikalbėk su manimi</h3>
+            <h3 className='contact__title'>{t.talkToMe}</h3>
             <div className='contact__info'>
-              <div className='contact__card'>
-                <i className='bx bx-mail-send contact__card-icon'></i>
-                <h3 className='contact__card-title'>Email</h3>
-                <span className='contact__card-data'>
-                  linaswebdev@email.com
-                </span>
-                <a
-                  href='mailto:linaswebdev@email.com?subject=Kontaktas iš portfolio&body=Labas, Linas!'
-                  className='contact__button'
-                >
-                  Parašyk
-                </a>
-              </div>
-              <div className='contact__card'>
-                <i className='bx bxl-whatsapp contact__card-icon'></i>
-                <h3 className='contact__card-title'>WhatsApp</h3>
-                <span className='contact__card-data'>+37067206686</span>
-                <a
-                  href='https://wa.me/37067206686?text=Labas,%20Linas!'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='contact__button'
-                >
-                  Parašyk
-                </a>
-              </div>
-              <div className='contact__card'>
-                <i className='bx bxl-messenger contact__card-icon'></i>
-                <h3 className='contact__card-title'>Messenger</h3>
-                <span className='contact__card-data'>Facebook</span>
-                <a
-                  href='https://m.me/linas.ulevicius.3'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='contact__button'
-                >
-                  Parašyk
-                </a>
-              </div>
+              <ContactCard
+                icon='bx bx-mail-send'
+                title='Email'
+                data='linaswebdev@email.com'
+                link='mailto:linaswebdev@email.com?subject=Kontaktas iš portfolio&body=Labas, Linas!'
+                language={language} // Pass the language
+              />
+              <ContactCard
+                icon='bx bxl-whatsapp'
+                title='WhatsApp'
+                data='+37067206686'
+                link='https://wa.me/37067206686?text=Labas,%20Linas!'
+                language={language} // Pass the language
+              />
+              <ContactCard
+                icon='bx bxl-messenger'
+                title='Messenger'
+                data='Facebook'
+                link='https://m.me/linas.ulevicius.3'
+                language={language} // Pass the language
+              />
             </div>
           </div>
 
-          {/* "Parašyk man apie savo projektą" skyrius */}
+          {/* "Tell Me About Your Project" Section */}
           <div className='contact__content'>
-            <h3 className='contact__title'>Parašyk man apie savo projektą</h3>
+            <h3 className='contact__title'>{t.projectInquiry}</h3>
             <form ref={form} onSubmit={handleSubmit} className='contact__form'>
-              <div className='contact__form-div'>
-                <label className='contact__form-tag'>Vardas</label>
-                <input
-                  type='text'
-                  name='name'
-                  className={`contact__form-input ${
-                    darkMode ? 'dark-mode' : ''
-                  }`}
-                  placeholder='Įrašyk savo vardą'
-                  value={formData.name}
-                  onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                  }
-                  required
-                />
-              </div>
-              <div className='contact__form-div'>
-                <label className='contact__form-tag'>El.paštas</label>
-                <input
-                  type='email'
-                  name='email'
-                  className={`contact__form-input ${
-                    darkMode ? 'dark-mode' : ''
-                  }`}
-                  placeholder='Įrašyk savo el.paštą'
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
-                  required
-                />
-              </div>
-              <div className='contact__form-div contact__form-area'>
-                <label className='contact__form-tag'>Projektas</label>
-                <textarea
-                  name='project'
-                  cols='30'
-                  rows='10'
-                  className={`contact__form-input ${
-                    darkMode ? 'dark-mode' : ''
-                  }`}
-                  placeholder='Rašyk apie projektą'
-                  value={formData.project}
-                  onChange={(e) =>
-                    setFormData({ ...formData, project: e.target.value })
-                  }
-                  required
-                ></textarea>
-              </div>
+              <InputField
+                label={t.name}
+                type='text'
+                name='name'
+                value={formData.name}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
+                darkMode={darkMode}
+                placeholder={t.namePlaceholder}
+                required
+              />
+              <InputField
+                label={t.email}
+                type='email'
+                name='email'
+                value={formData.email}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
+                darkMode={darkMode}
+                placeholder={t.emailPlaceholder}
+                required
+              />
+              <TextAreaField
+                label={t.project}
+                name='project'
+                value={formData.project}
+                onChange={(e) =>
+                  setFormData({ ...formData, project: e.target.value })
+                }
+                darkMode={darkMode}
+                placeholder={t.projectPlaceholder}
+                required
+              />
               <div className='contact__form-div'>
                 <label className='contact__form-checkbox'>
                   <input
@@ -185,7 +190,7 @@ const Contact = () => {
                       })
                     }
                   />
-                  Sutinku su{' '}
+                  {t.privacyPolicy}
                   <span
                     className='privacy-policy-link'
                     onClick={openModal}
@@ -195,12 +200,13 @@ const Contact = () => {
                       color: 'blue',
                     }}
                   >
-                    Privatumo politika
+                    {' '}
+                    {t.privacyPolicyLink}
                   </span>
                 </label>
               </div>
               <button type='submit' id='helloButton'>
-                Siųsti žinutę
+                {t.sendMessage}
               </button>
               {errorMessage && <p className='error-message'>{errorMessage}</p>}
             </form>
@@ -211,5 +217,80 @@ const Contact = () => {
     </div>
   );
 };
+
+const ContactCard = ({ icon, title, data, link, language }) => {
+  const translations = {
+    LT: {
+      write: 'Parašyk',
+    },
+    EN: {
+      write: 'Write',
+    },
+  };
+
+  return (
+    <div className='contact__card'>
+      <i className={icon + ' contact__card-icon'}></i>
+      <h3 className='contact__card-title'>{title}</h3>
+      <span className='contact__card-data'>{data}</span>
+      <a
+        href={link}
+        target='_blank'
+        rel='noopener noreferrer'
+        className='contact__button'
+      >
+        {translations[language]?.write || 'Write'}
+      </a>
+    </div>
+  );
+};
+
+const InputField = ({
+  label,
+  type,
+  name,
+  value,
+  onChange,
+  darkMode,
+  placeholder,
+  required,
+}) => (
+  <div className='contact__form-div'>
+    <label className='contact__form-tag'>{label}</label>
+    <input
+      type={type}
+      name={name}
+      className={`contact__form-input ${darkMode ? 'dark-mode' : ''}`}
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+      required={required}
+    />
+  </div>
+);
+
+const TextAreaField = ({
+  label,
+  name,
+  value,
+  onChange,
+  darkMode,
+  placeholder,
+  required,
+}) => (
+  <div className='contact__form-div contact__form-area'>
+    <label className='contact__form-tag'>{label}</label>
+    <textarea
+      name={name}
+      cols='30'
+      rows='10'
+      className={`contact__form-input ${darkMode ? 'dark-mode' : ''}`}
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+      required={required}
+    ></textarea>
+  </div>
+);
 
 export default Contact;

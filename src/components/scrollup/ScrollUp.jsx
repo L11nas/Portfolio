@@ -1,7 +1,22 @@
 import React, { useEffect } from 'react';
 import './scrollup.css';
+import { useLanguage } from '../../context/LanguageContext';
 
 const ScrollUp = () => {
+  const { language } = useLanguage();
+
+  // Vertimų objektas
+  const translations = {
+    LT: {
+      ariaLabel: 'Grįžti į viršų',
+    },
+    EN: {
+      ariaLabel: 'Return to top',
+    },
+  };
+
+  const t = translations[language];
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollUp = document.querySelector('.scrollup');
@@ -23,7 +38,7 @@ const ScrollUp = () => {
     <a
       href='#top'
       className='scrollup scrollup__icon'
-      aria-label='Return to top'
+      aria-label={t.ariaLabel}
       role='button'
       tabIndex={0}
     >

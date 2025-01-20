@@ -14,7 +14,8 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider as CustomThemeProvider } from './ThemeContext';
 import MyInspiration from './components/myInspiration/MyInspiration';
-
+import { LanguageProvider } from './context/LanguageContext';
+import { HelmetProvider } from 'react-helmet-async';
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
@@ -23,23 +24,27 @@ const darkTheme = createTheme({
 
 const App = () => {
   return (
-    <ThemeProvider theme={darkTheme}>
-      <CustomThemeProvider>
-        <CssBaseline />
-        <Header />
-        <main className='main'>
-          <Home />
-          <About />
-          <Skills />
-          <Services />
-          <Work />
-          <MyInspiration />
-          <Contact />
-        </main>
-        <Footer />
-        <ScrollUp />
-      </CustomThemeProvider>
-    </ThemeProvider>
+    <HelmetProvider>
+      <LanguageProvider>
+        <ThemeProvider theme={darkTheme}>
+          <CustomThemeProvider>
+            <CssBaseline />
+            <Header />
+            <main className='main'>
+              <Home />
+              <About />
+              <Skills />
+              <Services />
+              <Work />
+              <MyInspiration />
+              <Contact />
+            </main>
+            <Footer />
+            <ScrollUp />
+          </CustomThemeProvider>
+        </ThemeProvider>
+      </LanguageProvider>
+    </HelmetProvider>
   );
 };
 

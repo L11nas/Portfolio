@@ -1,130 +1,145 @@
-import React, { useEffect, useState } from 'react';
-import './header.css';
+import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useDarkMode } from '../../ThemeContext';
+import { useLanguage } from '../../context/LanguageContext';
+import './header.css';
 
 const Header = () => {
-  const { toggleDarkMode, darkMode } = useDarkMode();
-  const [toggle, showMenu] = useState(false);
+  const { darkMode, toggleDarkMode } = useDarkMode();
+  const { language, toggleLanguage } = useLanguage();
+  const [menuOpen, setMenuOpen] = useState(false);
   const [activeNav, setActiveNav] = useState('#home');
 
-  useEffect(() => {
-    const handleInitialScroll = () => {
-      const homeSection = document.getElementById('home');
-      if (homeSection) {
-        homeSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    };
+  const sections = [
+    {
+      id: '#home',
+      label: language === 'LT' ? 'Pradžia' : 'Home',
+      icon: 'bx-home',
+    },
+    {
+      id: '#about',
+      label: language === 'LT' ? 'Apie' : 'About',
+      icon: 'bx-user',
+    },
+    {
+      id: '#skills',
+      label: language === 'LT' ? 'Įgūdžiai' : 'Skills',
+      icon: 'bx-brain',
+    },
+    {
+      id: '#services',
+      label: language === 'LT' ? 'Paslaugos' : 'Services',
+      icon: 'bx-briefcase',
+    },
+    {
+      id: '#projects',
+      label: language === 'LT' ? 'Projektai' : 'Projects',
+      icon: 'bx-folder',
+    },
+    {
+      id: '#inspiration',
+      label: language === 'LT' ? 'Įkvėpimas' : 'Inspiration',
+      icon: 'bx-bulb',
+    },
+    {
+      id: '#contact',
+      label: language === 'LT' ? 'Kontaktai' : 'Contact',
+      icon: 'bx-envelope',
+    },
+  ];
 
-    handleInitialScroll();
-
-    const handleScroll = () => {
-      const sections = [
-        'home',
-        'about',
-        'skills',
-        'services',
-        'portfolio',
-        'inspiration',
-        'contact',
-      ];
-      let scrollY = window.scrollY;
-
-      sections.forEach((section) => {
-        const sectionEl = document.getElementById(section);
-        console.log(section, sectionEl); // Debugging
-        if (sectionEl) {
-          if (
-            sectionEl.offsetTop <= scrollY &&
-            sectionEl.offsetTop + sectionEl.offsetHeight > scrollY
-          ) {
-            setActiveNav(`#${section}`);
-          }
-        }
-      });
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  const handleToggleDarkMode = () => {
-    toggleDarkMode();
-  };
-
-  const handleNavigation = (navItem) => {
-    const sectionId = navItem.slice(1);
-    const section = document.getElementById(sectionId);
+  const handleNavigation = (sectionId) => {
+    const section = document.querySelector(sectionId);
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
-      setActiveNav(navItem);
-      showMenu(false);
+      setActiveNav(sectionId);
+      setMenuOpen(false);
     }
   };
 
   return (
-    <header className={`header ${darkMode ? 'dark-mode' : ''}`}>
-      <nav className='nav container' role='navigation'>
-        <a href='index.html' className='nav__logo'>
-          <span className='logo-text'>Linaswebdev</span>
-        </a>
+    <>
+      {/* SEO Metadata */}
+      <Helmet>
+        <title>
+          {language === 'LT' ? 'Linaswebdev | Pradžia' : 'Linaswebdev | Home'}
+        </title>
+        <meta
+          name='description'
+          content={
+            language === 'LT'
+              ? 'Sveiki atvykę į Linaswebdev svetainę. Atraskite mano paslaugas, įgūdžius ir portfolio.'
+              : 'Welcome to Linaswebdev. Discover my services, skills, and portfolio.'
+          }
+        />
+        <meta
+          name='keywords'
+          content='Web Development, Portfolio, Services, Skills, React, Frontend'
+        />
+        <meta name='author' content='Linas Ulevičius' />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <meta charSet='UTF-8' />
+        <link rel='canonical' href='https://linaswebdev.lt' />
+      </Helmet>
 
-        <div className='dark-mode-toggle' onClick={handleToggleDarkMode}>
-          <i className={`bx ${darkMode ? 'bx-sun' : 'bx-moon'}`} />
-          <span>{darkMode ? 'Light Mode' : 'Dark Mode'}</span>
-        </div>
+      {/* Header Section */}
+      <header className={`header ${darkMode ? 'dark-mode' : ''}`}>
+        <nav className='nav container'>
+          <a href='#home' className='nav__logo'>
+            <span className='logo-text'>Linaswebdev</span>
+          </a>
 
-        <div className='nav__toggle' onClick={() => showMenu(!toggle)}>
-          <i className='bx bx-menu' aria-label='Toggle menu'></i>
-        </div>
+          {/* Dark/Light Mode Toggle */}
+          <div className='dark-mode-toggle' onClick={toggleDarkMode}>
+            <i className={`bx ${darkMode ? 'bx-sun' : 'bx-moon'}`}></i>
+            <span>
+              {darkMode
+                ? language === 'LT'
+                  ? 'Šviesus režimas'
+                  : 'Light Mode'
+                : language === 'LT'
+                ? 'Tamsus režimas'
+                : 'Dark Mode'}
+            </span>
+          </div>
 
-        <div className={toggle ? 'nav__menu show-menu' : 'nav__menu'}>
-          <i
-            className='bx bx-x nav__close'
-            onClick={() => showMenu(false)}
-            aria-label='Close menu'
-          ></i>
-          <ul className='nav__list grid'>
-            {[
-              'Apie',
-              'Įgūdžiai',
-              'Paslaugos',
-              'Portfolio',
-              'Mano Įkvėpimas',
-              'Kontaktai',
-            ].map((item) => (
-              <li className='nav__item' key={item}>
-                <a
-                  href={`#${item}`}
-                  onClick={() => handleNavigation(`#${item}`)}
-                  className={
-                    activeNav === `#${item}`
-                      ? 'nav__link active__link'
-                      : 'nav__link'
-                  }
-                >
-                  <i
-                    className={`bx bx-${
-                      item === 'Mano Įkvėpimas'
-                        ? 'heart'
-                        : item === 'Portfolio'
-                        ? 'rocket'
-                        : item === 'Paslaugos'
-                        ? 'briefcase-alt'
-                        : item === 'Įgūdžiai'
-                        ? 'spreadsheet'
-                        : 'user'
-                    } nav__icon`}
-                  ></i>
-                  {item.charAt(0).toUpperCase() + item.slice(1)}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </nav>
-    </header>
+          {/* Language Toggle */}
+          <div className='language-toggle'>
+            <button onClick={toggleLanguage}>
+              {language === 'LT' ? 'EN' : 'LT'}
+            </button>
+          </div>
+
+          {/* Menu Toggle */}
+          <div className='nav__toggle' onClick={() => setMenuOpen(!menuOpen)}>
+            <i className='bx bx-menu'></i>
+          </div>
+
+          <div className={menuOpen ? 'nav__menu show-menu' : 'nav__menu'}>
+            <i
+              className='bx bx-x nav__close'
+              onClick={() => setMenuOpen(false)}
+            ></i>
+            <ul className='nav__list grid'>
+              {sections.map((section) => (
+                <li className='nav__item' key={section.id}>
+                  <a
+                    href={section.id}
+                    onClick={() => handleNavigation(section.id)}
+                    className={`nav__link ${
+                      activeNav === section.id ? 'active__link' : ''
+                    }`}
+                  >
+                    <i className={`bx ${section.icon} nav__icon`}></i>
+                    {section.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </nav>
+      </header>
+    </>
   );
 };
 

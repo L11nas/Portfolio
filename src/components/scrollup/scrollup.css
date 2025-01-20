@@ -1,3 +1,4 @@
+/* Pagrindinis stilius */
 .scrollup {
   position: fixed;
   right: 2.5rem;
@@ -19,6 +20,17 @@
   background-color: var(--title-color-dark);
 }
 
+/* Dark mode stilius */
+.scrollup-dark {
+  background-color: var(--dark-scroll-bg, #333); /* Naudojamas tamsus fonas */
+  color: var(--dark-scroll-color, #fff); /* Teksto spalva */
+}
+
+.scrollup-dark:hover {
+  background-color: var(--dark-scroll-hover-bg, #555); /* Hover būsena */
+}
+
+/* Rodymo klasė */
 .show-scroll {
   bottom: 3rem;
   opacity: 1;

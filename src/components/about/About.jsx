@@ -13,7 +13,7 @@ const About = () => {
     LT: {
       title: 'Apie mane',
       subtitle: 'Front-end programuotojas',
-      description: `      description: `Profesionalus svetainių kūrimas ir pritaikymas mobiliesiems įrenginiams
+      description: `Profesionalus svetainių kūrimas ir pritaikymas mobiliesiems įrenginiams
 
 Specializuojuosi kuriant švarius, funkcionalius ir modernius svetainių dizainus, pritaikytus tiek stacionariems, tiek mobiliems įrenginiams. Dirbu su HTML, CSS, JavaScript ir React, todėl galiu užtikrinti, kad jūsų svetainė bus greita, patogi vartotojui ir SEO optimizuota.
 

@@ -13,7 +13,7 @@ const About = () => {
     LT: {
       title: 'Apie mane',
       subtitle: 'Front-end programuotojas',
-      description: `Profesionalus svetainių kūrimas ir pritaikymas mobiliesiems įrenginiams
+      description: 'Profesionalus svetainių kūrimas ir pritaikymas mobiliesiems įrenginiams
 
 Specializuojuosi kuriant švarius, funkcionalius ir modernius svetainių dizainus, pritaikytus tiek stacionariems, tiek mobiliems įrenginiams. Dirbu su HTML, CSS, JavaScript ir React, todėl galiu užtikrinti, kad jūsų svetainė bus greita, patogi vartotojui ir SEO optimizuota.
 
@@ -24,7 +24,7 @@ Ką siūlau?
 ✔️ Individualiai pritaikytos funkcijos – pagal jūsų verslo poreikius
 ✔️ Google Analytics integracija – stebėkite lankytojų srautus ir elgseną
 
-Dirbu atsakingai ir patikimai. Jei ieškote modernios, efektyvios ir profesionalios svetainės, susisiekite!`,
+Dirbu atsakingai ir patikimai. Jei ieškote modernios, efektyvios ir profesionalios svetainės, susisiekite!',
       pageTitle: 'Apie mane | Linaswebdev',
       metaDescription:
         'Sužinokite apie Linaswebdev kaip front-end programuotoją, jo patirtį ir pasiekimus.',

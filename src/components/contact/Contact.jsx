@@ -4,7 +4,6 @@ import DOMPurify from 'dompurify';
 import './contact.css';
 import { useDarkMode } from '../../ThemeContext';
 import { useLanguage } from '../../context/LanguageContext';
-import PrivacyPolicyModal from '../privacyPolicy/PrivacyPolicyModal';
 
 const Contact = () => {
   const { darkMode } = useDarkMode();
@@ -15,13 +14,8 @@ const Contact = () => {
     name: '',
     email: '',
     project: '',
-    privacyPolicy: false,
   });
   const [errorMessage, setErrorMessage] = useState('');
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
 
   const sendEmail = (name, email, project) => {
     const templateParams = {
@@ -39,7 +33,7 @@ const Contact = () => {
       )
       .then((response) => {
         console.log('Email sent successfully:', response);
-        setFormData({ name: '', email: '', project: '', privacyPolicy: false });
+        setFormData({ name: '', email: '', project: '' });
       })
       .catch((error) => {
         console.error('Error sending email:', error);
@@ -53,16 +47,11 @@ const Contact = () => {
     const sanitizedEmail = DOMPurify.sanitize(formData.email);
     const sanitizedProject = DOMPurify.sanitize(formData.project);
 
-    if (
-      !sanitizedName ||
-      !sanitizedEmail ||
-      !sanitizedProject ||
-      !formData.privacyPolicy
-    ) {
+    if (!sanitizedName || !sanitizedEmail || !sanitizedProject) {
       setErrorMessage(
         language === 'LT'
-          ? 'Laukai yra tušti arba privatumo politika nepriimta. Prašome užpildyti visus privalomus laukus.'
-          : 'Fields are empty or Privacy Policy is not accepted. Please fill all required fields.'
+          ? 'Laukai yra tušti. Prašome užpildyti visus privalomus laukus.'
+          : 'Fields are empty. Please fill all required fields.'
       );
       return;
     }
@@ -79,8 +68,6 @@ const Contact = () => {
       name: 'Vardas',
       email: 'El.paštas',
       project: 'Projektas',
-      privacyPolicy: 'Sutinku su Privatumo politika',
-      privacyPolicyLink: '(Privatumo politika)', // Added translation for the link text
       sendMessage: 'Siųsti žinutę',
       namePlaceholder: 'Įrašyk savo vardą',
       emailPlaceholder: 'Įrašyk savo el.paštą',
@@ -93,8 +80,6 @@ const Contact = () => {
       name: 'Name',
       email: 'Email',
       project: 'Project',
-      privacyPolicy: 'I agree to the Privacy Policy',
-      privacyPolicyLink: '(Privacy Policy)', // Added translation for the link text
       sendMessage: 'Send Message',
       namePlaceholder: 'Enter your name',
       emailPlaceholder: 'Enter your email',
@@ -118,21 +103,21 @@ const Contact = () => {
                 title='Email'
                 data='linaswebdev@email.com'
                 link='mailto:linaswebdev@email.com?subject=Kontaktas iš portfolio&body=Labas, Linas!'
-                language={language} // Pass the language
+                language={language}
               />
               <ContactCard
                 icon='bx bxl-whatsapp'
                 title='WhatsApp'
                 data='+37067206686'
                 link='https://wa.me/37067206686?text=Labas,%20Linas!'
-                language={language} // Pass the language
+                language={language}
               />
               <ContactCard
                 icon='bx bxl-messenger'
                 title='Messenger'
                 data='Facebook'
                 link='https://m.me/linas.ulevicius.3'
-                language={language} // Pass the language
+                language={language}
               />
             </div>
           </div>
@@ -176,35 +161,6 @@ const Contact = () => {
                 placeholder={t.projectPlaceholder}
                 required
               />
-              <div className='contact__form-div'>
-                <label className='contact__form-checkbox'>
-                  <input
-                    type='checkbox'
-                    name='privacyPolicy'
-                    required
-                    checked={formData.privacyPolicy}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        privacyPolicy: e.target.checked,
-                      })
-                    }
-                  />
-                  {t.privacyPolicy}
-                  <span
-                    className='privacy-policy-link'
-                    onClick={openModal}
-                    style={{
-                      cursor: 'pointer',
-                      textDecoration: 'underline',
-                      color: 'blue',
-                    }}
-                  >
-                    {' '}
-                    {t.privacyPolicyLink}
-                  </span>
-                </label>
-              </div>
               <button type='submit' id='helloButton'>
                 {t.sendMessage}
               </button>
@@ -213,7 +169,6 @@ const Contact = () => {
           </div>
         </div>
       </section>
-      <PrivacyPolicyModal isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
 };

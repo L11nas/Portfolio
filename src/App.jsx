@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
-
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import About from './components/about/About';
@@ -16,6 +15,8 @@ import { ThemeProvider as CustomThemeProvider } from './ThemeContext';
 import MyInspiration from './components/myInspiration/MyInspiration';
 import { LanguageProvider } from './context/LanguageContext';
 import { HelmetProvider } from 'react-helmet-async';
+import CookieConsent from './components/cookieconsent/CookieConsent';
+
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
@@ -23,26 +24,46 @@ const darkTheme = createTheme({
 });
 
 const App = () => {
+  const [showContent, setShowContent] = useState(false);
+
+  useEffect(() => {
+    const consent = localStorage.getItem('cookieConsent');
+    // If the user has already made a choice, show the content
+    if (consent === 'accepted' || consent === 'declined') {
+      setShowContent(true);
+    }
+  }, []);
+
   return (
     <HelmetProvider>
       <LanguageProvider>
-        <ThemeProvider theme={darkTheme}>
-          <CustomThemeProvider>
+        <CustomThemeProvider>
+          <ThemeProvider theme={darkTheme}>
             <CssBaseline />
-            <Header />
-            <main className='main'>
-              <Home />
-              <About />
-              <Skills />
-              <Services />
-              <Work />
-              <MyInspiration />
-              <Contact />
-            </main>
-            <Footer />
-            <ScrollUp />
-          </CustomThemeProvider>
-        </ThemeProvider>
+            <CookieConsent
+              onConsentChange={(consent) => {
+                if (consent) {
+                  setShowContent(true);
+                }
+              }}
+            />
+
+            {showContent && (
+              <main className='main'>
+                <Header />
+                <Home />
+                <About />
+                <Skills />
+                <Services />
+                <Work />
+                <MyInspiration />
+                <Contact />
+              </main>
+            )}
+            {showContent && <Footer />}
+            {showContent && <ScrollUp />}
+          </ThemeProvider>
+        </CustomThemeProvider>
       </LanguageProvider>
     </HelmetProvider>
   );

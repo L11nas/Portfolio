@@ -7,10 +7,34 @@
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
 
+
 <url>
-  <loc>https://linaswebdev.lt/</loc>
+  <loc>https://linaswebdev.lt</loc>
   <lastmod>2025-01-03T07:18:48+00:00</lastmod>
 </url>
-
+<url>
+  <loc>https://linaswebdev.lt/about</loc>
+  <lastmod>2025-01-03T07:18:48+00:00</lastmod>
+</url>
+<url>
+  <loc>https://linaswebdev.lt/skills</loc>
+  <lastmod>2025-01-03T07:18:48+00:00</lastmod>
+</url>
+<url>
+  <loc>https://linaswebdev.lt/services</loc>
+  <lastmod>2025-01-03T07:18:48+00:00</lastmod>
+</url>
+<url>
+  <loc>https://linaswebdev.lt/projects</loc>
+  <lastmod>2025-01-03T07:18:48+00:00</lastmod>
+</url>
+<url>
+  <loc>https://linaswebdev.lt/inspiration</loc>
+  <lastmod>2025-01-03T07:18:48+00:00</lastmod>
+</url>
+<url>
+  <loc>https://linaswebdev.lt/contact</loc>
+  <lastmod>2025-01-03T07:18:48+00:00</lastmod>
+</url>
 
 </urlset>

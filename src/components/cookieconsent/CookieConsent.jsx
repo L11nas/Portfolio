@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
 import PrivacyPolicyModal from '../privacyPolicy/PrivacyPolicyModal';
+import { useLanguage } from '../../context/LanguageContext';
 import './cookieconsent.css';
 
 const GOOGLE_ANALYTICS_ID = 'G-JPV4WJL4C4';
 
 const CookieConsent = ({ onConsentChange }) => {
-  const [isVisible, setIsVisible] = useState(true); // Always show the banner
+  const [isVisible, setIsVisible] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { language } = useLanguage();
 
-  // Remove useEffect - we don't need to check localStorage anymore
   useEffect(() => {
-    //Always show banner
     const timer = setTimeout(() => {
       setIsVisible(true);
     }, 1000);
@@ -42,14 +42,12 @@ const CookieConsent = ({ onConsentChange }) => {
 
   const handleAccept = () => {
     setIsVisible(false);
-    // localStorage.removeItem('cookieConsent'); // Remove persistent storage
     enableGoogleAnalytics();
     onConsentChange(true);
   };
 
   const handleDecline = () => {
     setIsVisible(false);
-    // localStorage.removeItem('cookieConsent'); // Remove persistent storage
     disableGoogleAnalytics();
     onConsentChange(true);
   };
@@ -65,6 +63,27 @@ const CookieConsent = ({ onConsentChange }) => {
 
   if (!isVisible) return null;
 
+  const translations = {
+    LT: {
+      notice: 'Svarbus pranešimas dėl privatumo:',
+      message:
+        'Chrome naršyklė netrukus apribos trečiųjų šalių slapukų naudojimą. Mūsų svetainė naudoja Google Analytics svetainės analizei ir būtinus slapukus funkcionalumui užtikrinti.',
+      privacyPolicy: 'Privatumo politika',
+      allowCookies: 'Leisti slapukus',
+      necessaryOnly: 'Tik būtini slapukai',
+    },
+    EN: {
+      notice: 'Important Privacy Notice:',
+      message:
+        'Chrome will soon restrict the use of third-party cookies. Our website uses Google Analytics for site analysis and essential cookies to ensure functionality.',
+      privacyPolicy: 'Privacy Policy',
+      allowCookies: 'Allow Cookies',
+      necessaryOnly: 'Necessary Only',
+    },
+  };
+
+  const t = translations[language];
+
   return (
     <>
       <PrivacyPolicyModal isOpen={isModalOpen} onClose={handleCloseModal} />
@@ -72,16 +91,13 @@ const CookieConsent = ({ onConsentChange }) => {
       <div className={`cookie-consent-banner ${!isVisible ? 'hidden' : ''}`}>
         <div className='cookie-consent-text'>
           <p>
-            <strong>Svarbus pranešimas dėl privatumo:</strong> Chrome naršyklė
-            netrukus apribos trečiųjų šalių slapukų naudojimą. Mūsų svetainė
-            naudoja Google Analytics (ID: {GOOGLE_ANALYTICS_ID}) svetainės
-            analizei ir būtinus slapukus funkcionalumui užtikrinti.{' '}
+            <strong>{t.notice}</strong> {t.message}{' '}
             <a
               href='#'
               className='cookie-consent-link'
               onClick={handleOpenModal}
             >
-              Privatumo politika
+              {t.privacyPolicy}
             </a>
           </p>
         </div>
@@ -90,16 +106,16 @@ const CookieConsent = ({ onConsentChange }) => {
           <button
             onClick={handleAccept}
             className='cookie-consent-button'
-            aria-label='Sutikti su Analytics slapukų naudojimu'
+            aria-label={t.allowCookies}
           >
-            Leisti Slapukus
+            {t.allowCookies}
           </button>
           <button
             onClick={handleDecline}
             className='cookie-consent-button cookie-consent-decline-button'
-            aria-label='Naudoti tik būtinus slapukus'
+            aria-label={t.necessaryOnly}
           >
-            Tik būtini slapukai
+            {t.necessaryOnly}
           </button>
         </div>
       </div>

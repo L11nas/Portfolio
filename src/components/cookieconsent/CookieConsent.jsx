@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import PrivacyPolicyModal from '../privacyPolicy/PrivacyPolicyModal';
-import './CookieConsent.css';
+import './cookieconsent.css';
 
 const GOOGLE_ANALYTICS_ID = 'G-JPV4WJL4C4';
 

@@ -24,15 +24,15 @@ const darkTheme = createTheme({
 });
 
 const App = () => {
-  const [showContent, setShowContent] = useState(false);
+  // const [showContent, setShowContent] = useState(false); // Remove this state
 
-  useEffect(() => {
-    const consent = localStorage.getItem('cookieConsent');
-    // If the user has already made a choice, show the content
-    if (consent === 'accepted' || consent === 'declined') {
-      setShowContent(true);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const consent = localStorage.getItem('cookieConsent');
+  //   // If the user has already made a choice, show the content
+  //   if (consent === 'accepted' || consent === 'declined') {
+  //     setShowContent(true);
+  //   }
+  // }, []); // Remove this useEffect
 
   return (
     <HelmetProvider>
@@ -40,28 +40,21 @@ const App = () => {
         <CustomThemeProvider>
           <ThemeProvider theme={darkTheme}>
             <CssBaseline />
-            <CookieConsent
-              onConsentChange={(consent) => {
-                if (consent) {
-                  setShowContent(true);
-                }
-              }}
-            />
+            <CookieConsent onConsentChange={(consent) => {}} />
 
-            {showContent && (
-              <main className='main'>
-                <Header />
-                <Home />
-                <About />
-                <Skills />
-                <Services />
-                <Work />
-                <MyInspiration />
-                <Contact />
-              </main>
-            )}
-            {showContent && <Footer />}
-            {showContent && <ScrollUp />}
+            {/* Remove showContent && */}
+            <main className='main'>
+              <Header />
+              <Home />
+              <About />
+              <Skills />
+              <Services />
+              <Work />
+              <MyInspiration />
+              <Contact />
+            </main>
+            <Footer />
+            <ScrollUp />
           </ThemeProvider>
         </CustomThemeProvider>
       </LanguageProvider>

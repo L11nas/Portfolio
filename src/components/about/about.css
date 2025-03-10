@@ -49,13 +49,18 @@
 
 .about__description {
   max-width: 600px;
+  margin: 3rem auto 0; /* Patobulintas margin: top, right/left (auto), bottom */
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.7; /* šiek tiek padidinta eilučių tarpas */
   color: var(--text-color);
-  text-align: center;
-  margin-top: 3rem;
+  text-align: justify;
+  padding: 0 1rem; /* Pridedamas horizontalus padding */
+  /* Pridedama sklandaus perejimo animacija */
+  transition: color 0.3s ease;
 }
-
+.dark-mode .about__description {
+  color: var(--text-color); /* Naudojama text-color iš dark-mode (t.y. #ddd) */
+}
 .about__info {
   display: flex;
   flex-wrap: wrap;
@@ -117,20 +122,25 @@
   .about__box {
     flex: 1 1 100%;
   }
+  .about__description {
+    font-size: 0.95rem; /* šiek tiek sumažintas šriftas */
+    line-height: 1.6; /* Pakoreguotas eiluciu tarpas */
+    margin-top: 2rem; /* Sumažinta viršutinė paraštė */
+  }
 }
 
 @media screen and (max-width: 576px) {
   .about__info {
     justify-content: center;
   }
-
+  .about__description {
+    font-size: 0.9rem; /* Dar labiau sumažintas šriftas */
+    line-height: 1.5; /* Pakoreguotas eiluciu tarpas */
+    margin-top: 1.5rem; /* Dar labiau sumažinta viršutinė paraštė */
+    padding: 0.5rem;
+  }
   .about__box {
     flex: 1 1 100%;
-  }
-
-  .about__description {
-    font-size: 0.9rem;
-    padding: 0.5rem;
   }
 }
 
@@ -150,7 +160,10 @@
 
   .about__description {
     font-size: 0.85rem;
-    padding: 0.5rem;
+
+    font-size: 0.85rem; /* dar labiau sumažintas šriftas */
+    margin-top: 1rem;
+    padding: 0 0.5rem;
   }
 
   .about__box {

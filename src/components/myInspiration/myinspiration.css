@@ -5,6 +5,9 @@
   font-size: var(--h1-font-size);
   padding: 3em;
 }
+#inspiration {
+  color: #333;
+}
 .inspiration-description {
   display: flex;
   align-items: center;

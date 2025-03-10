@@ -92,7 +92,7 @@ const CookieConsent = ({ onConsentChange }) => {
             className='cookie-consent-button'
             aria-label='Sutikti su Analytics slapukų naudojimu'
           >
-            Leisti Analytics
+            Leisti Slapukus
           </button>
           <button
             onClick={handleDecline}

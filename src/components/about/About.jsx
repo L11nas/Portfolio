@@ -32,11 +32,20 @@ Dirbu atsakingai ir patikimai. Jei ieškote modernios, efektyvios ir profesional
     EN: {
       title: 'About Me',
       subtitle: 'Front-end Developer',
-      description: `As a junior front-end developer, I specialize in creating
-                    clean and functional designs tailored for both desktop
-                    and mobile devices. I enjoy building dynamic solutions using
-                    HTML, CSS, JavaScript, and React.`,
+      description: `Professional website development and adaptation for mobile devices.
+
+I specialize in creating clean, functional and modern website designs that are optimized for both desktop and mobile devices. I work with HTML, CSS, JavaScript and React, so I can make sure your website is fast, user friendly and SEO optimized.
+
+What do I offer?
+
+✔️ Website development - from design to full operation
+✔️ Responsive design – your website will look great on all devices
+✔️ Customized features - according to your business needs
+✔️ Google Analytics integration - monitor visitor traffic and behavior
+
+I work responsibly and reliably. If you are looking for a modern, efficient and professional website, get in touch!`,
       pageTitle: 'About Me | Linaswebdev',
+
       metaDescription:
         'Learn about Linaswebdev as a front-end developer, his experience, and achievements.',
     },

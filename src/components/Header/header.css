@@ -1,6 +1,6 @@
 .header {
   width: 100%;
-  position: sticky;
+  position: fixed; /* Pakeista iš sticky į fixed */
   top: 0;
   padding: 10px;
   left: 0;
@@ -8,6 +8,7 @@
   background-color: #d3cba4;
   color: #fff;
   transition: background-color 0.3s ease;
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.2); /* Pridedamas shadow, kad išsiskirtų */
 }
 .logo-text {
   font-size: 1.5rem;

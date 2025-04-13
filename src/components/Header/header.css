@@ -77,7 +77,6 @@
   text-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
 }
 
-/* Desktop Navigation */
 .desktop-nav {
   display: flex;
   justify-content: center;
@@ -134,7 +133,6 @@
   color: #007bff;
 }
 
-/* Mobile Navigation */
 .mobile-nav {
   display: none;
   width: 100%;
@@ -152,6 +150,7 @@
 .mobile-nav.open {
   max-height: 100vh;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: block;
 }
 
 .mobile-nav__list {
@@ -192,7 +191,6 @@
   color: #fff;
 }
 
-/* Theme Toggle */
 .dark-mode-toggle {
   display: flex;
   align-items: center;
@@ -213,7 +211,6 @@
   text-shadow: 0 0 4px rgba(255, 204, 0, 0.6);
 }
 
-/* Language Toggle */
 .language-toggle button {
   background: none;
   border: 2px solid #333;
@@ -241,10 +238,9 @@
   color: #000;
 }
 
-/* Hamburger Toggle */
 .nav__toggle {
   display: none;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   cursor: pointer;
   color: #333;
   transition: all 0.3s ease;
@@ -258,7 +254,6 @@
   transform: scale(1.1);
 }
 
-/* Media Queries */
 @media screen and (max-width: 1024px) {
   .desktop-nav {
     display: none;

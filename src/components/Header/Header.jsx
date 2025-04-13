@@ -1,3 +1,4 @@
+// Header.jsx (atnaujinta su geresniu mobilumo palaikymu)
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useDarkMode } from '../../ThemeContext';
@@ -23,7 +24,6 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close menu when window is resized above mobile breakpoint
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 1024 && menuOpen) {
@@ -32,6 +32,11 @@ const Header = () => {
     };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
+  }, [menuOpen]);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : 'auto';
+    return () => (document.body.style.overflow = 'auto');
   }, [menuOpen]);
 
   const sections = [
@@ -81,35 +86,34 @@ const Header = () => {
     }
   };
 
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <>
       <Helmet>
         <title>
-          {language === 'LT' ? 'Linaswebdev | Pradžia' : 'Linaswebdev | Home'}
+          {language === 'LT'
+            ? 'LinasWebDev | Profesionalus svetainių kūrimas'
+            : 'LinasWebDev | Professional Website Development'}
         </title>
         <meta
           name='description'
           content={
             language === 'LT'
-              ? 'Sveiki atvykę į Linaswebdev svetainę. Atraskite mano paslaugas, įgūdžius ir portfolio.'
-              : 'Welcome to Linaswebdev. Discover my services, skills, and portfolio.'
+              ? 'Profesionalus svetainių kūrimas ir dizainas. Modernus, greitai veikiantis ir funkcionalus web dizainas verslui ir asmeniniam naudojimui.'
+              : 'Professional website development and design. Modern, fast and functional web design for business and personal use.'
           }
         />
-        <meta
-          name='keywords'
-          content='Web Development, Portfolio, Services, Skills, React, Frontend'
-        />
-        <meta name='author' content='Linas Ulevičius' />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-        <meta charSet='UTF-8' />
-        <link rel='canonical' href='https://linaswebdev.lt' />
       </Helmet>
 
       <header className={`header ${darkMode ? 'dark-mode' : ''}`}>
         <nav className='nav container'>
           <div className='nav__left'>
             <a href='#home' className='nav__logo'>
-              <span className='logo-text gradient-logo'>Linaswebdev</span>
+              <span className='logo-text gradient-logo'>LinasWebDev</span>
             </a>
           </div>
 
@@ -118,28 +122,25 @@ const Header = () => {
               <div
                 className='dark-mode-toggle'
                 onClick={toggleDarkMode}
-                aria-label='Toggle theme'
+                aria-label={
+                  darkMode
+                    ? 'Perjungti į šviesų režimą'
+                    : 'Perjungti į tamsų režimą'
+                }
               >
                 <i className={`bx ${darkMode ? 'bx-sun' : 'bx-moon'}`}></i>
-                <span className='toggle-text'>
-                  {darkMode
-                    ? language === 'LT'
-                      ? 'Šviesus režimas'
-                      : 'Light Mode'
-                    : language === 'LT'
-                    ? 'Tamsus režimas'
-                    : 'Dark Mode'}
-                </span>
               </div>
               <div className='language-toggle'>
-                <button onClick={toggleLanguage} aria-label='Toggle language'>
+                <button onClick={toggleLanguage}>
                   {language === 'LT' ? 'EN' : 'LT'}
                 </button>
               </div>
               <div
                 className='nav__toggle'
-                onClick={() => setMenuOpen(!menuOpen)}
-                aria-label='Toggle menu'
+                onClick={toggleMenu}
+                aria-expanded={menuOpen}
+                aria-controls='mobile-nav'
+                aria-label={menuOpen ? 'Uždaryti meniu' : 'Atidaryti meniu'}
               >
                 <i className={`bx ${menuOpen ? 'bx-x' : 'bx-menu'}`}></i>
               </div>
@@ -147,14 +148,16 @@ const Header = () => {
           </div>
         </nav>
 
-        {/* Mobile navigation menu */}
-        <div className={`mobile-nav ${menuOpen ? 'open' : ''}`}>
+        <div className={`mobile-nav ${menuOpen ? 'open' : ''}`} id='mobile-nav'>
           <ul className='mobile-nav__list'>
             {sections.map((section) => (
               <li className='mobile-nav__item' key={section.id}>
                 <a
                   href={section.id}
-                  onClick={() => handleNavigation(section.id)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavigation(section.id);
+                  }}
                   className={`mobile-nav__link ${
                     activeNav === section.id ? 'active__link' : ''
                   }`}
@@ -167,14 +170,16 @@ const Header = () => {
           </ul>
         </div>
 
-        {/* Desktop navigation menu */}
         <div className='desktop-nav'>
           <ul className='nav__list'>
             {sections.map((section) => (
               <li className='nav__item' key={section.id}>
                 <a
                   href={section.id}
-                  onClick={() => handleNavigation(section.id)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavigation(section.id);
+                  }}
                   className={`nav__link ${
                     activeNav === section.id ? 'active__link' : ''
                   }`}

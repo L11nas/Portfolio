@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import './footer.css';
 import { useDarkMode } from '../../ThemeContext';
 import { useLanguage } from '../../context/LanguageContext';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const { darkMode } = useDarkMode();
@@ -17,10 +18,10 @@ const Footer = () => {
   // Vertimų objektas
   const translations = {
     LT: {
-      title: 'Linas',
-      subtitle: 'Front-end programuotojas',
-      about: 'Apie',
-      skills: 'Įgūdžiai',
+      title: 'LinasWebDev',
+      subtitle: 'Profesionalus svetainių kūrimas',
+      about: 'Apie mane',
+      skills: 'Technologijos',
       services: 'Paslaugos',
       projects: 'Projektai',
       inspiration: 'Įkvėpimas',
@@ -28,13 +29,22 @@ const Footer = () => {
       facebookTitle: 'Sekite mane Facebook',
       linkedinTitle: 'Sekite mane LinkedIn',
       githubTitle: 'Sekite mane GitHub',
-      copyright: 'Visos teisės saugomos © 2023-2024 Linas',
+      copyright: `Visos teisės saugomos © 2023-${new Date().getFullYear()} Linas Ulevičius`,
+      privacyPolicy: 'Privatumo politika',
+      termsOfService: 'Naudojimosi taisyklės',
+      websiteCreation: 'Svetainių kūrimas',
+      webDesign: 'Web dizainas',
+      eCommerce: 'El. parduotuvės',
+      seo: 'SEO optimizacija',
+      development: 'Vystymas',
+      support: 'Priežiūra',
+      services_title: 'Paslaugos',
     },
     EN: {
-      title: 'Linas',
-      subtitle: 'Front-end Developer',
-      about: 'About',
-      skills: 'Skills',
+      title: 'LinasWebDev',
+      subtitle: 'Professional Website Development',
+      about: 'About me',
+      skills: 'Technologies',
       services: 'Services',
       projects: 'Projects',
       inspiration: 'Inspiration',
@@ -42,15 +52,33 @@ const Footer = () => {
       facebookTitle: 'Follow me on Facebook',
       linkedinTitle: 'Follow me on LinkedIn',
       githubTitle: 'Follow me on GitHub',
-      copyright: 'All rights reserved © 2023-2024 Linas Ulevičius',
+      copyright: `All rights reserved © 2023-${new Date().getFullYear()} Linas`,
+      privacyPolicy: 'Privacy Policy',
+      termsOfService: 'Terms of Service',
+      websiteCreation: 'Website Creation',
+      webDesign: 'Web Design',
+      eCommerce: 'E-Commerce',
+      seo: 'SEO Optimization',
+      development: 'Development',
+      support: 'Maintenance',
+      services_title: 'Services',
     },
   };
 
   const t = translations[language];
-  const currentYear = new Date().getFullYear();
+
+  const handleScrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
 
   return (
-    <footer className={`footer ${darkMode ? 'dark-mode' : ''}`}>
+    <footer
+      className={`footer ${darkMode ? 'dark-mode' : ''}`}
+      role='contentinfo'
+    >
       <div className='footer__container container'>
         <div className='footer__content'>
           <div
@@ -58,8 +86,23 @@ const Footer = () => {
             data-aos='fade-right'
             data-aos-delay='100'
           >
-            <h1 className='footer__title'>{t.title}</h1>
+            <h2 className='footer__title'>{t.title}</h2>
             <p className='footer__subtitle'>{t.subtitle}</p>
+            <p className='footer__description'>
+              {language === 'LT'
+                ? 'Kuriu modernias, greitai veikiančias ir funkcionalias svetaines verslui ir asmeniniam naudojimui.'
+                : 'Creating modern, fast-loading, and functional websites for business and personal use.'}
+            </p>
+            <button
+              onClick={handleScrollToTop}
+              className='footer__scroll-top'
+              aria-label={
+                language === 'LT' ? 'Grįžti į viršų' : 'Scroll to top'
+              }
+            >
+              <i className='bx bx-chevron-up'></i>
+              {language === 'LT' ? 'Grįžti į viršų' : 'Back to top'}
+            </button>
           </div>
 
           <div
@@ -70,7 +113,11 @@ const Footer = () => {
             <h3 className='footer__links-title'>
               {language === 'LT' ? 'Navigacija' : 'Navigation'}
             </h3>
-            <nav>
+            <nav
+              aria-label={
+                language === 'LT' ? 'Puslapio navigacija' : 'Site navigation'
+              }
+            >
               <ul className='footer__list'>
                 <li>
                   <a href='#about' className='footer__link'>
@@ -104,6 +151,46 @@ const Footer = () => {
                 </li>
               </ul>
             </nav>
+          </div>
+
+          <div
+            className='footer__services'
+            data-aos='fade-up'
+            data-aos-delay='250'
+          >
+            <h3 className='footer__services-title'>{t.services_title}</h3>
+            <ul className='footer__services-list'>
+              <li>
+                <a href='#services' className='footer__service-link'>
+                  {t.websiteCreation}
+                </a>
+              </li>
+              <li>
+                <a href='#services' className='footer__service-link'>
+                  {t.webDesign}
+                </a>
+              </li>
+              <li>
+                <a href='#services' className='footer__service-link'>
+                  {t.eCommerce}
+                </a>
+              </li>
+              <li>
+                <a href='#services' className='footer__service-link'>
+                  {t.seo}
+                </a>
+              </li>
+              <li>
+                <a href='#services' className='footer__service-link'>
+                  {t.development}
+                </a>
+              </li>
+              <li>
+                <a href='#services' className='footer__service-link'>
+                  {t.support}
+                </a>
+              </li>
+            </ul>
           </div>
 
           <div
@@ -151,6 +238,47 @@ const Footer = () => {
 
         <div className='footer__bottom' data-aos='fade-up' data-aos-delay='400'>
           <span className='footer__copy'>{t.copyright}</span>
+          <div className='footer__legal'>
+            <a href='/privacy-policy' className='footer__legal-link'>
+              {t.privacyPolicy}
+            </a>
+            <a href='/terms-of-service' className='footer__legal-link'>
+              {t.termsOfService}
+            </a>
+          </div>
+        </div>
+
+        {/* Schema.org structured data (hidden) */}
+        <div
+          className='footer__schema'
+          itemScope
+          itemType='http://schema.org/Organization'
+        >
+          <meta itemProp='name' content='LinasWebDev' />
+          <meta
+            itemProp='description'
+            content={
+              language === 'LT'
+                ? 'Profesionalus svetainių kūrimas ir web dizaino paslaugos Lietuvoje'
+                : 'Professional website development and web design services'
+            }
+          />
+          <link itemProp='url' href='https://www.linaswebdev.lt' />
+          <link itemProp='logo' href='https://www.linaswebdev.lt/logo.jpg' />
+          <div
+            itemProp='address'
+            itemScope
+            itemType='http://schema.org/PostalAddress'
+          >
+            <meta itemProp='addressCountry' content='LT' />
+          </div>
+          <meta itemProp='email' content='linaswebdev@email.com' />
+          <link itemProp='sameAs' href='https://www.facebook.com' />
+          <link
+            itemProp='sameAs'
+            href='https://lt.linkedin.com/in/linas-ulevi%C4%8Dius-48366113b'
+          />
+          <link itemProp='sameAs' href='https://github.com/L11nas' />
         </div>
       </div>
     </footer>

@@ -46,23 +46,26 @@
   transform: translateY(-4px);
 }
 
-/* Profile Image */
+/* Profile Image - Optimized for LCP */
 .home__img-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 300px;
+  height: 300px;
+  position: relative;
+  border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 9px rgb(255 255 255 / 30%);
+  animation: profile__animate 8s ease-in-out infinite 1s;
+  order: 1;
+  justify-self: center;
+  background-color: #f0f0f0; /* Placeholder color while image loads */
 }
 
 .home__img {
-  background: url(/src/assets/portfolio.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  box-shadow: inset 0 0 0 9px rgba(255, 255, 255, 0.3);
-  width: 320px;
-  height: 320px;
-  animation: profile__animate 8s ease-in-out infinite 1s;
-  transition: box-shadow 0.3s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 @keyframes profile__animate {
@@ -229,8 +232,9 @@
   color: #fff;
 }
 
-.dark-mode .home__img {
+.dark-mode .home__img-container {
   box-shadow: inset 0 0 0 9px rgba(255, 255, 255, 0.15);
+  background-color: #333; /* Darker placeholder while image loads */
 }
 
 .dark-mode #helloButton {
@@ -265,13 +269,13 @@
     margin-bottom: 2rem;
   }
 
-  .home__img {
+  .home__img-container {
     width: 280px;
     height: 280px;
     box-shadow: inset 0 0 0 8px rgba(255, 255, 255, 0.3);
   }
 
-  .dark-mode .home__img {
+  .dark-mode .home__img-container {
     box-shadow: inset 0 0 0 8px rgba(255, 255, 255, 0.15);
   }
 
@@ -303,14 +307,14 @@
     justify-content: center;
   }
 
-  .home__img {
+  .home__img-container {
     width: 250px;
     height: 250px;
     margin: 0 auto;
     box-shadow: inset 0 0 0 6px rgba(255, 255, 255, 0.3);
   }
 
-  .dark-mode .home__img {
+  .dark-mode .home__img-container {
     box-shadow: inset 0 0 0 6px rgba(255, 255, 255, 0.15);
   }
 
@@ -349,7 +353,7 @@
     padding-top: 4rem;
   }
 
-  .home__img {
+  .home__img-container {
     width: 220px;
     height: 220px;
   }
@@ -373,13 +377,13 @@
 }
 
 @media screen and (max-width: 360px) {
-  .home__img {
+  .home__img-container {
     width: 180px;
     height: 180px;
     box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.3);
   }
 
-  .dark-mode .home__img {
+  .dark-mode .home__img-container {
     box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.15);
   }
 

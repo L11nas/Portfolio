@@ -1,3 +1,4 @@
+// TextContent.jsx
 import React from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import { useDarkMode } from '../../ThemeContext';
@@ -9,29 +10,27 @@ const TextContent = () => {
 
   const translations = {
     LT: {
-      heading:
-        'Profesionalus svetainių kūrimas ir pritaikymas mobiliesiems įrenginiams',
+      heading: 'Profesionalus svetainių kūrimas visoms platformoms',
       paragraph:
-        'Specializuojuosi kuriant švarius, funkcionalius ir modernius svetainių dizainus, pritaikytus tiek stacionariems, tiek mobiliems įrenginiams. Dirbu su HTML, CSS, JavaScript ir React – užtikrinu greitą, patogią ir SEO optimizuotą svetainę.',
+        'Esu svetainių kūrimo specialistas, kuris sukuria patrauklias, greitai veikiančias ir funkcionalias svetaines verslui ir asmeniniam naudojimui. Naudoju HTML, CSS, JavaScript ir React technologijas, užtikrindamas jūsų svetainės optimalų veikimą visuose įrenginiuose ir aukštą poziciją paieškos sistemose.',
       features: [
-        'Šiuolaikiškas dizainas',
-        'Responsyvus pritaikymas',
-        'Greitas veikimas',
-        'SEO optimizacija',
-        'Patogus valdymas',
+        'Modernus ir unikalus dizainas',
+        'Pilnas pritaikymas mobiliesiems įrenginiams',
+        'Greitas puslapių krovimosi laikas',
+        'Google paieškos sistemai optimizuotas turinys',
+        'Intuityvi vartotojo sąsaja ir patogus valdymas',
       ],
     },
     EN: {
-      heading:
-        'Professional website development and adaptation for mobile devices',
+      heading: 'Professional website development for all platforms',
       paragraph:
-        'I specialize in creating clean, functional and modern website designs that are optimized for both desktop and mobile devices. I work with HTML, CSS, JavaScript and React – ensuring a fast, user-friendly, and SEO-optimized website.',
+        'I am a website development specialist who creates attractive, fast-loading, and functional websites for business and personal use. Using HTML, CSS, JavaScript, and React technologies, I ensure your website performs optimally on all devices and ranks high in search engines.',
       features: [
-        'Modern design',
-        'Responsive adaptation',
-        'Fast performance',
-        'SEO optimization',
-        'User-friendly management',
+        'Modern and unique design',
+        'Fully responsive on all devices',
+        'Fast page loading speed',
+        'Google search engine optimized content',
+        'Intuitive user interface and easy management',
       ],
     },
   };
@@ -39,10 +38,14 @@ const TextContent = () => {
   const t = translations[language] || translations.LT;
 
   return (
-    <div className={`text-content-container ${darkMode ? 'dark-mode' : ''}`}>
+    <section
+      className={`text-content-container ${darkMode ? 'dark-mode' : ''}`}
+      aria-labelledby='services-heading'
+    >
       <div className='text-content-inner' data-aos='fade-up'>
-        <h2 className='text-content-heading'>{t.heading}</h2>
-
+        <h2 id='services-heading' className='text-content-heading'>
+          {t.heading}
+        </h2>
         <div className='text-content-body'>
           <p
             className='text-content-paragraph'
@@ -51,7 +54,6 @@ const TextContent = () => {
           >
             {t.paragraph}
           </p>
-
           <div
             className='text-content-features'
             data-aos='fade-up'
@@ -64,7 +66,7 @@ const TextContent = () => {
                 data-aos='fade-right'
                 data-aos-delay={400 + index * 100}
               >
-                <span className='feature-icon'>
+                <span className='feature-icon' aria-hidden='true'>
                   <i className='bx bx-check'></i>
                 </span>
                 <span className='feature-text'>{feature}</span>
@@ -73,7 +75,7 @@ const TextContent = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

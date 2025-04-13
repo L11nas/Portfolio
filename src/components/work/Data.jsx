@@ -1,52 +1,75 @@
-import Work2 from '/Portfoliogit.png';
-import Work4 from '/womenshoe.jpg';
-import work5 from '/img/2.png';
-import work6 from '/img/runweb.jpg';
+import React from 'react';
+import './work.css';
 
-export const projectsData = [
-  {
-    id: 2,
-    image: Work2,
-    title: 'Portfolio',
-    category: 'Pages',
-    categoryLT: 'Puslapiai', // Added Lithuanian category
-    Link: 'https://linaswebdev.netlify.app',
-    githubLink: 'https://github.com/L11nas/Portfolio.git',
-  },
-  {
-    id: 4,
-    image: Work4,
-    title: 'Shoe Sale Banner',
-    category: 'Banners',
-    categoryLT: 'Baneriai', // Added Lithuanian category
-    Link: 'https://l11nas.github.io/Baneris/',
-    githubLink: 'https://github.com/L11nas/Baneris.git',
-  },
-  {
-    id: 5,
-    image: work5,
-    title: 'Design Project', // Added title for consistency
-    category: 'Design',
-    categoryLT: 'Dizainas', // Added Lithuanian category
-    statusLT: 'Ruošiama',
-    status: 'Still in preparation',
-    Link: '', // Placeholder for link
-    githubLink: '', // Placeholder for GitHub link
-  },
-  {
-    id: 6,
-    image: work6,
-    title: 'Running Plan Page',
-    category: 'Pages',
-    categoryLT: 'Bėgimo plano puslapis', // Added Lithuanian category
-    Link: 'https://begimoplanas.netlify.app/',
-    githubLink: 'https://github.com/L11nas/Runwebas.git',
-  },
-];
+const WorkItems = ({ item, language }) => {
+  const projectTitle =
+    language === 'LT' ? item.titleLT || item.title : item.title;
+  const projectDescription =
+    language === 'LT'
+      ? item.descriptionLT || item.description
+      : item.description;
+  const viewText = language === 'LT' ? 'Atidaryti' : 'Visit Site';
 
-export const projectsNav = [
-  { key: 'filter.all', nameLT: 'Visi', nameEN: 'All' },
-  { key: 'filter.pages', nameLT: 'Puslapiai', nameEN: 'Pages' },
-  { key: 'filter.banners', nameLT: 'Baneriai', nameEN: 'Banners' },
-  { key: 'filter.design', nameLT: 'Dizainas', nameEN: 'Design' },
-];
+  return (
+    <article className='project__card'>
+      <div className='project__image-container'>
+        {item.preview ? (
+          <div className='project__preview'>
+            <iframe
+              src={item.url}
+              title={projectTitle}
+              className='project__iframe'
+              loading='lazy'
+              sandbox='allow-same-origin'
+            />
+            <div className='project__preview-overlay'>
+              <span className='project__preview-text'>
+                {language === 'LT' ? 'Apsilankyti' : 'Visit Website'}
+              </span>
+            </div>
+          </div>
+        ) : (
+          <img
+            src={item.image}
+            alt={`${projectTitle} - ${
+              language === 'LT' ? 'Projektas' : 'Project'
+            }`}
+            className='project__img'
+            loading='lazy'
+          />
+        )}
+      </div>
+
+      <div className='project__content'>
+        <h3 className='project__title'>{projectTitle}</h3>
+
+        {projectDescription && (
+          <p className='project__description'>{projectDescription}</p>
+        )}
+
+        <div className='project__category'>
+          <span className='project__category-tag'>
+            {language === 'LT' ? item.categoryLT : item.category}
+          </span>
+        </div>
+
+        <div className='project__actions'>
+          {item.Link && (
+            <a
+              href={item.Link}
+              className='project__button project__demo-button'
+              target='_blank'
+              rel='noopener noreferrer'
+              aria-label={`${viewText} ${projectTitle}`}
+            >
+              <i className='bx bx-link-external'></i>
+              {viewText}
+            </a>
+          )}
+        </div>
+      </div>
+    </article>
+  );
+};
+
+export default WorkItems;

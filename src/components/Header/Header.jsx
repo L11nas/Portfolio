@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useDarkMode } from '../../ThemeContext';
 import { useLanguage } from '../../context/LanguageContext';
@@ -9,6 +9,30 @@ const Header = () => {
   const { language, toggleLanguage } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeNav, setActiveNav] = useState('#home');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const header = document.querySelector('.header');
+      if (window.scrollY > 50) {
+        header.classList.add('scroll-header', 'shrink');
+      } else {
+        header.classList.remove('scroll-header', 'shrink');
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Close menu when window is resized above mobile breakpoint
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 1024 && menuOpen) {
+        setMenuOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [menuOpen]);
 
   const sections = [
     {
@@ -59,7 +83,6 @@ const Header = () => {
 
   return (
     <>
-      {/* SEO Metadata */}
       <Helmet>
         <title>
           {language === 'LT' ? 'Linaswebdev | Pradžia' : 'Linaswebdev | Home'}
@@ -82,62 +105,87 @@ const Header = () => {
         <link rel='canonical' href='https://linaswebdev.lt' />
       </Helmet>
 
-      {/* Header Section */}
       <header className={`header ${darkMode ? 'dark-mode' : ''}`}>
         <nav className='nav container'>
-          <a href='#home' className='nav__logo'>
-            <span className='logo-text'>Linaswebdev</span>
-          </a>
-
-          {/* Dark/Light Mode Toggle */}
-          <div className='dark-mode-toggle' onClick={toggleDarkMode}>
-            <i className={`bx ${darkMode ? 'bx-sun' : 'bx-moon'}`}></i>
-            <span>
-              {darkMode
-                ? language === 'LT'
-                  ? 'Šviesus režimas'
-                  : 'Light Mode'
-                : language === 'LT'
-                ? 'Tamsus režimas'
-                : 'Dark Mode'}
-            </span>
+          <div className='nav__left'>
+            <a href='#home' className='nav__logo'>
+              <span className='logo-text gradient-logo'>Linaswebdev</span>
+            </a>
           </div>
 
-          {/* Language Toggle */}
-          <div className='language-toggle'>
-            <button onClick={toggleLanguage}>
-              {language === 'LT' ? 'EN' : 'LT'}
-            </button>
-          </div>
-
-          {/* Menu Toggle */}
-          <div className='nav__toggle' onClick={() => setMenuOpen(!menuOpen)}>
-            <i className='bx bx-menu'></i>
-          </div>
-
-          <div className={menuOpen ? 'nav__menu show-menu' : 'nav__menu'}>
-            <i
-              className='bx bx-x nav__close'
-              onClick={() => setMenuOpen(false)}
-            ></i>
-            <ul className='nav__list grid'>
-              {sections.map((section) => (
-                <li className='nav__item' key={section.id}>
-                  <a
-                    href={section.id}
-                    onClick={() => handleNavigation(section.id)}
-                    className={`nav__link ${
-                      activeNav === section.id ? 'active__link' : ''
-                    }`}
-                  >
-                    <i className={`bx ${section.icon} nav__icon`}></i>
-                    {section.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+          <div className='nav__right'>
+            <div className='nav__buttons'>
+              <div
+                className='dark-mode-toggle'
+                onClick={toggleDarkMode}
+                aria-label='Toggle theme'
+              >
+                <i className={`bx ${darkMode ? 'bx-sun' : 'bx-moon'}`}></i>
+                <span className='toggle-text'>
+                  {darkMode
+                    ? language === 'LT'
+                      ? 'Šviesus režimas'
+                      : 'Light Mode'
+                    : language === 'LT'
+                    ? 'Tamsus režimas'
+                    : 'Dark Mode'}
+                </span>
+              </div>
+              <div className='language-toggle'>
+                <button onClick={toggleLanguage} aria-label='Toggle language'>
+                  {language === 'LT' ? 'EN' : 'LT'}
+                </button>
+              </div>
+              <div
+                className='nav__toggle'
+                onClick={() => setMenuOpen(!menuOpen)}
+                aria-label='Toggle menu'
+              >
+                <i className={`bx ${menuOpen ? 'bx-x' : 'bx-menu'}`}></i>
+              </div>
+            </div>
           </div>
         </nav>
+
+        {/* Mobile navigation menu */}
+        <div className={`mobile-nav ${menuOpen ? 'open' : ''}`}>
+          <ul className='mobile-nav__list'>
+            {sections.map((section) => (
+              <li className='mobile-nav__item' key={section.id}>
+                <a
+                  href={section.id}
+                  onClick={() => handleNavigation(section.id)}
+                  className={`mobile-nav__link ${
+                    activeNav === section.id ? 'active__link' : ''
+                  }`}
+                >
+                  <i className={`bx ${section.icon} nav__icon`}></i>
+                  {section.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Desktop navigation menu */}
+        <div className='desktop-nav'>
+          <ul className='nav__list'>
+            {sections.map((section) => (
+              <li className='nav__item' key={section.id}>
+                <a
+                  href={section.id}
+                  onClick={() => handleNavigation(section.id)}
+                  className={`nav__link ${
+                    activeNav === section.id ? 'active__link' : ''
+                  }`}
+                >
+                  <i className={`bx ${section.icon} nav__icon`}></i>
+                  {section.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </header>
     </>
   );

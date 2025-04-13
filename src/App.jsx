@@ -1,4 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react'; // 👈 čia reikia importuoti useEffect
+import AOS from 'aos'; // 👈 čia reikia importuoti AOS
+import 'aos/dist/aos.css';
+
 import './App.css';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
@@ -17,45 +20,33 @@ import { LanguageProvider } from './context/LanguageContext';
 import { HelmetProvider } from 'react-helmet-async';
 import CookieConsent from './components/cookieconsent/CookieConsent';
 
-const darkTheme = createTheme({
-  palette: {
-    mode: 'dark',
-  },
-});
-
 const App = () => {
-  // const [showContent, setShowContent] = useState(false); // Remove this state
-
-  // useEffect(() => {
-  //   const consent = localStorage.getItem('cookieConsent');
-  //   // If the user has already made a choice, show the content
-  //   if (consent === 'accepted' || consent === 'declined') {
-  //     setShowContent(true);
-  //   }
-  // }, []); // Remove this useEffect
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+      offset: 100,
+    });
+  }, []);
 
   return (
     <HelmetProvider>
       <LanguageProvider>
         <CustomThemeProvider>
-          <ThemeProvider theme={darkTheme}>
-            <CssBaseline />
-            <CookieConsent onConsentChange={(consent) => {}} />
-
-            {/* Remove showContent && */}
-            <main className='main'>
-              <Header />
-              <Home />
-              <About />
-              <Skills />
-              <Services />
-              <Work />
-              <MyInspiration />
-              <Contact />
-            </main>
-            <Footer />
-            <ScrollUp />
-          </ThemeProvider>
+          <CookieConsent onConsentChange={(consent) => {}} />
+          <main className='main'>
+            <Header />
+            <Home />
+            <About />
+            <Skills />
+            <Services />
+            <Work />
+            <MyInspiration />
+            <Contact />
+          </main>
+          <Footer />
+          <ScrollUp />
         </CustomThemeProvider>
       </LanguageProvider>
     </HelmetProvider>

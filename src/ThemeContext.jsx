@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import {
   createTheme,
   ThemeProvider as MuiThemeProvider,
@@ -14,6 +14,10 @@ export const ThemeProvider = ({ children }) => {
     setDarkMode((prevMode) => !prevMode);
   };
 
+  useEffect(() => {
+    document.body.classList.toggle('dark-mode', darkMode);
+  }, [darkMode]);
+
   const darkTheme = createTheme({
     palette: {
       mode: darkMode ? 'dark' : 'light',
@@ -22,7 +26,6 @@ export const ThemeProvider = ({ children }) => {
 
   return (
     <ThemeContext.Provider value={{ darkMode, toggleDarkMode }}>
-      {/* Apklijuok visus komponentus su MuiThemeProvider ir pritaikyk tema */}
       <MuiThemeProvider theme={darkTheme}>
         <CssBaseline />
         {children}

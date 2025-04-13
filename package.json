@@ -19,6 +19,7 @@
     "@mui/icons-material": "^5.14.16",
     "@mui/material": "^5.16.7",
     "@mui/system": "^5.14.18",
+    "aos": "^2.3.4",
     "boxicons": "^2.1.4",
     "dompurify": "^3.2.3",
     "emailjs-com": "^3.2.0",

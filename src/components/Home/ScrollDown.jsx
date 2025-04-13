@@ -1,45 +1,48 @@
 import React from 'react';
-import scrollSvg from '/scroll-down.svg';
 import { useLanguage } from '../../context/LanguageContext';
+import { useDarkMode } from '../../ThemeContext';
+import './scrollDown .css'; // Make sure this matches the exact filename
 
 const ScrollDown = () => {
   const { language } = useLanguage();
+  const { darkMode } = useDarkMode();
 
-  // Translation object
   const translations = {
     LT: {
-      scrollName: 'Slinkite žemyn',
-      ariaLabel: 'slinkti žemyn į Apie skyrių',
+      scrollText: 'Slinkite žemyn',
     },
     EN: {
-      scrollName: 'Scroll Down',
-      ariaLabel: 'scroll down to About Section',
+      scrollText: 'Scroll down',
     },
   };
 
-  const t = translations[language];
+  const t = translations[language] || translations.EN;
 
-  const handleScroll = (event) => {
-    event.preventDefault(); // Prevent default anchor click behavior
-    const targetSection = document.querySelector('#about');
-    if (targetSection) {
-      targetSection.scrollIntoView({ behavior: 'smooth' });
+  const scrollToNextSection = () => {
+    const aboutSection = document.querySelector('#about');
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
-    <div className='home__scroll'>
-      <a
-        href='#Apie'
-        className='home__scroll-button button--flex'
-        aria-label={t.ariaLabel}
-        onClick={handleScroll} // Use the handleScroll function
-        tabIndex='0'
+    <div
+      className={`scroll-down-container ${darkMode ? 'dark-mode' : ''}`}
+      data-aos='fade-up'
+      data-aos-delay='800'
+    >
+      <button
+        className='scroll-down-button'
+        onClick={scrollToNextSection}
+        aria-label={t.scrollText}
       >
-        <img src={scrollSvg} alt='Scroll Down' className='home__scroll-arrow' />
-        <span className='home__scroll-name'>{t.scrollName}</span>
-        <i className='uil uil-arrow-down home__scroll-arrow'></i>
-      </a>
+        <div className='scroll-down-text'>{t.scrollText}</div>
+        <div className='scroll-down-arrow'>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
     </div>
   );
 };

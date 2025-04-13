@@ -10,6 +10,13 @@ const Skills = () => {
   const { darkMode } = useDarkMode();
   const { language } = useLanguage();
 
+  // Ensure AOS animations work properly
+  React.useEffect(() => {
+    if (window.AOS) {
+      window.AOS.refresh();
+    }
+  }, []);
+
   const translations = {
     LT: {
       sectionTitle: 'Įgūdžiai',
@@ -45,16 +52,27 @@ const Skills = () => {
       </Helmet>
 
       <div className={darkMode ? 'dark-mode' : ''}>
-        <section className='skills section' id='skills'>
-          <h1 className='section__title'>{sectionTitle}</h1>
-          <h2 className='section__subtitle'>{sectionSubtitle}</h2>
-          <div
-            className='skills__container container grid'
-            role='group'
-            aria-labelledby='skills'
-          >
-            <Frontend />
-            <Backend />
+        <section className='skills__section' id='skills'>
+          <div className='skills__container container'>
+            <h1 className='section__title' data-aos='fade-down'>
+              {sectionTitle}
+            </h1>
+            <h2
+              className='section__subtitle'
+              data-aos='fade-up'
+              data-aos-delay='200'
+            >
+              {sectionSubtitle}
+            </h2>
+
+            <div
+              className='skills__content-container'
+              data-aos='fade-up'
+              data-aos-delay='300'
+            >
+              <Frontend />
+              <Backend />
+            </div>
           </div>
         </section>
       </div>

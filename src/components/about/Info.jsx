@@ -56,6 +56,8 @@ const Info = () => {
     <div className={`about__info grid ${darkMode ? 'dark-mode' : ''}`}>
       <div
         className='about__box'
+        data-aos='fade-up'
+        data-aos-delay='0'
         onClick={() => handleIconClick('/img/codeacademy.jpg')}
         style={{ cursor: 'pointer' }}
         role='button'
@@ -78,6 +80,8 @@ const Info = () => {
 
       <div
         className='about__box'
+        data-aos='fade-up'
+        data-aos-delay='100'
         onClick={() => handleIconClick('/img/Pažymėjimas.png')}
         style={{ cursor: 'pointer' }}
         role='button'

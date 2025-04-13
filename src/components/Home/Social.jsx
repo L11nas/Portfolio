@@ -1,54 +1,46 @@
 import React from 'react';
-import { useLanguage } from '../../context/LanguageContext';
 
 const Social = () => {
-  const { language } = useLanguage();
-
-  // Vertimų objektas
-  const translations = {
-    LT: {
-      instagramLabel: 'Instagram',
-      linkedinLabel: 'LinkedIn',
-      githubLabel: 'GitHub',
-    },
-    EN: {
-      instagramLabel: 'Instagram',
-      linkedinLabel: 'LinkedIn',
-      githubLabel: 'GitHub',
-    },
-  };
-
-  const t = translations[language];
-
   return (
     <div className='home__social'>
       <a
-        href='https://www.instagram.com/uleviciuslinas'
+        href='https://www.linkedin.com/'
         className='home__social-icon'
         target='_blank'
-        rel='noopener noreferrer'
-        aria-label={t.instagramLabel}
+        rel='noreferrer'
+        aria-label='LinkedIn'
       >
-        <i className='uil uil-instagram'></i>
+        <i className='uil uil-linkedin-alt'></i>
       </a>
 
       <a
-        href='https://www.linkedin.com/in/linas-ulevi%C4%8Dius-48366113b/'
+        href='https://github.com/'
         className='home__social-icon'
         target='_blank'
-        rel='noopener noreferrer'
-        aria-label={t.linkedinLabel}
+        rel='noreferrer'
+        aria-label='GitHub'
       >
-        <i className='uil uil-linkedin'></i>
+        <i className='uil uil-github-alt'></i>
       </a>
+
       <a
-        href='https://github.com/L11nas'
+        href='https://www.behance.net/'
         className='home__social-icon'
         target='_blank'
-        rel='noopener noreferrer'
-        aria-label={t.githubLabel}
+        rel='noreferrer'
+        aria-label='Behance'
       >
-        <i className='uil uil-github'></i>
+        <i className='uil uil-behance'></i>
+      </a>
+
+      <a
+        href='https://dribbble.com/'
+        className='home__social-icon'
+        target='_blank'
+        rel='noreferrer'
+        aria-label='Dribbble'
+      >
+        <i className='uil uil-dribbble'></i>
       </a>
     </div>
   );

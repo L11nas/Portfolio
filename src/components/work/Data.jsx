@@ -1,75 +1,43 @@
-import React from 'react';
-import './work.css';
-
-const WorkItems = ({ item, language }) => {
-  const projectTitle =
-    language === 'LT' ? item.titleLT || item.title : item.title;
-  const projectDescription =
-    language === 'LT'
-      ? item.descriptionLT || item.description
-      : item.description;
-  const viewText = language === 'LT' ? 'Atidaryti' : 'Visit Site';
-
-  return (
-    <article className='project__card'>
-      <div className='project__image-container'>
-        {item.preview ? (
-          <div className='project__preview'>
-            <iframe
-              src={item.url}
-              title={projectTitle}
-              className='project__iframe'
-              loading='lazy'
-              sandbox='allow-same-origin'
-            />
-            <div className='project__preview-overlay'>
-              <span className='project__preview-text'>
-                {language === 'LT' ? 'Apsilankyti' : 'Visit Website'}
-              </span>
-            </div>
-          </div>
-        ) : (
-          <img
-            src={item.image}
-            alt={`${projectTitle} - ${
-              language === 'LT' ? 'Projektas' : 'Project'
-            }`}
-            className='project__img'
-            loading='lazy'
-          />
-        )}
-      </div>
-
-      <div className='project__content'>
-        <h3 className='project__title'>{projectTitle}</h3>
-
-        {projectDescription && (
-          <p className='project__description'>{projectDescription}</p>
-        )}
-
-        <div className='project__category'>
-          <span className='project__category-tag'>
-            {language === 'LT' ? item.categoryLT : item.category}
-          </span>
-        </div>
-
-        <div className='project__actions'>
-          {item.Link && (
-            <a
-              href={item.Link}
-              className='project__button project__demo-button'
-              target='_blank'
-              rel='noopener noreferrer'
-              aria-label={`${viewText} ${projectTitle}`}
-            >
-              <i className='bx bx-link-external'></i>
-              {viewText}
-            </a>
-          )}
-        </div>
-      </div>
-    </article>
-  );
-};
-
-export default WorkItems;
+export const projectsData = [
+  {
+    id: 1,
+    title: 'Personal Portfolio',
+    titleLT: 'Asmeninis Portfolio',
+    category: 'Website',
+    categoryLT: 'Svetainė',
+    description:
+      'My personal portfolio website built with React, showcasing my skills and projects',
+    descriptionLT:
+      'Mano asmeninė portfolio svetainė, sukurta su React, pristatanti mano įgūdžius ir projektus',
+    url: 'https://linaswebdev.lt',
+    Link: 'https://linaswebdev.lt',
+    image: '/Portfoliogit.png', // Using the portfolio image you already have
+    preview: false,
+  },
+  {
+    id: 2,
+    title: 'Running Plan Website',
+    titleLT: 'Bėgimo Plano Svetainė',
+    category: 'Website',
+    categoryLT: 'Svetainė',
+    description: 'Website for creating and tracking running plans',
+    descriptionLT: 'Svetainė bėgimo planų kūrimui ir sekimui',
+    url: 'https://begimoplanas.netlify.app',
+    Link: 'https://begimoplanas.netlify.app',
+    image: '/img/runweb.jpg', // Using the running plan image as specified
+    preview: false,
+  },
+  {
+    id: 3,
+    title: 'SL Builders Website',
+    titleLT: 'SL Builders Svetainė',
+    category: 'Website',
+    categoryLT: 'Svetainė',
+    description: 'Construction company website with modern design',
+    descriptionLT: 'Statybos įmonės svetainė su modernišku dizainu',
+    url: 'https://slbuildersltd.co.uk',
+    Link: 'https://slbuildersltd.co.uk',
+    image: '/img/builders.jpg', // Using the builders image as specified
+    preview: false,
+  },
+];

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect } from 'react';
 import Box from '@mui/material/Box';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
@@ -10,19 +10,27 @@ import './myinspiration.css';
 export default function MyInspiration() {
   const { darkMode } = useDarkMode();
   const { language } = useLanguage();
-  const inspirationRef = useRef(null);
+
+  // Refresh AOS when component mounts
+  useEffect(() => {
+    if (window.AOS) {
+      window.AOS.refresh();
+    }
+  }, []);
 
   // Vertimų objektas
   const translations = {
     LT: {
       title: 'Mano įkvėpimas',
+      subtitle: 'Bėgimo aistra',
       description:
-        'Ši kolekcija atspindi mano bėgimo patirtį ir motyvaciją. Kiekvienas vaizdas turi savo istoriją.',
+        'Ši kolekcija atspindi mano bėgimo patirtį ir motyvaciją. Kiekvienas vaizdas turi savo istoriją ir primena apie pastangas, ištvermę bei džiaugsmą, patirtą siekiant sporto tikslų.',
     },
     EN: {
       title: 'My Inspiration',
+      subtitle: 'Running Passion',
       description:
-        'This collection reflects my running experience and motivation. Each image has its own story.',
+        'This collection reflects my running experience and motivation. Each image has its own story and reminds of the effort, endurance and joy experienced in pursuing sports goals.',
     },
   };
 
@@ -61,50 +69,62 @@ export default function MyInspiration() {
 
   return (
     <section
-      ref={inspirationRef}
-      className={darkMode ? 'dark-mode' : ''}
+      className={`inspiration__section ${darkMode ? 'dark-mode' : ''}`}
       id='inspiration'
     >
-      <h1 className='inspiration-title'>{t.title}</h1>
-      <p className='inspiration-description'>{t.description}</p>
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          padding: '16px',
-          borderRadius: '16px',
-          maxWidth: '800px',
-          margin: '0 auto',
-          backgroundColor: darkMode ? '#333' : 'var(--container-color)',
-          color: darkMode ? '#fff' : '#333',
-        }}
-      >
-        <Box
-          sx={{
-            width: '100%',
-            height: '400px',
-            overflowY: 'auto',
-            margin: '20px 0',
-            marginBottom: '10%',
-          }}
+      <div className='inspiration__container container'>
+        <h1 className='section__title' data-aos='fade-down'>
+          {t.title}
+        </h1>
+        <h2
+          className='section__subtitle'
+          data-aos='fade-up'
+          data-aos-delay='200'
         >
-          <ImageList variant='masonry' cols={3} gap={4}>
-            {itemData.map((item) => (
-              <ImageListItem key={item.img}>
-                <img
-                  src={item.img}
-                  alt={item.title}
-                  loading='lazy'
-                  className='hover-image'
-                  style={{ borderRadius: '8px' }}
-                />
-                <ImageListItemBar position='below' title={item.title} />
-              </ImageListItem>
-            ))}
-          </ImageList>
-        </Box>
-      </Box>
+          {t.subtitle}
+        </h2>
+
+        <div
+          className='inspiration__content'
+          data-aos='fade-up'
+          data-aos-delay='300'
+        >
+          <p className='inspiration__description'>{t.description}</p>
+
+          <div
+            className='inspiration__gallery-container'
+            data-aos='fade-up'
+            data-aos-delay='400'
+          >
+            <ImageList
+              variant='masonry'
+              cols={window.innerWidth <= 768 ? 2 : 3}
+              gap={12}
+              className='inspiration__gallery'
+            >
+              {itemData.map((item, index) => (
+                <ImageListItem
+                  key={item.img}
+                  className='inspiration__gallery-item'
+                  data-aos='zoom-in'
+                  data-aos-delay={400 + (index % 5) * 100}
+                >
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    loading='lazy'
+                    className='inspiration__image'
+                  />
+                  <ImageListItemBar
+                    title={item.title}
+                    className='inspiration__image-caption'
+                  />
+                </ImageListItem>
+              ))}
+            </ImageList>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

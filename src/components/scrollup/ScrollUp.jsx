@@ -1,17 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './scrollup.css';
 import { useLanguage } from '../../context/LanguageContext';
+import { useDarkMode } from '../../ThemeContext';
 
 const ScrollUp = () => {
   const { language } = useLanguage();
+  const { darkMode } = useDarkMode();
+  const [isVisible, setIsVisible] = useState(false);
 
   // Vertimų objektas
   const translations = {
     LT: {
       ariaLabel: 'Grįžti į viršų',
+      tooltip: 'Į viršų',
     },
     EN: {
       ariaLabel: 'Return to top',
+      tooltip: 'Go to top',
     },
   };
 
@@ -19,11 +24,10 @@ const ScrollUp = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollUp = document.querySelector('.scrollup');
-      if (window.scrollY >= 50) {
-        scrollUp.classList.add('show-scroll');
+      if (window.scrollY >= 350) {
+        setIsVisible(true);
       } else {
-        scrollUp.classList.remove('show-scroll');
+        setIsVisible(false);
       }
     };
 
@@ -34,16 +38,24 @@ const ScrollUp = () => {
     };
   }, []);
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   return (
-    <a
-      href='#top'
-      className='scrollup scrollup__icon'
+    <button
+      className={`scrollup ${isVisible ? 'show-scroll' : ''} ${
+        darkMode ? 'dark-mode' : ''
+      }`}
       aria-label={t.ariaLabel}
-      role='button'
-      tabIndex={0}
+      onClick={scrollToTop}
+      title={t.tooltip}
     >
-      <i className='bx bx-up-arrow-circle' aria-hidden='true'></i>
-    </a>
+      <i className='bx bx-up-arrow-alt scrollup__icon' aria-hidden='true'></i>
+    </button>
   );
 };
 

@@ -1,47 +1,80 @@
-/* Pagrindinis stilius */
 .scrollup {
   position: fixed;
   right: 2.5rem;
-  bottom: -5rem;
-  background-color: rgb(138, 136, 136);
-  opacity: 0.8;
-  padding: 0.3rem 0.5rem;
-  border-radius: 0.4rem;
+  bottom: -20rem;
+  background-color: var(--primary-color);
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: var(--z-tooltip);
-  transition: bottom 0.4s ease, opacity 0.4s ease;
+  box-shadow: 0 4px 12px rgba(0, 114, 255, 0.25);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  opacity: 0;
+  border: none;
+  outline: none;
 }
 
 .scrollup__icon {
-  font-size: 2rem;
-  color: var(--body-color);
+  font-size: 1.5rem;
+  color: #fff;
+  line-height: 0;
 }
 
 .scrollup:hover {
-  background-color: var(--title-color-dark);
+  background-color: var(--primary-color-hover);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 114, 255, 0.35);
 }
 
-/* Dark mode stilius */
-.scrollup-dark {
-  background-color: var(--dark-scroll-bg, #333); /* Naudojamas tamsus fonas */
-  color: var(--dark-scroll-color, #fff); /* Teksto spalva */
-}
-
-.scrollup-dark:hover {
-  background-color: var(--dark-scroll-hover-bg, #555); /* Hover būsena */
-}
-
-/* Rodymo klasė */
 .show-scroll {
   bottom: 3rem;
   opacity: 1;
 }
 
-/* Media */
+/* Dark mode styles */
+.scrollup.dark-mode {
+  background-color: var(--primary-color);
+  box-shadow: 0 4px 12px rgba(64, 169, 255, 0.25);
+}
+
+.scrollup.dark-mode:hover {
+  background-color: var(--primary-color-hover);
+  box-shadow: 0 6px 16px rgba(64, 169, 255, 0.35);
+}
+
+/* Animation */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 114, 255, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 114, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 114, 255, 0);
+  }
+}
+
+.show-scroll:not(:hover) {
+  animation: pulse 2s infinite;
+}
+
+.dark-mode.show-scroll:not(:hover) {
+  animation: pulse 2s infinite;
+}
+
+/* Media queries */
 @media screen and (max-width: 992px) {
   .scrollup {
     right: 1.5rem;
-    padding: 0.25rem 0.4rem;
+    width: 2.75rem;
+    height: 2.75rem;
   }
+
   .scrollup__icon {
     font-size: 1.25rem;
   }
@@ -53,11 +86,25 @@
   }
 }
 
-@media screen and (max-width: 360px) {
-  .show-scroll {
-    bottom: 8rem;
+@media screen and (max-width: 576px) {
+  .scrollup {
+    width: 2.5rem;
+    height: 2.5rem;
   }
+
   .scrollup__icon {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .scrollup {
     right: 1rem;
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
+  .show-scroll {
+    bottom: 6rem;
   }
 }

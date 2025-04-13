@@ -11,7 +11,7 @@ export const projectsData = [
       'Mano asmeninė portfolio svetainė, sukurta su React, pristatanti mano įgūdžius ir projektus',
     url: 'https://linaswebdev.lt',
     Link: 'https://linaswebdev.lt',
-    image: '/Portfoliogit.png', // Using the portfolio image you already have
+    image: '/portfoliogit.jpg', // Using the portfolio image you already have
     preview: false,
   },
   {
@@ -33,8 +33,8 @@ export const projectsData = [
     titleLT: 'SL Builders Svetainė',
     category: 'Website',
     categoryLT: 'Svetainė',
-    description: 'Construction company website with modern design',
-    descriptionLT: 'Statybos įmonės svetainė su modernišku dizainu',
+    description: 'Construction company in UK, website with modern design',
+    descriptionLT: 'Statybos įmonės UK, svetainė su modernišku dizainu',
     url: 'https://slbuildersltd.co.uk',
     Link: 'https://slbuildersltd.co.uk',
     image: '/img/builders.jpg', // Using the builders image as specified

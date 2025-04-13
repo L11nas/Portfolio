@@ -1,21 +1,40 @@
 import { useState, useEffect } from 'react';
 import PrivacyPolicyModal from '../privacyPolicy/PrivacyPolicyModal';
 import { useLanguage } from '../../context/LanguageContext';
+import { useDarkMode } from '../../ThemeContext';
 import './cookieconsent.css';
 
 const GOOGLE_ANALYTICS_ID = 'G-JPV4WJL4C4';
 
 const CookieConsent = ({ onConsentChange }) => {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
   const { language } = useLanguage();
+  const { darkMode } = useDarkMode();
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 1000);
-    return () => clearTimeout(timer);
-  }, []);
+    // Check if user has already interacted with the consent banner
+    const consentStatus = localStorage.getItem('cookieConsentStatus');
+
+    if (!consentStatus) {
+      const timer = setTimeout(() => {
+        setIsVisible(true);
+      }, 1500);
+
+      return () => clearTimeout(timer);
+    } else {
+      // Apply the saved consent setting
+      if (consentStatus === 'accepted') {
+        enableGoogleAnalytics();
+        onConsentChange(true);
+      } else {
+        disableGoogleAnalytics();
+        onConsentChange(false);
+      }
+      setHasInteracted(true);
+    }
+  }, [onConsentChange]);
 
   const enableGoogleAnalytics = () => {
     window[`ga-disable-${GOOGLE_ANALYTICS_ID}`] = false;
@@ -42,14 +61,18 @@ const CookieConsent = ({ onConsentChange }) => {
 
   const handleAccept = () => {
     setIsVisible(false);
+    setHasInteracted(true);
     enableGoogleAnalytics();
     onConsentChange(true);
+    localStorage.setItem('cookieConsentStatus', 'accepted');
   };
 
   const handleDecline = () => {
     setIsVisible(false);
+    setHasInteracted(true);
     disableGoogleAnalytics();
-    onConsentChange(true);
+    onConsentChange(false);
+    localStorage.setItem('cookieConsentStatus', 'declined');
   };
 
   const handleOpenModal = (e) => {
@@ -61,7 +84,7 @@ const CookieConsent = ({ onConsentChange }) => {
     setIsModalOpen(false);
   };
 
-  if (!isVisible) return null;
+  if (!isVisible || hasInteracted) return null;
 
   const translations = {
     LT: {
@@ -88,35 +111,48 @@ const CookieConsent = ({ onConsentChange }) => {
     <>
       <PrivacyPolicyModal isOpen={isModalOpen} onClose={handleCloseModal} />
 
-      <div className={`cookie-consent-banner ${!isVisible ? 'hidden' : ''}`}>
-        <div className='cookie-consent-text'>
-          <p>
-            <strong>{t.notice}</strong> {t.message}{' '}
-            <a
-              href='#'
-              className='cookie-consent-link'
-              onClick={handleOpenModal}
-            >
-              {t.privacyPolicy}
-            </a>
-          </p>
-        </div>
+      <div
+        className={`cookie-consent ${darkMode ? 'dark-mode' : ''} ${
+          !isVisible ? 'hidden' : ''
+        }`}
+      >
+        <div className='cookie-consent__container'>
+          <div className='cookie-consent__content'>
+            <div className='cookie-consent__icon'>
+              <i className='bx bx-cookie'></i>
+            </div>
 
-        <div className='cookie-consent-buttons'>
-          <button
-            onClick={handleAccept}
-            className='cookie-consent-button'
-            aria-label={t.allowCookies}
-          >
-            {t.allowCookies}
-          </button>
-          <button
-            onClick={handleDecline}
-            className='cookie-consent-button cookie-consent-decline-button'
-            aria-label={t.necessaryOnly}
-          >
-            {t.necessaryOnly}
-          </button>
+            <div className='cookie-consent__text'>
+              <h3 className='cookie-consent__title'>{t.notice}</h3>
+              <p className='cookie-consent__message'>
+                {t.message}{' '}
+                <button
+                  className='cookie-consent__link'
+                  onClick={handleOpenModal}
+                >
+                  {t.privacyPolicy}
+                </button>
+              </p>
+            </div>
+          </div>
+
+          <div className='cookie-consent__actions'>
+            <button
+              onClick={handleAccept}
+              className='cookie-consent__button cookie-consent__button--accept'
+              aria-label={t.allowCookies}
+            >
+              {t.allowCookies}
+            </button>
+
+            <button
+              onClick={handleDecline}
+              className='cookie-consent__button cookie-consent__button--decline'
+              aria-label={t.necessaryOnly}
+            >
+              {t.necessaryOnly}
+            </button>
+          </div>
         </div>
       </div>
     </>

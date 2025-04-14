@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import './footer.css';
 import { useDarkMode } from '../../ThemeContext';
 import { useLanguage } from '../../context/LanguageContext';
-import PrivacyPolicyModal from '../privacypolicy/PrivacyPolicyModal';
+import PrivacyPolicyModal from '../privacyPolicy/PrivacyPolicyModal';
 
-import TermsOfServiceModal from '../privacypolicy/TermsOfServiceModal';
+import TermsOfServiceModal from '../privacyPolicy/TermsOfServiceModal';
 
 const Footer = () => {
   const { darkMode } = useDarkMode();

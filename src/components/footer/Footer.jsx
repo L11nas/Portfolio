@@ -3,6 +3,7 @@ import './footer.css';
 import { useDarkMode } from '../../ThemeContext';
 import { useLanguage } from '../../context/LanguageContext';
 import PrivacyPolicyModal from '../privacypolicy/PrivacyPolicyModal';
+
 import TermsOfServiceModal from '../privacypolicy/TermsOfServiceModal';
 
 const Footer = () => {

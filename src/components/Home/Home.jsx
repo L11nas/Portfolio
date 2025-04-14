@@ -5,7 +5,6 @@ import Data from './Data';
 import ScrollDown from './ScrollDown';
 import { useDarkMode } from '../../ThemeContext';
 import { useLanguage } from '../../context/LanguageContext';
-
 // Importuokite nuotrauką - pakeiskite kelią į savo tikrą kelią
 import ProfileImage from '/src/assets/portfolio.jpg';
 
@@ -46,22 +45,27 @@ const Home = () => {
   return (
     <div className={darkMode ? 'dark-mode' : ''}>
       <section className='home__section' id='home'>
-        <div className='home__container container grid'>
-          <div className='home__content grid'>
+        <div className='home__container container'>
+          <div className='home__content'>
             <Social />
-            <div className='home__img-container'>
-              <img
-                src={ProfileImage}
-                alt={t.profileAlt}
-                className='home__img'
-                loading='eager'
-                fetchpriority='high'
-                width='300'
-                height='300'
-              />
+
+            <div className='home__img-content-wrapper'>
+              <div className='home__img-container'>
+                <img
+                  src={ProfileImage}
+                  alt={t.profileAlt}
+                  className='home__img'
+                  loading='eager'
+                  fetchpriority='high'
+                  width='300'
+                  height='300'
+                />
+              </div>
+
+              <Data />
             </div>
-            <Data />
           </div>
+
           <ScrollDown />
         </div>
       </section>

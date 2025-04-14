@@ -1,0 +1,100 @@
+/* ModalStyles.css */
+
+/* Bendri modalinių langų stiliai */
+.modal-content {
+  max-width: 100%;
+  line-height: 1.6;
+}
+
+/* Antraštės */
+.modal-title {
+  color: #007bff;
+  border-bottom: 2px solid #f1f1f1;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Sekcijų antraštės */
+.modal-section-title {
+  color: #007bff;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.modal-subsection-title {
+  color: #333;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+/* Sąrašai */
+.modal-list {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.modal-list-item {
+  margin-bottom: 0.5rem;
+}
+
+/* Mygtukai */
+.modal-button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.modal-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Tamsusis režimas */
+.dark-mode .modal-title {
+  color: #4d9fff;
+  border-bottom-color: #333;
+}
+
+.dark-mode .modal-section-title {
+  color: #4d9fff;
+}
+
+.dark-mode .modal-subsection-title {
+  color: #ddd;
+}
+
+.dark-mode .modal-button {
+  background-color: #4d9fff;
+}
+
+.dark-mode .modal-button:hover {
+  background-color: #3a8ae0;
+}
+
+/* Papildomi responsyvūs stiliai */
+@media screen and (max-width: 576px) {
+  .modal-content {
+    font-size: 0.9rem;
+  }
+
+  .modal-title {
+    font-size: 1.3rem;
+  }
+
+  .modal-section-title {
+    font-size: 1.1rem;
+  }
+
+  .modal-subsection-title {
+    font-size: 1rem;
+  }
+}

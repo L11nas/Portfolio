@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Modal, Box, Typography, Button } from '@mui/material';
 import { useLanguage } from '../../context/LanguageContext';
 import { Helmet } from 'react-helmet-async';
-
+import './modalStyles.css';
 const modalStyle = {
   position: 'absolute',
   top: '50%',
@@ -189,6 +189,7 @@ const PrivacyPolicyModal = ({ isOpen, onClose }) => {
             id='privacy-policy-title'
             variant='h4'
             component='h1'
+            className='modal-title'
             sx={{
               color: 'text.primary',
               fontWeight: 'bold',
@@ -214,6 +215,7 @@ const PrivacyPolicyModal = ({ isOpen, onClose }) => {
           <Typography
             variant='h6'
             component='h2'
+            className='modal-section-title'
             sx={{
               mt: 3,
               mb: 1,
@@ -490,6 +492,7 @@ const PrivacyPolicyModal = ({ isOpen, onClose }) => {
           <Button
             variant='contained'
             onClick={onClose}
+            className='modal-button'
             aria-label={t.accessibilityLabel}
             sx={{
               mt: 4,

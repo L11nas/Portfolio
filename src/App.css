@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 /* ======== ROOT VARIABLES ======== */
+
 :root {
   /* Layout */
   --header-height: 3rem;
@@ -99,6 +100,8 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--header-height);
+  overflow-x: hidden; /* Užtikriname, kad HTML neturės horizontalios slinkties */
+  width: 100%; /* Užtikriname, kad HTML užims tik 100% plačio */
 }
 
 body {
@@ -109,7 +112,9 @@ body {
   transition: background-color var(--transition-speed) var(--transition-timing),
     color var(--transition-speed) var(--transition-timing);
   line-height: 1.7;
-  overflow-x: hidden;
+  overflow-x: hidden; /* Svarbi eilutė - užtikriname, kad nebus horizontalaus slinkimo */
+  width: 100%; /* Užtikriname, kad body užims tik 100% plačio */
+  position: relative; /* Užtikriname, kad absoliučiai pozicionuoti elementai bus body ribose */
 }
 
 body,
@@ -164,6 +169,8 @@ img {
   padding: 6rem 0 2rem;
   min-height: 100vh;
   scroll-margin-top: var(--header-height);
+  width: 100%; /* Užtikriname, kad sekcijos neišeis už ekrano ribų */
+  overflow-x: hidden; /* Užtikriname, kad sekcijos neturės horizontalios slinkties */
 }
 
 .section__title {
@@ -200,6 +207,8 @@ img {
   margin-left: auto;
   margin-right: auto;
   padding: 0 2rem;
+  width: 100%; /* Užtikriname, kad konteineris užims tik 100% plačio */
+  box-sizing: border-box; /* Užtikriname, kad padding nepadidins elemento pločio */
 }
 
 .container__grid {
@@ -208,8 +217,33 @@ img {
 }
 
 .main {
-  overflow-x: hidden;
+  overflow-x: hidden; /* Užtikriname, kad pagrindinis turinys neišeis už ribų */
+  width: 100%; /* Užtikriname, kad main užims tik 100% plačio */
   transition: background-color var(--transition-speed) var(--transition-timing);
+}
+
+/* ======== FIXED POSITIONING FIX ======== */
+/* Ši taisyklė padės išvengti horizontalaus slinkimo, kai naudojami fiksuoti elementai */
+.fixed-element {
+  position: fixed;
+  max-width: 100vw;
+  width: auto;
+}
+
+/* ======== NESTED CONTAINERS ======== */
+/* Užtikriname, kad visi konteineriai tilptų į tėvinius elementus */
+.home__container,
+.about__container,
+.skills__container,
+.services__container,
+.contact__container,
+.footer__container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  box-sizing: border-box;
 }
 
 /* ======== BUTTONS ======== */
@@ -245,15 +279,43 @@ img {
   transform: translateX(4px);
 }
 
+/* ======== NAVIGATION RESPONSIVENESS ======== */
+/* Užtikriname, kad navigacija bus tinkama mobiliuose įrenginiuose */
+@media screen and (max-width: 768px) {
+  .nav__menu {
+    overflow-x: auto; /* Leidžiame slinkti horizontaliai, jei reikia */
+    white-space: nowrap; /* Užtikriname, kad elementai nepersilaužtų */
+    -webkit-overflow-scrolling: touch; /* Sklandesnė slinktis iOS įrenginiuose */
+    padding-bottom: 0.5rem;
+  }
+
+  .nav__link {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+}
+
 /* ======== RESPONSIVE ======== */
 @media screen and (max-width: 1200px) {
-  .container {
+  .container,
+  .home__container,
+  .about__container,
+  .skills__container,
+  .services__container,
+  .contact__container,
+  .footer__container {
     max-width: 960px;
   }
 }
 
 @media screen and (max-width: 992px) {
-  .container {
+  .container,
+  .home__container,
+  .about__container,
+  .skills__container,
+  .services__container,
+  .contact__container,
+  .footer__container {
     max-width: 720px;
   }
 
@@ -267,7 +329,13 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-  .container {
+  .container,
+  .home__container,
+  .about__container,
+  .skills__container,
+  .services__container,
+  .contact__container,
+  .footer__container {
     max-width: 540px;
     padding: 0 1.5rem;
   }
@@ -286,7 +354,13 @@ img {
 }
 
 @media screen and (max-width: 576px) {
-  .container {
+  .container,
+  .home__container,
+  .about__container,
+  .skills__container,
+  .services__container,
+  .contact__container,
+  .footer__container {
     padding: 0 1rem;
   }
 
@@ -296,7 +370,13 @@ img {
 }
 
 @media screen and (max-width: 350px) {
-  .container {
+  .container,
+  .home__container,
+  .about__container,
+  .skills__container,
+  .services__container,
+  .contact__container,
+  .footer__container {
     padding: 0 0.75rem;
   }
 

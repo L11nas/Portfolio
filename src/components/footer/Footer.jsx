@@ -1,12 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './footer.css';
 import { useDarkMode } from '../../ThemeContext';
 import { useLanguage } from '../../context/LanguageContext';
-import { Link } from 'react-router-dom';
+import PrivacyPolicyModal from '../privacypolicy/PrivacyPolicyModal';
+import TermsOfServiceModal from '../privacypolicy/TermsOfServiceModal';
 
 const Footer = () => {
   const { darkMode } = useDarkMode();
   const { language } = useLanguage();
+
+  // Pridedame state modaliniams langams
+  const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
+  const [termsModalOpen, setTermsModalOpen] = useState(false);
 
   // Refresh AOS when component mounts
   useEffect(() => {
@@ -29,7 +34,7 @@ const Footer = () => {
       facebookTitle: 'Sekite mane Facebook',
       linkedinTitle: 'Sekite mane LinkedIn',
       githubTitle: 'Sekite mane GitHub',
-      copyright: `Visos teisės saugomos © 2023-${new Date().getFullYear()} Linas Ulevičius`,
+      copyright: `Visos teisės saugomos © 2023-${new Date().getFullYear()} Linas`,
       privacyPolicy: 'Privatumo politika',
       termsOfService: 'Naudojimosi taisyklės',
       websiteCreation: 'Svetainių kūrimas',
@@ -72,6 +77,17 @@ const Footer = () => {
       top: 0,
       behavior: 'smooth',
     });
+  };
+
+  // Pridedame modalinių langų atidarymo funkcijas
+  const openPrivacyModal = (e) => {
+    e.preventDefault();
+    setPrivacyModalOpen(true);
+  };
+
+  const openTermsModal = (e) => {
+    e.preventDefault();
+    setTermsModalOpen(true);
   };
 
   return (
@@ -239,10 +255,29 @@ const Footer = () => {
         <div className='footer__bottom' data-aos='fade-up' data-aos-delay='400'>
           <span className='footer__copy'>{t.copyright}</span>
           <div className='footer__legal'>
-            <a href='/privacy-policy' className='footer__legal-link'>
+            {/* Pakeičiame nuorodas į href="#" su onClick handleriams */}
+            <a
+              href='#'
+              className='footer__legal-link'
+              onClick={openPrivacyModal}
+              aria-label={
+                language === 'LT'
+                  ? 'Atidaryti privatumo politiką'
+                  : 'Open privacy policy'
+              }
+            >
               {t.privacyPolicy}
             </a>
-            <a href='/terms-of-service' className='footer__legal-link'>
+            <a
+              href='#'
+              className='footer__legal-link'
+              onClick={openTermsModal}
+              aria-label={
+                language === 'LT'
+                  ? 'Atidaryti naudojimosi taisykles'
+                  : 'Open terms of service'
+              }
+            >
               {t.termsOfService}
             </a>
           </div>
@@ -281,6 +316,17 @@ const Footer = () => {
           <link itemProp='sameAs' href='https://github.com/L11nas' />
         </div>
       </div>
+
+      {/* Pridedame modalinius langus */}
+      <PrivacyPolicyModal
+        isOpen={privacyModalOpen}
+        onClose={() => setPrivacyModalOpen(false)}
+      />
+
+      <TermsOfServiceModal
+        isOpen={termsModalOpen}
+        onClose={() => setTermsModalOpen(false)}
+      />
     </footer>
   );
 };

@@ -15,24 +15,31 @@
 }
 
 .home__content {
-  display: grid;
-  grid-template-columns: 116px repeat(2, 1fr);
-  column-gap: 2.5rem;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
   position: relative;
+}
+
+/* Naujas wrapper elementas nuotraukai ir tekstui */
+.home__img-content-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15rem;
+  margin-top: 1.5rem;
 }
 
 /* Social Media Section */
 .home__social-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
 }
 
 .home__social {
-  display: grid;
-  grid-template-columns: max-content;
-  row-gap: 1.2rem;
+  display: flex;
+  gap: 1.2rem;
 }
 
 .home__social-icon {
@@ -55,8 +62,7 @@
   overflow: hidden;
   box-shadow: inset 0 0 0 9px rgb(255 255 255 / 30%);
   animation: profile__animate 8s ease-in-out infinite 1s;
-  order: 1;
-  justify-self: center;
+  flex-shrink: 0;
   background-color: #f0f0f0; /* Placeholder color while image loads */
 }
 
@@ -82,6 +88,7 @@
 
 /* Text Content */
 .home__data {
+  flex: 1;
   padding: 1rem 0;
 }
 
@@ -180,7 +187,7 @@
 
 /* Scroll Down */
 .home__scroll {
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -249,9 +256,8 @@
 
 /* Media Queries */
 @media screen and (max-width: 992px) {
-  .home__content {
-    grid-template-columns: 100px repeat(2, 1fr);
-    column-gap: 1.25rem;
+  .home__img-content-wrapper {
+    gap: 2rem;
   }
 
   .home__subtitle {
@@ -289,21 +295,17 @@
     padding-top: 5rem;
   }
 
-  .home__content {
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.5fr 1fr auto;
-    row-gap: 2rem;
-    text-align: center;
+  .home__img-content-wrapper {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
   }
 
   .home__social-container {
-    justify-self: center;
+    justify-content: center;
   }
 
   .home__social {
-    grid-template-columns: repeat(4, max-content);
-    column-gap: 1.5rem;
-    row-gap: 0;
     justify-content: center;
   }
 
@@ -319,8 +321,7 @@
   }
 
   .home__data {
-    order: 3;
-    grid-column: 1/2;
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;

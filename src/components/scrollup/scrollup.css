@@ -1,10 +1,10 @@
 .scrollup {
   position: fixed;
-  right: 2.5rem;
+  right: 1rem; /* Sumažinta reikšmė, kad būtų arčiau dešiniojo krašto */
   bottom: -20rem;
   background-color: var(--primary-color);
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem; /* Sumažintas dydis */
+  height: 2.5rem; /* Sumažintas dydis */
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -16,22 +16,23 @@
   opacity: 0;
   border: none;
   outline: none;
+  overflow: hidden; /* Užtikriname, kad turinys neišeis už mygtuko ribų */
 }
 
 .scrollup__icon {
-  font-size: 1.5rem;
+  font-size: 1.2rem; /* Sumažintas šrifto dydis */
   color: #fff;
   line-height: 0;
 }
 
 .scrollup:hover {
   background-color: var(--primary-color-hover);
-  transform: translateY(-5px) scale(1.05);
+  transform: translateY(-3px); /* Sumažintas transformacijos dydis */
   box-shadow: 0 6px 16px rgba(0, 114, 255, 0.35);
 }
 
 .show-scroll {
-  bottom: 3rem;
+  bottom: 1.5rem; /* Sumažinta reikšmė, kad būtų arčiau apačios */
   opacity: 1;
 }
 
@@ -46,13 +47,13 @@
   box-shadow: 0 6px 16px rgba(64, 169, 255, 0.35);
 }
 
-/* Animation */
+/* Animation - sumažinta, kad būtų subtilesnė */
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(0, 114, 255, 0.4);
+    box-shadow: 0 0 0 0 rgba(0, 114, 255, 0.3);
   }
   70% {
-    box-shadow: 0 0 0 10px rgba(0, 114, 255, 0);
+    box-shadow: 0 0 0 6px rgba(0, 114, 255, 0);
   }
   100% {
     box-shadow: 0 0 0 0 rgba(0, 114, 255, 0);
@@ -67,44 +68,69 @@
   animation: pulse 2s infinite;
 }
 
-/* Media queries */
+/* Media queries - perrašytos, kad būtų tinkamesnės visiems įrenginiams */
 @media screen and (max-width: 992px) {
-  .scrollup {
-    right: 1.5rem;
-    width: 2.75rem;
-    height: 2.75rem;
-  }
-
-  .scrollup__icon {
-    font-size: 1.25rem;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .show-scroll {
-    bottom: 4rem;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  .scrollup {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-
-  .scrollup__icon {
-    font-size: 1.1rem;
-  }
-}
-
-@media screen and (max-width: 360px) {
   .scrollup {
     right: 1rem;
     width: 2.25rem;
     height: 2.25rem;
   }
 
+  .scrollup__icon {
+    font-size: 1.1rem;
+  }
+
   .show-scroll {
-    bottom: 6rem;
+    bottom: 1.25rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .scrollup {
+    right: 0.75rem;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .scrollup__icon {
+    font-size: 1rem;
+  }
+
+  .show-scroll {
+    bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .scrollup {
+    right: 0.5rem;
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+
+  .scrollup__icon {
+    font-size: 0.9rem;
+  }
+
+  .show-scroll {
+    bottom: 0.75rem;
+  }
+}
+
+/* Papildoma media query, kad būtų dar labiau sumažintas hamburger meniu dydžio esant mažam ekranui */
+@media screen and (max-width: 360px) {
+  .scrollup {
+    right: 0.5rem; /* Dar arčiau krašto */
+    width: 1.5rem; /* Dar mažesnis */
+    height: 1.5rem; /* Dar mažesnis */
+    box-shadow: 0 2px 8px rgba(0, 114, 255, 0.2); /* Mažesnė šešėlio reikšmė */
+  }
+
+  .scrollup__icon {
+    font-size: 0.75rem; /* Mažesnė ikona */
+  }
+
+  .show-scroll {
+    bottom: 0.5rem; /* Dar arčiau apačios */
   }
 }

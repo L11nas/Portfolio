@@ -246,18 +246,22 @@
 
 .nav__toggle {
   display: none;
-  font-size: 1.8rem;
+  font-size: 1.5rem; /* Sumažintas dydis */
   cursor: pointer;
   color: #333;
   transition: all 0.3s ease;
-  margin-left: 0.5rem; /* Pridedame tarpą kairėje */
-  z-index: 1001; /* Užtikriname, kad mygtukas bus virš kitų elementų */
+  z-index: 1001; /* Aukštas z-index, kad būtų virš kitų elementų */
+  margin-left: 0.5rem;
 }
 
 .dark-mode .nav__toggle {
   color: #fff;
 }
-
+.nav__buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Sumažintas tarpas */
+}
 .nav__toggle:hover {
   transform: scale(1.1);
 }
@@ -305,7 +309,7 @@
   }
 
   .nav__toggle {
-    display: block !important; /* Užtikriname, kad hamburgerio mygtukas būtų matomas */
+    display: block; /* Užtikriname, kad hamburgerio mygtukas būtų matomas */
   }
 
   .toggle-text {
@@ -327,6 +331,12 @@
 }
 
 @media screen and (max-width: 768px) {
+  .header {
+    padding: 0.75rem 1rem; /* Sumažintas padding */
+  }
+  .nav.container {
+    padding: 0; /* Pašalintas vidinis padding */
+  }
   .nav__buttons {
     gap: 0.5rem;
   }
@@ -336,17 +346,28 @@
   }
 
   .language-toggle button {
-    font-size: 0.85rem;
-    padding: 0.2rem 0.4rem;
+    padding: 0.2rem 0.4rem; /* Sumažintas kalbų mygtuko dydis */
+    font-size: 0.8rem;
+  }
+
+  .dark-mode-toggle {
+    font-size: 1.2rem; /* Sumažintas tamsaus/šviesaus režimo mygtuko dydis */
   }
 
   .nav__toggle {
-    display: block !important; /* Pakartotinai užtikriname, kad hamburgerio mygtukas būtų matomas */
-    font-size: 1.5rem; /* Sumažiname dydį, kad tilptų geriau */
-    margin-left: 0.3rem; /* Sumažiname tarpą */
+    font-size: 1.4rem; /* Dar labiau sumažintas hamburgerio dydis */
+    margin-left: 0.3rem;
   }
 }
+@media screen and (max-width: 576px) {
+  .logo-text {
+    font-size: 1.1rem; /* Mažesnis logo šriftas */
+  }
 
+  .nav__toggle {
+    font-size: 1.3rem;
+  }
+}
 @media screen and (max-width: 480px) {
   .header {
     padding: 0.75rem 1rem;

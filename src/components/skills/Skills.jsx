@@ -64,7 +64,6 @@ const Skills = () => {
             >
               {sectionSubtitle}
             </h2>
-
             <div
               className='skills__content-container'
               data-aos='fade-up'

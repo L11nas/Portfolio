@@ -10,7 +10,7 @@ const Data = () => {
       name: 'Linas',
       profession: 'Front-end programuotojas',
       description:
-        'Esu patikimas ir profesionalus programuotojas, kuriantis modernias svetaines ir aplikacijas su React, kuriuos optimizuoti įvairiems įrenginiams.',
+        'Esu profesionalus front-end programuotojas, kuriantis modernias ir greitas svetaines su React. Specializuojuosi responsyviame dizaino kūrime ir SEO optimizuotuose sprendimuose, kurie puikiai veikia visuose įrenginiuose.',
       button: 'Susisiekite',
     },
     EN: {
@@ -18,7 +18,7 @@ const Data = () => {
       name: 'Linas',
       profession: 'Front-end Developer',
       description:
-        "I'm a reliable and professional developer creating modern websites and applications with React, optimized for various devices.",
+        'I’m a professional front-end developer building fast, modern websites and applications using React. I specialize in responsive design and SEO-friendly solutions that work seamlessly across all devices.',
       button: 'Contact Me',
     },
   };

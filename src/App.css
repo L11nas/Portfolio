@@ -113,13 +113,14 @@ body {
     color var(--transition-speed) var(--transition-timing);
   line-height: 1.7;
   overflow-x: hidden; /* Svarbi eilutė - užtikriname, kad nebus horizontalaus slinkimo */
-  width: 100%; /* Užtikriname, kad body užims tik 100% plačio */
+  max-width: 100vw;
+  /* Užtikriname, kad body užims tik 100% plačio */
   position: relative; /* Užtikriname, kad absoliučiai pozicionuoti elementai bus body ribose */
 }
 html,
 body {
   overflow-x: hidden; /* Užtikriname, kad nebus horizontalaus slinkimo */
-  width: 100%;
+
   max-width: 100vw;
   position: relative;
 }
@@ -130,7 +131,35 @@ textarea {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
 }
+/* Footer sekcijos taisymas */
+.footer,
+footer,
+.footer__container {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
 
+/* Socialinių tinklų mygtukų apribojimas */
+.social__links,
+.footer__socials,
+.socialiniai-tinklai {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+
+/* Užtikrinti, kad visi paveiksliukai, lentelės ir kiti elementai būtų apriboti */
+img,
+video,
+iframe,
+table,
+div {
+  max-width: 100%;
+}
 h1,
 h2,
 h3,

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './services.css';
 import { Helmet } from 'react-helmet-async';
 import { useDarkMode } from '../../ThemeContext';
@@ -7,7 +7,6 @@ import { useLanguage } from '../../context/LanguageContext';
 const Services = () => {
   const { darkMode } = useDarkMode();
   const { language } = useLanguage();
-  const [activeTab, setActiveTab] = useState(null);
 
   // Refresh AOS when component mounts
   useEffect(() => {
@@ -16,102 +15,64 @@ const Services = () => {
     }
   }, []);
 
-  // Handle ESC key to close modal
-  useEffect(() => {
-    const handleEsc = (event) => {
-      if (event.keyCode === 27) {
-        setActiveTab(null);
-      }
-    };
-    window.addEventListener('keydown', handleEsc);
-
-    // Prevent body scroll when modal is open
-    if (activeTab !== null) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-
-    return () => {
-      window.removeEventListener('keydown', handleEsc);
-      document.body.style.overflow = 'auto';
-    };
-  }, [activeTab]);
-
   const translations = {
     LT: {
-      pageTitle: 'Paslaugos | Mano Portfolio',
+      pageTitle: 'Paslaugos | Linaswebdev',
       pageDescription:
-        'Sužinokite daugiau apie siūlomas paslaugas, įskaitant produktų dizainą, UI/UX ir kitas paslaugas.',
+        'Profesionalios web kūrimo paslaugos: produkto dizainas, UI/UX sprendimai ir back-end programavimas. Sukurkite savo verslui optimalų interneto sprendimą.',
       sectionTitle: 'Paslaugos',
       sectionSubtitle: 'Ką aš siūlau',
-      serviceTitles: [
-        'Produktų\nDizainas',
-        'UI/UX\nDizainas',
-        'Kitos\nPaslaugos',
+      services: [
+        {
+          title: 'Produkto dizainas',
+          description:
+            'Kuriu svetainių dizaino sprendimus, pritaikytus mobiliesiems įrenginiams ir interaktyviems prototipams. Optimizuoju naudotojo sąsają (UI) ir patirtį (UX), kad jūsų verslo svetainė būtų funkcionali ir patraukli.',
+          icon: 'layout',
+        },
+        {
+          title: 'UI/UX dizainas',
+          description:
+            'Turiu patirties kuriant „Landing Page" ir el. pašto šablonus. Naudoju Canva bei kitus įrankius maketavimui ir dizaino sprendimams smulkioms įmonėms.',
+          icon: 'palette',
+        },
+        {
+          title: 'Back-end sprendimai',
+          description:
+            'Kuriu SQL duomenų bazes ir įgyvendinu CRUD operacijas. Siūlau sistemų integraciją ir optimizavimą – nuo duomenų valdymo iki back-end logikos.',
+          icon: 'code-alt',
+        },
       ],
-      modalTitles: [
-        'Produkto dizainerio informacija',
-        'UI/UX dizaino informacija',
-        'Kita paslaugų informacija',
-      ],
-      serviceInfo: [
-        [
-          'Svetainių dizaino projektai, pritaikyti mobiliesiems įrenginiams.',
-          'Interaktyvių prototipų kūrimas',
-          'Naudotojo sąsajos ir vartotojo patirties optimizavimas',
-        ],
-        [
-          'Patirtis su „Landing Page" ir el. pašto šablonais',
-          'Praktika kuriant dizaino sprendimus',
-          'Dizaino ir maketavimo paslaugos smulkioms įmonėms - Canva',
-        ],
-        [
-          'SQL lentelių kūrimas ir administravimas: efektyvus duomenų valdymas.',
-          'CRUD operacijų įgyvendinimas: pilnas duomenų valdymo ciklas.',
-          'Back-end sprendimai: sistemų integracija ir optimizavimas.',
-        ],
-      ],
-      closeButton: 'Uždaryti',
-      viewMore: 'Žiūrėti daugiau',
     },
     EN: {
-      pageTitle: 'Services | My Portfolio',
+      pageTitle: 'Services | Linaswebdev',
       pageDescription:
-        'Learn more about offered services, including product design, UI/UX, and other solutions.',
+        'Professional web development services: product design, UI/UX solutions, and back-end programming. Create an optimal online solution for your business.',
       sectionTitle: 'Services',
       sectionSubtitle: 'What I offer',
-      serviceTitles: ['Product\nDesign', 'UI/UX\nDesign', 'Other\nServices'],
-      modalTitles: [
-        'Product Designer Information',
-        'UI/UX Design Information',
-        'Other Service Information',
+      services: [
+        {
+          title: 'Product Design',
+          description:
+            'I create website design solutions optimized for mobile devices and interactive prototypes. I optimize user interface (UI) and experience (UX) to make your business website functional and attractive.',
+          icon: 'layout',
+        },
+        {
+          title: 'UI/UX Design',
+          description:
+            'I have experience creating landing pages and email templates. I use Canva and other tools for layout and design solutions for small businesses.',
+          icon: 'palette',
+        },
+        {
+          title: 'Back-end Solutions',
+          description:
+            'I create SQL databases and implement CRUD operations. I offer system integration and optimization - from data management to back-end logic.',
+          icon: 'code-alt',
+        },
       ],
-      serviceInfo: [
-        [
-          'Website design projects optimized for mobile devices.',
-          'Creation of interactive prototypes',
-          'User interface and user experience optimization',
-        ],
-        [
-          'Experience with landing pages and email templates',
-          'Practice in creating design solutions',
-          'Design and layout services for small businesses - Canva',
-        ],
-        [
-          'SQL table creation and administration: efficient data management.',
-          'Implementation of CRUD operations: complete data management cycle.',
-          'Back-end solutions: systems integration and optimization.',
-        ],
-      ],
-      closeButton: 'Close',
-      viewMore: 'View More',
     },
   };
 
   const t = translations[language];
-
-  const serviceIcons = ['layout', 'palette', 'code-alt'];
 
   return (
     <>
@@ -121,7 +82,7 @@ const Services = () => {
         <meta name='description' content={t.pageDescription} />
         <meta
           name='keywords'
-          content='Services, Product Design, UI/UX, SQL, CRUD'
+          content='Web Development, Product Design, UI/UX Design, Back-end Solutions, SQL, CRUD, Front-end, React, JavaScript, Responsive Design, Mobile-Friendly Websites'
         />
         <meta name='author' content='Linas Ulevičius' />
         <meta property='og:title' content={t.pageTitle} />
@@ -138,13 +99,21 @@ const Services = () => {
       <script type='application/ld+json'>
         {JSON.stringify({
           '@context': 'https://schema.org',
-          '@type': 'Service',
-          provider: {
-            '@type': 'Person',
-            name: 'Linas Ulevičius',
-          },
-          name: t.sectionTitle,
-          description: t.pageDescription,
+          '@type': 'ItemList',
+          itemListElement: t.services.map((service, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            item: {
+              '@type': 'Service',
+              name: service.title,
+              description: service.description,
+              provider: {
+                '@type': 'Person',
+                name: 'Linas Ulevičius',
+                url: 'https://linaswebdev.lt',
+              },
+            },
+          })),
         })}
       </script>
 
@@ -163,7 +132,7 @@ const Services = () => {
             </h2>
 
             <div className='services__content-grid'>
-              {t.serviceTitles.map((title, index) => (
+              {t.services.map((service, index) => (
                 <div
                   className='services__card'
                   key={index}
@@ -172,95 +141,20 @@ const Services = () => {
                 >
                   <div className='services__card-header'>
                     <div className='services__icon-container'>
-                      <i
-                        className={`bx bx-${serviceIcons[index]} services__icon`}
-                      ></i>
+                      <i className={`bx bx-${service.icon} services__icon`}></i>
                     </div>
-                    <h3 className='services__title'>
-                      {title.split('\n').map((line, i) => (
-                        <span key={i} className='services__title-line'>
-                          {line}
-                        </span>
-                      ))}
-                    </h3>
+                    <h3 className='services__title'>{service.title}</h3>
                   </div>
 
-                  <button
-                    className='services__button'
-                    onClick={() => setActiveTab(index)}
-                    aria-expanded={activeTab === index}
-                    aria-controls={`modal-${index}`}
-                  >
-                    {t.viewMore}
-                    <i className='bx bx-right-arrow-alt services__button-icon'></i>
-                  </button>
+                  <div className='services__content'>
+                    <p className='services__description'>
+                      {service.description}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
-
-          {/* Modal */}
-          {activeTab !== null && (
-            <div
-              className={`services__modal ${
-                activeTab !== null ? 'active__modal' : ''
-              }`}
-              id={`modal-${activeTab}`}
-              role='dialog'
-              aria-labelledby={`modal-title-${activeTab}`}
-              aria-describedby={`modal-description-${activeTab}`}
-              onClick={(e) => {
-                if (e.target.classList.contains('services__modal')) {
-                  setActiveTab(null);
-                }
-              }}
-            >
-              <div
-                className='services__modal-content'
-                data-aos='zoom-in'
-                data-aos-duration='300'
-              >
-                <div className='services__modal-header'>
-                  <h3
-                    className='services__modal-title'
-                    id={`modal-title-${activeTab}`}
-                  >
-                    {t.modalTitles[activeTab]}
-                  </h3>
-                  <button
-                    className='services__modal-close'
-                    onClick={() => setActiveTab(null)}
-                    aria-label={t.closeButton}
-                  >
-                    <i className='bx bx-x'></i>
-                  </button>
-                </div>
-
-                <div className='services__modal-body'>
-                  <ul
-                    className='services__modal-list'
-                    id={`modal-description-${activeTab}`}
-                  >
-                    {t.serviceInfo[activeTab].map((info, idx) => (
-                      <li key={idx} className='services__modal-item'>
-                        <i className='bx bx-check-circle services__modal-icon'></i>
-                        <p className='services__modal-info'>{info}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className='services__modal-footer'>
-                  <button
-                    onClick={() => setActiveTab(null)}
-                    className='services__modal-button'
-                  >
-                    {t.closeButton}
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
         </section>
       </div>
     </>

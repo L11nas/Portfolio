@@ -1,4 +1,3 @@
-// Info.jsx
 import React from 'react';
 import { useDarkMode } from '../../ThemeContext';
 import { useLanguage } from '../../context/LanguageContext';
@@ -21,6 +20,7 @@ const Info = () => {
         subtitle: 'Web programavimas ir modernios technologijos',
         certificate: 'Kvalifikacijos pažymėjimas',
       },
+      viewCertificate: 'Peržiūrėti pažymėjimą',
     },
     EN: {
       sectionTitle: 'Qualifications and Certifications',
@@ -34,22 +34,12 @@ const Info = () => {
         subtitle: 'Web Programming and Modern Technologies',
         certificate: 'Qualification Certificate',
       },
+      viewCertificate: 'View Certificate',
     },
   };
 
-  const {
-    title: codeAcademyTitle,
-    subtitle: codeAcademySubtitle,
-    certificate: codeAcademyCertificate,
-  } = translations[language].codeAcademy;
-
-  const {
-    title: iamJuniorTitle,
-    subtitle: iamJuniorSubtitle,
-    certificate: iamJuniorCertificate,
-  } = translations[language].iamJunior;
-
-  const sectionTitle = translations[language].sectionTitle;
+  const { sectionTitle, codeAcademy, iamJunior, viewCertificate } =
+    translations[language] || translations.LT;
 
   const handleIconClick = (url) => {
     window.open(url, '_blank');
@@ -60,62 +50,123 @@ const Info = () => {
 
   return (
     <section
-      className={`about__certifications ${darkMode ? 'dark-mode' : ''}`}
-      aria-labelledby='certifications-heading'
+      className={`certifications__section ${darkMode ? 'dark-mode' : ''}`}
+      data-aos='fade-up'
     >
-      <h2 id='certifications-heading' className='section__title'>
+      <h2 className='section__title' data-aos='fade-down'>
         {sectionTitle}
       </h2>
-      <div className='about__info grid'>
+      <div className='cert__line' data-aos='fade-up' data-aos-delay='200'></div>
+
+      <div className='certifications__container'>
+        {/* Code Academy card */}
         <div
-          className='about__box'
-          data-aos='fade-up'
-          data-aos-delay='0'
-          onClick={() => handleIconClick('/img/codeacademy.jpg')}
-          style={{ cursor: 'pointer' }}
-          role='button'
-          aria-label={`${codeAcademyTitle} ${codeAcademySubtitle} sertifikatas - Spustelėkite, kad pamatytumėte`}
-          tabIndex={0}
-          onKeyPress={(e) =>
-            e.key === 'Enter' && handleIconClick('/img/codeacademy.jpg')
-          }
+          className='certification__card'
+          data-aos='fade-right'
+          data-aos-delay='300'
         >
-          <img
-            src={codeAcademyLogo}
-            alt={`${codeAcademyTitle} sertifikatas, patvirtinantis mano įgūdžius svetainių kūrime`}
-            className='about__icon'
-          />
-          <h3 className='about__title'>{codeAcademyTitle}</h3>
-          <h4 className='about__subtitle'>{codeAcademySubtitle}</h4>
-          <span>
-            {codeAcademyCertificate}{' '}
+          <div
+            className='certification__logo-container'
+            data-aos='zoom-in'
+            data-aos-delay='400'
+          >
+            <img
+              src={codeAcademyLogo}
+              alt={`${codeAcademy.title} sertifikatas`}
+              className='certification__logo'
+            />
+          </div>
+
+          <h3
+            className='certification__title'
+            data-aos='fade-up'
+            data-aos-delay='500'
+          >
+            {codeAcademy.title}
+          </h3>
+
+          <p
+            className='certification__subtitle'
+            data-aos='fade-up'
+            data-aos-delay='600'
+          >
+            {codeAcademy.subtitle}
+          </p>
+
+          <div
+            className='certification__badge'
+            data-aos='fade-up'
+            data-aos-delay='700'
+          >
             <i className='bx bx-award' aria-hidden='true'></i>
-          </span>
+            <span>{codeAcademy.certificate}</span>
+          </div>
+
+          <a
+            href='/img/codeacademy.jpg'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='certification__button'
+            data-aos='fade-up'
+            data-aos-delay='800'
+          >
+            {viewCertificate} <i className='bx bx-right-arrow-alt'></i>
+          </a>
         </div>
+
+        {/* Iam Junior card */}
         <div
-          className='about__box'
-          data-aos='fade-up'
-          data-aos-delay='100'
-          onClick={() => handleIconClick('/img/Pažymėjimas.png')}
-          style={{ cursor: 'pointer' }}
-          role='button'
-          aria-label={`${iamJuniorTitle} ${iamJuniorSubtitle} sertifikatas - Spustelėkite, kad pamatytumėte`}
-          tabIndex={0}
-          onKeyPress={(e) =>
-            e.key === 'Enter' && handleIconClick('/img/Pažymėjimas.png')
-          }
+          className='certification__card'
+          data-aos='fade-left'
+          data-aos-delay='300'
         >
-          <img
-            src={iamJuniorLogo}
-            alt={`${iamJuniorTitle} sertifikatas, patvirtinantis mano žinias programavimo srityje`}
-            className='about__icon'
-          />
-          <h3 className='about__title'>{iamJuniorTitle}</h3>
-          <h4 className='about__subtitle'>{iamJuniorSubtitle}</h4>
-          <span>
-            {iamJuniorCertificate}{' '}
+          <div
+            className='certification__logo-container'
+            data-aos='zoom-in'
+            data-aos-delay='400'
+          >
+            <img
+              src={iamJuniorLogo}
+              alt={`${iamJunior.title} sertifikatas`}
+              className='certification__logo'
+            />
+          </div>
+
+          <h3
+            className='certification__title'
+            data-aos='fade-up'
+            data-aos-delay='500'
+          >
+            {iamJunior.title}
+          </h3>
+
+          <p
+            className='certification__subtitle'
+            data-aos='fade-up'
+            data-aos-delay='600'
+          >
+            {iamJunior.subtitle}
+          </p>
+
+          <div
+            className='certification__badge'
+            data-aos='fade-up'
+            data-aos-delay='700'
+          >
             <i className='bx bx-award' aria-hidden='true'></i>
-          </span>
+            <span>{iamJunior.certificate}</span>
+          </div>
+
+          <a
+            href='/img/Pažymėjimas.png'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='certification__button'
+            data-aos='fade-up'
+            data-aos-delay='800'
+          >
+            {viewCertificate} <i className='bx bx-right-arrow-alt'></i>
+          </a>
         </div>
       </div>
     </section>

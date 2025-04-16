@@ -1,9 +1,10 @@
 .home__section {
-  min-height: 100vh;
+  min-height: 100%;
   display: flex;
   align-items: center;
   padding-top: 6rem;
   padding-bottom: 2rem;
+  overflow-x: hidden;
   transition: all 0.3s ease;
 }
 
@@ -12,6 +13,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  box-sizing: border-box;
 }
 
 .home__content {
@@ -25,8 +27,9 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 15rem;
+  gap: 4rem;
   margin-top: 1.5rem;
+  flex-wrap: wrap;
 }
 
 /* Social Media Section */
@@ -50,7 +53,7 @@
 
 .home__social-icon:hover {
   color: #0072ff;
-  transform: translateY(-4px);
+  transform: translateY(-1px);
 }
 
 /* Profile Image - Optimized for LCP */
@@ -90,6 +93,8 @@
 .home__data {
   flex: 1;
   padding: 1rem 0;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .home__title {
@@ -257,7 +262,7 @@
 /* Media Queries */
 @media screen and (max-width: 992px) {
   .home__img-content-wrapper {
-    gap: 2rem;
+    gap: 6rem;
   }
 
   .home__subtitle {

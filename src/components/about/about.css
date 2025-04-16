@@ -1,4 +1,5 @@
 /* About sekcijos stiliai */
+
 .about__section {
   padding: 6rem 0 2rem;
 }
@@ -31,8 +32,6 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 3rem 2rem;
-  text-align: center;
 }
 
 .cert__line {
@@ -67,7 +66,6 @@
 }
 
 .certification__card:hover {
-  transform: translateY(-10px);
   box-shadow: 0 15px 30px rgba(0, 114, 255, 0.1);
 }
 
@@ -153,7 +151,6 @@
 }
 
 .certification__button:hover {
-  transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 114, 255, 0.3);
 }
 
@@ -172,6 +169,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
+  box-sizing: border-box;
 }
 
 .text-content-inner {
@@ -249,7 +247,6 @@
 }
 
 .feature-item:hover {
-  transform: translateY(-5px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
@@ -292,10 +289,12 @@
   font-weight: 500;
   text-decoration: none;
   transition: all 0.3s ease;
+  white-space: nowrap; /* <- REKOMENDUOJAMA */
+  max-width: 100%; /* <- PRIDĖTI */
+  box-sizing: border-box;
 }
 
 .button:hover {
-  transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 114, 255, 0.3);
 }
 

@@ -33,6 +33,7 @@
   transition: background-color var(--transition-speed) ease;
   scroll-margin-top: 55rem;
   width: 100%;
+  overflow-x: hidden;
 }
 
 .skills__container {

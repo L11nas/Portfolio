@@ -120,7 +120,6 @@ body {
 html,
 body {
   overflow-x: hidden; /* Užtikriname, kad nebus horizontalaus slinkimo */
-
   max-width: 100vw;
   position: relative;
 }

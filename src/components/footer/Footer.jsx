@@ -15,11 +15,6 @@ const Footer = () => {
   const [termsModalOpen, setTermsModalOpen] = useState(false);
 
   // Refresh AOS when component mounts
-  useEffect(() => {
-    if (window.AOS) {
-      window.AOS.refresh();
-    }
-  }, []);
 
   // Stebime scroll poziciją, kad žinotume, kada rodyti mygtuką
   useEffect(() => {
@@ -121,7 +116,7 @@ const Footer = () => {
           <div className='footer__content'>
             <div
               className='footer__info'
-              data-aos='fade-right'
+              data-aos='fade-up'
               data-aos-delay='100'
             >
               <h2 className='footer__title'>{t.title}</h2>
@@ -223,7 +218,7 @@ const Footer = () => {
 
             <div
               className='footer__social-container'
-              data-aos='fade-left'
+              data-aos='fade-up'
               data-aos-delay='300'
             >
               <h3 className='footer__social-title'>

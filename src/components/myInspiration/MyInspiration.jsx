@@ -35,11 +35,6 @@ export default function MyInspiration() {
   }, []);
 
   // Refresh AOS when component mounts
-  useEffect(() => {
-    if (window.AOS) {
-      window.AOS.refresh();
-    }
-  }, []);
 
   // Vertimų objektas
   const translations = {
@@ -126,7 +121,7 @@ export default function MyInspiration() {
     {
       img: '/img/1655576449371.jpg',
       title: 'Olimpinė diena',
-      subtitle: language === 'LT' ? 'Vilnius' : 'Vilnius',
+      subtitle: language === 'LT' ? 'Kaunas' : 'Kaunas',
       description:
         language === 'LT'
           ? 'Masinės bėgimo varžybos'
@@ -238,12 +233,12 @@ export default function MyInspiration() {
     {
       img: '/img/551.webp',
       title: 'Širvintų maratonas',
-      subtitle: language === 'LT' ? 'Komanda' : 'Team',
+      subtitle: language === 'LT' ? 'Sub3' : 'Sub3',
       description:
         language === 'LT' ? 'Bėgimo klubo nariai' : 'Running club members',
     },
     {
-      img: '/img/673.webp',
+      img: '/img/V.jpg',
       title: 'Vilties bėgimas',
       subtitle: language === 'LT' ? 'Labdaros renginys' : 'Charity event',
       description:
@@ -252,8 +247,8 @@ export default function MyInspiration() {
           : 'Support for cancer patients',
     },
     {
-      img: '/img/V.jpg',
-      title: 'Ironman Tallin',
+      img: '/img/673.webp',
+      title: 'Mastricht',
       subtitle: language === 'LT' ? 'Finišas' : 'Finish',
       description:
         language === 'LT' ? 'Pergalės momentas' : 'Moment of victory',
@@ -297,7 +292,7 @@ export default function MyInspiration() {
       id='inspiration'
     >
       <div className='inspiration__container container'>
-        <h1 className='section__title' data-aos='fade-down'>
+        <h1 className='section__title' data-aos='fade-up'>
           {t.title}
         </h1>
         <h2

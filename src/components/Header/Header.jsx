@@ -15,9 +15,9 @@ const Header = () => {
     const handleScroll = () => {
       const header = document.querySelector('.header');
       if (window.scrollY > 50) {
-        header.classList.add('scroll-header', 'shrink');
+        header.classList.add('shrink');
       } else {
-        header.classList.remove('scroll-header', 'shrink');
+        header.classList.remove('shrink');
       }
     };
     window.addEventListener('scroll', handleScroll);

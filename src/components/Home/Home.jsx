@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import './home.css';
-import Social from './Social';
+
 import Data from './Data';
 import ScrollDown from './ScrollDown';
 import { useDarkMode } from '../../ThemeContext';
@@ -47,8 +47,6 @@ const Home = () => {
       <section className='home__section' id='home'>
         <div className='home__container container'>
           <div className='home__content'>
-            <Social />
-
             <div className='home__img-content-wrapper'>
               <div className='home__img-container'>
                 <img

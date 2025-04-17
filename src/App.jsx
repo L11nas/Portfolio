@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react'; // 👈 čia reikia importuoti useEffect
-import AOS from 'aos'; // 👈 čia reikia importuoti AOS
-import 'aos/dist/aos.css';
 
 import './App.css';
 import Header from './components/Header/Header';
@@ -21,22 +19,13 @@ import { HelmetProvider } from 'react-helmet-async';
 import CookieConsent from './components/cookieconsent/CookieConsent';
 
 const App = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 800,
-      easing: 'ease-in-out',
-      once: true,
-      offset: 100,
-    });
-  }, []);
-
   return (
     <HelmetProvider>
       <LanguageProvider>
         <CustomThemeProvider>
           <CookieConsent onConsentChange={(consent) => {}} />
+          <Header />
           <main className='main'>
-            <Header />
             <Home />
             <About />
             <Skills />

@@ -10,12 +10,6 @@ const About = () => {
   const { darkMode } = useDarkMode();
   const { language } = useLanguage();
 
-  useEffect(() => {
-    if (window.AOS) {
-      window.AOS.refresh();
-    }
-  }, []);
-
   const translations = {
     LT: {
       title: 'Apie mane',
@@ -116,7 +110,7 @@ const About = () => {
                     <div
                       className='feature-item'
                       key={index}
-                      data-aos='fade-right'
+                      data-aos='fade-up'
                       data-aos-delay={400 + index * 100}
                     >
                       <span className='feature-icon' aria-hidden='true'>

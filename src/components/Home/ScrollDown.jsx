@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import { useDarkMode } from '../../ThemeContext';
-import './scrollDown .css'; // Make sure this matches the exact filename
+import '../Home/scrollDown.css'; // Make sure this matches the exact filename
 
 const ScrollDown = () => {
   const { language } = useLanguage();

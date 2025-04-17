@@ -34,7 +34,7 @@ const Frontend = () => {
   return (
     <div
       className={`skills__content ${darkMode ? 'dark-mode' : ''}`}
-      data-aos='fade-right'
+      data-aos='fade-up'
       data-aos-duration='1000'
     >
       <h3 className='skills__title'>{title}</h3>

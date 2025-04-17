@@ -1,3 +1,8 @@
+.footer [data-aos] {
+  transform-origin: center center;
+  overflow-x: hidden;
+}
+
 .footer {
   background-color: #f9f9f9;
   padding: 5rem 0 2rem;

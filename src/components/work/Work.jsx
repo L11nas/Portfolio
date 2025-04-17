@@ -12,11 +12,6 @@ const Work = () => {
   const [projects, setProjects] = useState([]);
 
   // Refresh AOS when component mounts
-  useEffect(() => {
-    if (window.AOS) {
-      window.AOS.refresh();
-    }
-  }, []);
 
   // Set projects when language changes
   useEffect(() => {

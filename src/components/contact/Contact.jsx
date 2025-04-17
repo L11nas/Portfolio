@@ -20,11 +20,6 @@ const Contact = () => {
   });
 
   // Refresh AOS when component mounts
-  useEffect(() => {
-    if (window.AOS) {
-      window.AOS.refresh();
-    }
-  }, []);
 
   const sendEmail = (name, email, project) => {
     setIsSubmitting(true);
@@ -157,7 +152,7 @@ const Contact = () => {
             {/* Contact Information */}
             <div
               className='contact__info-container'
-              data-aos='fade-right'
+              data-aos='fade-up'
               data-aos-delay='300'
             >
               <h3 className='contact__title'>{t.talkToMe}</h3>
@@ -199,7 +194,7 @@ const Contact = () => {
             {/* Contact Form */}
             <div
               className='contact__form-container'
-              data-aos='fade-left'
+              data-aos='fade-up'
               data-aos-delay='300'
             >
               <h3 className='contact__title'>{t.projectInquiry}</h3>

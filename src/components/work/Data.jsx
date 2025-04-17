@@ -34,7 +34,7 @@ export const projectsData = [
     category: 'Website',
     categoryLT: 'Svetainė',
     description: 'Construction company in UK, website with modern design',
-    descriptionLT: 'Statybos įmonės UK, svetainė su modernišku dizainu',
+    descriptionLT: 'Statybos įmonės UK, svetainė su moderniu dizainu',
     url: 'https://slbuildersltd.co.uk',
     Link: 'https://slbuildersltd.co.uk',
     image: '/img/builders.jpg', // Using the builders image as specified

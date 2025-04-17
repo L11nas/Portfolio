@@ -9,11 +9,6 @@ const Services = () => {
   const { language } = useLanguage();
 
   // Refresh AOS when component mounts
-  useEffect(() => {
-    if (window.AOS) {
-      window.AOS.refresh();
-    }
-  }, []);
 
   const translations = {
     LT: {
@@ -120,7 +115,7 @@ const Services = () => {
       <div className={darkMode ? 'dark-mode' : ''}>
         <section className='services__section' id='services'>
           <div className='services__container container'>
-            <h1 className='section__title' data-aos='fade-down'>
+            <h1 className='section__title' data-aos='fade-up'>
               {t.sectionTitle}
             </h1>
             <h2

@@ -11,11 +11,6 @@ const Skills = () => {
   const { language } = useLanguage();
 
   // Ensure AOS animations work properly
-  React.useEffect(() => {
-    if (window.AOS) {
-      window.AOS.refresh();
-    }
-  }, []);
 
   const translations = {
     LT: {
@@ -54,7 +49,7 @@ const Skills = () => {
       <div className={darkMode ? 'dark-mode' : ''}>
         <section className='skills__section' id='skills'>
           <div className='skills__container container'>
-            <h1 className='section__title' data-aos='fade-down'>
+            <h1 className='section__title' data-aos='fade-up'>
               {sectionTitle}
             </h1>
             <h2

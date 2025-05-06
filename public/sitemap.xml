@@ -3,37 +3,8 @@
 
   <url>
     <loc>https://www.linaswebdev.lt/</loc>
+    <lastmod>2025-05-06</lastmod>
     <priority>1.0</priority>
-  </url>
-
-  <url>
-    <loc>https://www.linaswebdev.lt/#about</loc>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://www.linaswebdev.lt/#skills</loc>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://www.linaswebdev.lt/#services</loc>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://www.linaswebdev.lt/#projects</loc>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.linaswebdev.lt/#inspiration</loc>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.linaswebdev.lt/#contact</loc>
-    <priority>1.0</priority>
-  </url>
+    <changefreq>weekly</changefreq>
 
 </urlset>

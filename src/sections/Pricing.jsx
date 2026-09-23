@@ -1,0 +1,60 @@
+import { useContent } from '../context/LanguageContext';
+import { goToContact } from '../utils';
+import './Pricing.css';
+
+const Pricing = () => {
+  const { pricing } = useContent();
+
+  return (
+    <section className='section' id='pricing' aria-labelledby='pricing-title'>
+      <div className='container'>
+        <div className='section-head section-head--center reveal'>
+          <p className='eyebrow'>{pricing.eyebrow}</p>
+          <h2 id='pricing-title' className='section-title'>
+            {pricing.title}
+          </h2>
+          <p className='section-lead'>{pricing.lead}</p>
+        </div>
+
+        <ul className='plans'>
+          {pricing.plans.map((plan) => (
+            <li
+              key={plan.id}
+              className={`plan reveal ${plan.featured ? 'plan--featured' : ''}`}
+            >
+              {plan.featured && <span className='plan__badge'>{pricing.badge}</span>}
+              <h3 className='plan__name'>{plan.name}</h3>
+              <p className='plan__price'>
+                <span className='plan__from'>{pricing.from}</span>
+                <span className='plan__amount'>{plan.price}&nbsp;€</span>
+              </p>
+              <p className='plan__fit'>{plan.fit}</p>
+              <ul className='check-list plan__features'>
+                {plan.features.map((feature) => (
+                  <li key={feature}>
+                    <i className='bx bx-check' aria-hidden='true'></i>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href='#contact'
+                className={`btn btn--block ${plan.featured ? 'btn--primary' : 'btn--ghost'}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  goToContact();
+                }}
+              >
+                {plan.cta}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <p className='plans__note reveal'>{pricing.note}</p>
+      </div>
+    </section>
+  );
+};
+
+export default Pricing;

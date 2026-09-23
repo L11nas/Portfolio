@@ -3,7 +3,6 @@ import {
   createTheme,
   ThemeProvider as MuiThemeProvider,
 } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
 
 const ThemeContext = createContext();
 
@@ -27,7 +26,6 @@ export const ThemeProvider = ({ children }) => {
   return (
     <ThemeContext.Provider value={{ darkMode, toggleDarkMode }}>
       <MuiThemeProvider theme={darkTheme}>
-        <CssBaseline />
         {children}
       </MuiThemeProvider>
     </ThemeContext.Provider>

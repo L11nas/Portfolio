@@ -1,0 +1,121 @@
+.contact {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 1rem + 4vw, 5rem);
+  align-items: center;
+}
+
+.contact__location {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.contact__location i {
+  font-size: 1.3rem;
+  color: var(--accent);
+}
+
+.contact__channels {
+  display: grid;
+  gap: 1rem;
+}
+
+.channel {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--ink);
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.channel:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+}
+
+.channel__icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 1.6rem;
+}
+
+.channel__text {
+  flex: 1;
+  min-width: 0;
+}
+
+.channel__label {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--muted);
+  line-height: 1.3;
+}
+
+.channel__value {
+  display: block;
+  font-size: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.channel__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-shrink: 0;
+  font-size: var(--fs-small);
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.channel__action i {
+  font-size: 1.2rem;
+  transition: transform 0.2s var(--ease);
+}
+
+.channel:hover .channel__action i {
+  transform: translateX(3px);
+}
+
+.contact__hint {
+  margin-top: 1.25rem;
+  font-size: var(--fs-small);
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .contact {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .channel {
+    gap: 1rem;
+  }
+
+  .channel__icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .channel__action {
+    display: none;
+  }
+}

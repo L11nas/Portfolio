@@ -36,12 +36,19 @@ const CookieConsent = ({ onConsentChange }) => {
     }
   }, [onConsentChange]);
 
+  // Google Consent Mode v2 – numatytasis „denied“ nustatomas index.html
+  const updateConsent = (state) => {
+    if (typeof window.gtag === 'function') {
+      window.gtag('consent', 'update', { analytics_storage: state });
+    }
+  };
+
   const enableGoogleAnalytics = () => {
-    window[`ga-disable-${GOOGLE_ANALYTICS_ID}`] = false;
+    updateConsent('granted');
   };
 
   const disableGoogleAnalytics = () => {
-    window[`ga-disable-${GOOGLE_ANALYTICS_ID}`] = true;
+    updateConsent('denied');
     deleteGoogleAnalyticsCookies();
   };
 
@@ -56,7 +63,12 @@ const CookieConsent = ({ onConsentChange }) => {
   };
 
   const deleteCookie = (cookieName) => {
-    document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${window.location.hostname}`;
+    // GA slapukus kuria ant pagrindinio domeno (.linaswebdev.lt), todėl triname abiem variantais
+    const host = window.location.hostname;
+    const rootDomain = host.split('.').slice(-2).join('.');
+    [host, `.${rootDomain}`].forEach((domain) => {
+      document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${domain}`;
+    });
   };
 
   const handleAccept = () => {
@@ -88,17 +100,17 @@ const CookieConsent = ({ onConsentChange }) => {
 
   const translations = {
     LT: {
-      notice: 'Svarbus pranešimas dėl privatumo:',
+      notice: 'Slapukai',
       message:
-        'Chrome naršyklė netrukus apribos trečiųjų šalių slapukų naudojimą. Mūsų svetainė naudoja Google Analytics svetainės analizei ir būtinus slapukus funkcionalumui užtikrinti.',
+        'Su jūsų sutikimu naudojame Google Analytics slapukus, kad suprastume, kaip lankytojai naudojasi svetaine. Būtini slapukai reikalingi svetainės veikimui.',
       privacyPolicy: 'Privatumo politika',
       allowCookies: 'Leisti slapukus',
       necessaryOnly: 'Tik būtini slapukai',
     },
     EN: {
-      notice: 'Important Privacy Notice:',
+      notice: 'Cookies',
       message:
-        'Chrome will soon restrict the use of third-party cookies. Our website uses Google Analytics for site analysis and essential cookies to ensure functionality.',
+        'With your consent, we use Google Analytics cookies to understand how visitors use the website. Essential cookies are required for the site to work.',
       privacyPolicy: 'Privacy Policy',
       allowCookies: 'Allow Cookies',
       necessaryOnly: 'Necessary Only',

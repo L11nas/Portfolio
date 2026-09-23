@@ -47,22 +47,22 @@ const PrivacyPolicyModal = ({ isOpen, onClose }) => {
         'Mes, LinasWebDev, gerbiame jūsų privatumą ir įsipareigojame užtikrinti jūsų asmeninės informacijos apsaugą. Šioje privatumo politikoje paaiškinama, kaip mes renkame, naudojame ir saugome jūsų duomenis.',
       section1: '1. Surinkti duomenys:',
       section1Content:
-        'Mes galime rinkti jūsų vardą, el. paštą ir kitą informaciją, kurią pateikiate mūsų kontaktų formoje svetainės kūrimo paslaugų užklausoms.',
+        'Svetainėje nėra kontaktų formos. Jei susisiekiate el. paštu ar telefonu, gauname tik tuos duomenis, kuriuos patys pateikiate (pvz., vardą, el. pašto adresą, telefono numerį ir žinutės turinį).',
       section2: '2. Kodėl renkami duomenys?',
       section2Content:
         'Jūsų pateikti duomenys naudojami tik tam, kad galėtume atsakyti į jūsų užklausą dėl svetainių kūrimo paslaugų. Mes nenaudojame jūsų duomenų jokiais kitais tikslais.',
       section2aTitle: '2.1. Teisinis pagrindas duomenų tvarkymui:',
       section2aContent:
-        'Jūsų duomenys tvarkomi remiantis jūsų sutikimu, kurį išreiškiate pateikdami savo duomenis kontaktų formoje, bei mūsų teisėtu interesu atsakyti į jūsų užklausas dėl svetainių kūrimo paslaugų.',
+        'Jūsų užklausos duomenys tvarkomi remiantis mūsų teisėtu interesu atsakyti į jūsų užklausą ir veiksmais prieš sudarant sutartį. Analitiniai slapukai naudojami tik gavus jūsų sutikimą.',
       section3: '3. Kaip ilgai saugomi duomenys?',
       section3Content:
         'Jūsų pateikti duomenys saugomi tik tol, kol atsakome į jūsų užklausą. Po to jie pašalinami, nebent susitariame dėl tolimesnio bendradarbiavimo.',
       section4: '4. Duomenų perdavimas trečiosioms šalims',
       section4Content:
-        'Jūsų žinutės siunčiamos naudojant trečiosios šalies paslaugą – Email.js. Ši paslauga užtikrina žinučių siuntimą el. paštu. Naudojant šią paslaugą, jūsų duomenys yra tvarkomi pagal Email.js privatumo politiką. Taip pat naudojame Google Analytics įrankį, kuris padeda analizuoti svetainės lankomumą ir gerinti vartotojo patirtį.',
+        'Jūsų duomenų neparduodame ir neperduodame trečiosioms šalims rinkodaros tikslais. Svetainės lankomumui analizuoti naudojame Google Analytics (Google Ireland Limited) – tik jums sutikus su analitiniais slapukais.',
       section4aTitle: '4.1. Tarptautiniai duomenų perdavimai:',
       section4aContent:
-        'Email.js ir Google Analytics gali perduoti duomenis už Europos Sąjungos ar Europos ekonominės erdvės ribų. Šie perdavimai vykdomi remiantis tinkamomis apsaugos priemonėmis, tokiomis kaip Europos Komisijos patvirtintos standartinės duomenų apsaugos sąlygos.',
+        'Google Analytics gali perduoti duomenis už Europos Sąjungos ar Europos ekonominės erdvės ribų. Šie perdavimai vykdomi remiantis tinkamomis apsaugos priemonėmis, tokiomis kaip Europos Komisijos patvirtintos standartinės duomenų apsaugos sąlygos.',
       section5: '5. Slapukai ir stebėjimo technologijos',
       section5Content:
         'Mes naudojame slapukus, kad užtikrintume geriausią patirtį naršant mūsų svetainėje. Taip pat naudojame "Google Analytics" paslaugą, kuri padeda analizuoti svetainės lankomumą ir suprasti, kaip lankytojai naudoja mūsų svetainę. "Google Analytics" renka anoniminę informaciją apie jūsų apsilankymą, įskaitant puslapius, kuriuos lankėte, laiką, praleistą svetainėje, ir kitą bendrą informaciją.',
@@ -108,22 +108,22 @@ const PrivacyPolicyModal = ({ isOpen, onClose }) => {
         'We, LinasWebDev, respect your privacy and are committed to protecting your personal information. This privacy policy explains how we collect, use, and protect your data.',
       section1: '1. Data Collected:',
       section1Content:
-        'We may collect your name, email, and other information you provide in our contact form for website development service inquiries.',
+        'This website has no contact form. If you contact us by email or phone, we only receive the data you provide yourself (e.g. your name, email address, phone number and message content).',
       section2: '2. Why is the data collected?',
       section2Content:
         'The data you provide is used solely to respond to your inquiry about our website development services. We do not use your data for any other purposes.',
       section2aTitle: '2.1. Legal Basis for Data Processing:',
       section2aContent:
-        'Your data is processed based on your consent, which you express by submitting your data through the contact form, and our legitimate interest to respond to your inquiries about our website development services.',
+        'Enquiry data is processed based on our legitimate interest in responding to your enquiry and on steps taken prior to entering into a contract. Analytics cookies are only used with your consent.',
       section3: '3. How long is the data retained?',
       section3Content:
         'The data you provide is retained only until we respond to your inquiry. After that, it is deleted, unless we agree on further collaboration.',
       section4: '4. Data Transfer to Third Parties',
       section4Content:
-        'Your messages are sent using a third-party service – Email.js. This service ensures the sending of messages via email. When using this service, your data is processed according to Email.js privacy policy. We also use Google Analytics that helps analyze website traffic and improve user experience.',
+        'We do not sell your data or share it with third parties for marketing. We use Google Analytics (Google Ireland Limited) to analyse website traffic — only if you consent to analytics cookies.',
       section4aTitle: '4.1. International Data Transfers:',
       section4aContent:
-        'Email.js and Google Analytics may transfer data outside the European Union or European Economic Area. These transfers are carried out based on appropriate safeguards, such as the European Commission-approved standard data protection clauses.',
+        'Google Analytics may transfer data outside the European Union or European Economic Area. These transfers are carried out based on appropriate safeguards, such as the European Commission-approved standard data protection clauses.',
       section5: '5. Cookies and Tracking Technologies',
       section5Content:
         'We use cookies to ensure the best experience while browsing our website. We also use the Google Analytics service, which helps analyze website traffic and understand how visitors use our site. Google Analytics collects anonymous information about your visit, including the pages you visited, time spent on the site, and other general information.',

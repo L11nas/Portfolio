@@ -92,29 +92,37 @@ const Work = () => {
           ))}
 
           <article className='case-side reveal'>
-            <img
-              src={side.image}
-              alt=''
-              width='1905'
-              height='829'
-              loading='lazy'
-              decoding='async'
-              className='case-side__img'
-            />
+            {side.image ? (
+              <img
+                src={side.image}
+                alt=''
+                width='1440'
+                height='900'
+                loading='lazy'
+                decoding='async'
+                className='case-side__img'
+              />
+            ) : (
+              <div className='case-side__img case-side__placeholder' aria-hidden='true'>
+                <i className={`bx ${side.icon}`}></i>
+              </div>
+            )}
             <div>
               <span className='tag'>{side.label}</span>
               <h3 className='case-side__title'>{side.name}</h3>
               <p className='case-side__text'>{side.text}</p>
-              <a
-                href={side.url}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='link-arrow'
-              >
-                {labels.visit}
-                <span className='sr-only'>: {side.name}</span>
-                <i className='bx bx-right-arrow-alt' aria-hidden='true'></i>
-              </a>
+              {side.url && (
+                <a
+                  href={side.url}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='link-arrow'
+                >
+                  {labels.visit}
+                  <span className='sr-only'>: {side.name}</span>
+                  <i className='bx bx-right-arrow-alt' aria-hidden='true'></i>
+                </a>
+              )}
             </div>
           </article>
         </div>

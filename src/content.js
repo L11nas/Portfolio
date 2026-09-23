@@ -16,7 +16,6 @@ export const CONTACTS = {
 const projectImages = {
   builders: '/img/builders.jpg',
   kirpeja: '/img/kirpeja.jpg',
-  running: '/img/runweb.jpg',
 };
 
 export const content = {
@@ -170,11 +169,10 @@ export const content = {
         },
       ],
       side: {
-        name: 'Bėgimo planas',
-        url: 'https://begimoplanas.netlify.app',
-        image: projectImages.running,
-        label: 'Nuosavas projektas',
-        text: 'Interaktyvi svetainė bėgimo planams kurti ir sekti, su registracija ir naudotojų paskyromis.',
+        name: 'Beauty Assistant',
+        icon: 'bx-spa',
+        label: 'Kuriama',
+        text: 'Šiuo metu kuriu programėlę grožio paslaugų verslui. Daugiau informacijos – netrukus.',
       },
     },
     pricing: {
@@ -495,11 +493,10 @@ export const content = {
         },
       ],
       side: {
-        name: 'Running plan',
-        url: 'https://begimoplanas.netlify.app',
-        image: projectImages.running,
-        label: 'Own project',
-        text: 'An interactive website for creating and tracking running plans, with sign-up and user accounts.',
+        name: 'Beauty Assistant',
+        icon: 'bx-spa',
+        label: 'In development',
+        text: 'I’m currently building an app for beauty service businesses. More details coming soon.',
       },
     },
     pricing: {

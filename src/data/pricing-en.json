@@ -1,0 +1,66 @@
+{
+  "note": "The final price depends on the scope and functionality. Tell me what you need and I will send a preliminary quote.",
+  "plans": [
+    {
+      "id": "start",
+      "name": "Start",
+      "price": "450",
+      "fit": "For a small business or specialist who needs a professional presence online.",
+      "features": [
+        "Up to 5 pages",
+        "Mobile-friendly",
+        "Contact form",
+        "Basic SEO",
+        "Google Analytics",
+        "Launch"
+      ],
+      "cta": "Get a quote"
+    },
+    {
+      "id": "business",
+      "name": "Business",
+      "price": "750",
+      "featured": true,
+      "fit": "For a company that wants to present several services clearly and get enquiries.",
+      "features": [
+        "Custom design",
+        "Up to 10 pages",
+        "Service page structure",
+        "SEO foundations",
+        "Google Analytics",
+        "Contact integrations",
+        "Speed optimisation"
+      ],
+      "cta": "Get a quote"
+    },
+    {
+      "id": "custom",
+      "name": "Custom",
+      "price": "1,200",
+      "fit": "For projects that need a more complex structure or specific features.",
+      "features": [
+        "Tailored solution",
+        "More complex structure",
+        "Integrations with other systems",
+        "Specific functionality"
+      ],
+      "cta": "Discuss your project"
+    }
+  ],
+  "extrasTitle": "Additional services",
+  "extras": [
+    {
+      "name": "Landing page",
+      "price": "350",
+      "unit": "",
+      "text": "One focused page for a service, product or advertising campaign."
+    },
+    {
+      "name": "Maintenance",
+      "price": "25",
+      "unit": "/ month",
+      "text": "Content changes, updates, backups and help whenever you need it."
+    }
+  ],
+  "excluded": "Domain and hosting (around €40–60 per year) are paid separately. Texts and photos are provided by the client, or we agree on preparing them separately."
+}

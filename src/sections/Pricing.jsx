@@ -51,7 +51,28 @@ const Pricing = () => {
           ))}
         </ul>
 
-        <p className='plans__note reveal'>{pricing.note}</p>
+        <div className='extras reveal'>
+          <h3 className='extras__title'>{pricing.extrasTitle}</h3>
+          <ul className='extras__list'>
+            {pricing.extras.map((extra) => (
+              <li className='extra' key={extra.name}>
+                <div>
+                  <p className='extra__name'>{extra.name}</p>
+                  <p className='extra__text'>{extra.text}</p>
+                </div>
+                <p className='extra__price'>
+                  <span className='plan__from'>{pricing.from}</span> {extra.price}&nbsp;€
+                  {extra.unit && <span className='extra__unit'> {extra.unit}</span>}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className='plans__notes reveal'>
+          <p>{pricing.note}</p>
+          <p>{pricing.excluded}</p>
+        </div>
       </div>
     </section>
   );

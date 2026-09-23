@@ -1,0 +1,119 @@
+# Decap CMS konfigūracija – ką galima redaguoti per /admin
+backend:
+  name: github
+  repo: L11nas/Portfolio
+  branch: master
+  base_url: https://api.netlify.com
+
+# Lokaliam testavimui: `npx decap-server` + http://localhost:5173/admin/index.html
+local_backend: true
+
+locale: lt
+media_folder: public/img/uploads
+public_folder: /img/uploads
+
+collections:
+  - name: kainos
+    label: Kainos
+    files:
+      - name: pricing-lt
+        label: Kainos (LT)
+        file: src/data/pricing-lt.json
+        fields:
+          - label: Paketai
+            name: plans
+            widget: list
+            allow_add: false
+            summary: '{{fields.name}} – nuo {{fields.price}} €'
+            fields:
+              - { label: ID, name: id, widget: hidden }
+              - { label: Pavadinimas, name: name, widget: string }
+              - { label: Kaina (nuo, €), name: price, widget: string }
+              - { label: Rekomenduojamas, name: featured, widget: boolean, required: false, default: false }
+              - { label: Kam tinka, name: fit, widget: text }
+              - { label: Kas įskaičiuota, name: features, widget: list, field: { label: Punktas, name: item, widget: string } }
+              - { label: Mygtuko tekstas, name: cta, widget: string }
+          - { label: Pastaba po kainomis, name: note, widget: text }
+          - { label: Papildomų paslaugų antraštė, name: extrasTitle, widget: string }
+          - label: Papildomos paslaugos
+            name: extras
+            widget: list
+            summary: '{{fields.name}} – nuo {{fields.price}} €'
+            fields:
+              - { label: Pavadinimas, name: name, widget: string }
+              - { label: Kaina (nuo, €), name: price, widget: string }
+              - { label: Vienetas (pvz. / mėn.), name: unit, widget: string, required: false }
+              - { label: Aprašymas, name: text, widget: text }
+          - { label: Kas neįskaičiuota, name: excluded, widget: text }
+      - name: pricing-en
+        label: Kainos (EN)
+        file: src/data/pricing-en.json
+        fields:
+          - label: Paketai
+            name: plans
+            widget: list
+            allow_add: false
+            summary: '{{fields.name}} – nuo {{fields.price}} €'
+            fields:
+              - { label: ID, name: id, widget: hidden }
+              - { label: Pavadinimas, name: name, widget: string }
+              - { label: Kaina (nuo, €), name: price, widget: string }
+              - { label: Rekomenduojamas, name: featured, widget: boolean, required: false, default: false }
+              - { label: Kam tinka, name: fit, widget: text }
+              - { label: Kas įskaičiuota, name: features, widget: list, field: { label: Punktas, name: item, widget: string } }
+              - { label: Mygtuko tekstas, name: cta, widget: string }
+          - { label: Pastaba po kainomis, name: note, widget: text }
+          - { label: Papildomų paslaugų antraštė, name: extrasTitle, widget: string }
+          - label: Papildomos paslaugos
+            name: extras
+            widget: list
+            summary: '{{fields.name}} – nuo {{fields.price}} €'
+            fields:
+              - { label: Pavadinimas, name: name, widget: string }
+              - { label: Kaina (nuo, €), name: price, widget: string }
+              - { label: Vienetas (pvz. / mėn.), name: unit, widget: string, required: false }
+              - { label: Aprašymas, name: text, widget: text }
+          - { label: Kas neįskaičiuota, name: excluded, widget: text }
+
+  - name: duk
+    label: DUK
+    files:
+      - name: faq-lt
+        label: DUK (LT)
+        file: src/data/faq-lt.json
+        fields:
+          - label: Klausimai
+            name: items
+            widget: list
+            summary: '{{fields.q}}'
+            fields:
+              - { label: Klausimas, name: q, widget: string }
+              - { label: Atsakymas, name: a, widget: text }
+      - name: faq-en
+        label: DUK (EN)
+        file: src/data/faq-en.json
+        fields:
+          - label: Klausimai
+            name: items
+            widget: list
+            summary: '{{fields.q}}'
+            fields:
+              - { label: Klausimas, name: q, widget: string }
+              - { label: Atsakymas, name: a, widget: text }
+
+  - name: kontaktai
+    label: Kontaktai
+    files:
+      - name: contacts
+        label: Kontaktai
+        file: src/data/contacts.json
+        fields:
+          - { label: El. paštas, name: email, widget: string }
+          - { label: Telefonas (kaip rodomas), name: phone, widget: string }
+          - { label: Telefonas (skambinimui, be tarpų), name: phoneHref, widget: string }
+          - { label: WhatsApp nuoroda, name: whatsapp, widget: string }
+          - { label: Messenger nuoroda, name: messenger, widget: string }
+          - { label: Facebook, name: facebook, widget: string }
+          - { label: LinkedIn, name: linkedin, widget: string }
+          - { label: GitHub, name: github, widget: string }
+          - { label: Google Business nuoroda, name: googleBusiness, widget: string }

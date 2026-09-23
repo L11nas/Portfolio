@@ -1,17 +1,12 @@
 // Visi svetainės tekstai vienoje vietoje (LT / EN).
-// Norėdami pakeisti tekstą ar kainą – keiskite čia, komponentų liesti nereikia.
+// Kainos, DUK ir kontaktai laikomi src/data/*.json – juos galima redaguoti per /admin (Decap CMS).
+import contacts from './data/contacts.json';
+import pricingLt from './data/pricing-lt.json';
+import pricingEn from './data/pricing-en.json';
+import faqLt from './data/faq-lt.json';
+import faqEn from './data/faq-en.json';
 
-export const CONTACTS = {
-  email: 'linaswebdev@email.com',
-  phone: '+370 672 06686',
-  phoneHref: '+37067206686',
-  whatsapp: 'https://wa.me/37067206686',
-  messenger: 'https://m.me/linas.ulevicius.3',
-  facebook: 'https://www.facebook.com/linas.ulevicius.3',
-  linkedin: 'https://lt.linkedin.com/in/linas-ulevi%C4%8Dius-48366113b',
-  github: 'https://github.com/L11nas',
-  googleBusiness: 'https://maps.google.com/?cid=3194892452271804915',
-};
+export const CONTACTS = contacts;
 
 const projectImages = {
   builders: '/img/builders.jpg',
@@ -181,54 +176,11 @@ export const content = {
       lead: 'Aiškūs paketai kaip atspirties taškas. Tikslią kainą pateiksiu, kai trumpai papasakosite apie savo projektą.',
       from: 'nuo',
       badge: 'Rekomenduojamas',
-      plans: [
-        {
-          id: 'start',
-          name: 'Start',
-          price: '450',
-          fit: 'Mažam verslui ar specialistui, kuriam reikia profesionalaus puslapio internete.',
-          features: [
-            'Iki 5 puslapių',
-            'Pritaikymas telefonams',
-            'Kontaktų forma',
-            'Bazinis SEO',
-            'Google Analytics',
-            'Paleidimas',
-          ],
-          cta: 'Gauti pasiūlymą',
-        },
-        {
-          id: 'business',
-          name: 'Verslas',
-          price: '750',
-          featured: true,
-          fit: 'Įmonei, kuri nori aiškiai pristatyti kelias paslaugas ir gauti užklausas.',
-          features: [
-            'Individualus dizainas',
-            'Iki 10 puslapių',
-            'Paslaugų puslapių struktūra',
-            'SEO pagrindai',
-            'Google Analytics',
-            'Kontaktų integracijos',
-            'Greičio optimizavimas',
-          ],
-          cta: 'Gauti pasiūlymą',
-        },
-        {
-          id: 'custom',
-          name: 'Individualus',
-          price: '1 200',
-          fit: 'Projektui, kuriam reikia sudėtingesnės struktūros ar specifinių funkcijų.',
-          features: [
-            'Individualus sprendimas',
-            'Sudėtingesnė struktūra',
-            'Integracijos su kitomis sistemomis',
-            'Specifinis funkcionalumas',
-          ],
-          cta: 'Aptarti projektą',
-        },
-      ],
-      note: 'Galutinė kaina priklauso nuo projekto apimties ir funkcionalumo. Parašykite, ko reikia – pateiksiu preliminarų pasiūlymą.',
+      plans: pricingLt.plans,
+      note: pricingLt.note,
+      extrasTitle: pricingLt.extrasTitle,
+      extras: pricingLt.extras,
+      excluded: pricingLt.excluded,
     },
     process: {
       eyebrow: 'Procesas',
@@ -275,44 +227,7 @@ export const content = {
     faq: {
       eyebrow: 'DUK',
       title: 'Dažniausiai užduodami klausimai',
-      items: [
-        {
-          q: 'Kiek kainuoja svetainės sukūrimas?',
-          a: 'Kainos prasideda nuo 450 € (Start paketas). Galutinė kaina priklauso nuo puslapių skaičiaus, dizaino ir reikalingų funkcijų – parašykite, ko reikia, ir pateiksiu preliminarų pasiūlymą.',
-        },
-        {
-          q: 'Per kiek laiko sukuriama svetainė?',
-          a: 'Terminas priklauso nuo projekto dydžio ir nuo to, kaip greitai pateikiamas turinys (tekstai, nuotraukos). Nedidelė svetainė paprastai sukuriama per kelias savaites.',
-        },
-        {
-          q: 'Ar padedate su domenu ir talpinimu?',
-          a: 'Taip. Jei reikia, padėsiu pasirinkti ir sukonfigūruoti domeną bei talpinimą (hostingą).',
-        },
-        {
-          q: 'Ar svetainė gerai veiks telefone?',
-          a: 'Taip. Visos svetainės kuriamos pritaikant jas telefonams, planšetėms ir kompiuteriams.',
-        },
-        {
-          q: 'Ar galite sutvarkyti SEO?',
-          a: 'Atlieku bazinius techninius SEO darbus: metaduomenis, antraščių struktūrą, sitemap, greitį. Svetainė bus paruošta tolimesniam SEO. Konkrečių pozicijų Google negarantuoju – to sąžiningai negali pažadėti niekas.',
-        },
-        {
-          q: 'Ar galėsiu vėliau pats keisti svetainės turinį?',
-          a: 'Tai priklauso nuo pasirinkto sprendimo. Jei norite patys redaguoti tekstus ar nuotraukas, turinio valdymo galimybę aptarsime prieš pradedant projektą.',
-        },
-        {
-          q: 'Ar galite atnaujinti mano dabartinę svetainę?',
-          a: 'Taip. Galiu modernizuoti esamą svetainę arba sukurti naują, išsaugodamas tai, kas jau veikia gerai.',
-        },
-        {
-          q: 'Ar dirbate tik su Kauno verslais?',
-          a: 'Ne. Esu įsikūręs Kaune, todėl su Kauno klientais galime susitikti ir gyvai, tačiau dirbu ir nuotoliu – su verslais visoje Lietuvoje bei užsienyje.',
-        },
-        {
-          q: 'Ar prižiūrite svetainę po paleidimo?',
-          a: 'Taip, dėl priežiūros ir pakeitimų po paleidimo galime susitarti atskirai – pagal jūsų poreikius.',
-        },
-      ],
+      items: faqLt.items,
     },
     cta: {
       title: 'Turite verslą? Reikia geresnės svetainės?',
@@ -505,54 +420,11 @@ export const content = {
       lead: 'Clear packages as a starting point. I will give you an exact price once you tell me a little about your project.',
       from: 'from',
       badge: 'Recommended',
-      plans: [
-        {
-          id: 'start',
-          name: 'Start',
-          price: '450',
-          fit: 'For a small business or specialist who needs a professional presence online.',
-          features: [
-            'Up to 5 pages',
-            'Mobile-friendly',
-            'Contact form',
-            'Basic SEO',
-            'Google Analytics',
-            'Launch',
-          ],
-          cta: 'Get a quote',
-        },
-        {
-          id: 'business',
-          name: 'Business',
-          price: '750',
-          featured: true,
-          fit: 'For a company that wants to present several services clearly and get enquiries.',
-          features: [
-            'Custom design',
-            'Up to 10 pages',
-            'Service page structure',
-            'SEO foundations',
-            'Google Analytics',
-            'Contact integrations',
-            'Speed optimisation',
-          ],
-          cta: 'Get a quote',
-        },
-        {
-          id: 'custom',
-          name: 'Custom',
-          price: '1,200',
-          fit: 'For projects that need a more complex structure or specific features.',
-          features: [
-            'Tailored solution',
-            'More complex structure',
-            'Integrations with other systems',
-            'Specific functionality',
-          ],
-          cta: 'Discuss your project',
-        },
-      ],
-      note: 'The final price depends on the scope and functionality. Tell me what you need and I will send a preliminary quote.',
+      plans: pricingEn.plans,
+      note: pricingEn.note,
+      extrasTitle: pricingEn.extrasTitle,
+      extras: pricingEn.extras,
+      excluded: pricingEn.excluded,
     },
     process: {
       eyebrow: 'Process',
@@ -584,44 +456,7 @@ export const content = {
     faq: {
       eyebrow: 'FAQ',
       title: 'Frequently asked questions',
-      items: [
-        {
-          q: 'How much does a website cost?',
-          a: 'Prices start at €450 (Start package). The final price depends on the number of pages, design and features — tell me what you need and I will send a preliminary quote.',
-        },
-        {
-          q: 'How long does it take?',
-          a: 'It depends on the size of the project and how quickly content (texts, photos) is provided. A small website usually takes a few weeks.',
-        },
-        {
-          q: 'Can you help with the domain and hosting?',
-          a: 'Yes. If needed, I will help you choose and set up a domain and hosting.',
-        },
-        {
-          q: 'Will the website work on phones?',
-          a: 'Yes. Every website is built to work on phones, tablets and desktops.',
-        },
-        {
-          q: 'Can you do SEO?',
-          a: 'I do the technical SEO basics: metadata, heading structure, sitemap and speed, so your site is ready for further SEO. I don’t guarantee Google rankings — honestly, nobody can.',
-        },
-        {
-          q: 'Will I be able to edit the content myself?',
-          a: 'It depends on the chosen solution. If you want to edit texts or photos yourself, we will discuss a content management option before starting.',
-        },
-        {
-          q: 'Can you update my current website?',
-          a: 'Yes. I can modernise your existing website or build a new one, keeping what already works well.',
-        },
-        {
-          q: 'Do you only work with businesses in Kaunas?',
-          a: 'No. I’m based in Kaunas, so we can meet in person there, but I also work remotely with businesses across Lithuania and abroad.',
-        },
-        {
-          q: 'Do you maintain the website after launch?',
-          a: 'Yes, we can agree on maintenance and changes after launch separately, based on your needs.',
-        },
-      ],
+      items: faqEn.items,
     },
     cta: {
       title: 'Have a business? Need a better website?',

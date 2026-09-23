@@ -1,0 +1,66 @@
+{
+  "note": "Galutinė kaina priklauso nuo projekto apimties ir funkcionalumo. Parašykite, ko reikia – pateiksiu preliminarų pasiūlymą.",
+  "plans": [
+    {
+      "id": "start",
+      "name": "Start",
+      "price": "450",
+      "fit": "Mažam verslui ar specialistui, kuriam reikia profesionalaus puslapio internete.",
+      "features": [
+        "Iki 5 puslapių",
+        "Pritaikymas telefonams",
+        "Kontaktų forma",
+        "Bazinis SEO",
+        "Google Analytics",
+        "Paleidimas"
+      ],
+      "cta": "Gauti pasiūlymą"
+    },
+    {
+      "id": "business",
+      "name": "Verslas",
+      "price": "750",
+      "featured": true,
+      "fit": "Įmonei, kuri nori aiškiai pristatyti kelias paslaugas ir gauti užklausas.",
+      "features": [
+        "Individualus dizainas",
+        "Iki 10 puslapių",
+        "Paslaugų puslapių struktūra",
+        "SEO pagrindai",
+        "Google Analytics",
+        "Kontaktų integracijos",
+        "Greičio optimizavimas"
+      ],
+      "cta": "Gauti pasiūlymą"
+    },
+    {
+      "id": "custom",
+      "name": "Individualus",
+      "price": "1 200",
+      "fit": "Projektui, kuriam reikia sudėtingesnės struktūros ar specifinių funkcijų.",
+      "features": [
+        "Individualus sprendimas",
+        "Sudėtingesnė struktūra",
+        "Integracijos su kitomis sistemomis",
+        "Specifinis funkcionalumas"
+      ],
+      "cta": "Aptarti projektą"
+    }
+  ],
+  "extrasTitle": "Papildomos paslaugos",
+  "extras": [
+    {
+      "name": "Landing page",
+      "price": "350",
+      "unit": "",
+      "text": "Vienas koncentruotas puslapis paslaugai, produktui ar reklamos kampanijai."
+    },
+    {
+      "name": "Priežiūra",
+      "price": "25",
+      "unit": "/ mėn.",
+      "text": "Turinio pakeitimai, atnaujinimai, atsarginės kopijos ir pagalba, kai jos reikia."
+    }
+  ],
+  "excluded": "Domenas ir talpinimas (apie 40–60 € per metus) apmokami atskirai. Tekstus ir nuotraukas pateikia klientas, arba jų paruošimą aptariame atskirai."
+}

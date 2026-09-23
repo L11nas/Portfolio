@@ -1,0 +1,40 @@
+{
+  "items": [
+    {
+      "q": "How much does a website cost?",
+      "a": "Prices start at €450 (Start package), landing pages from €350. The final price depends on the number of pages, design and features. Domain and hosting (around €40–60 per year) are paid separately."
+    },
+    {
+      "q": "How long does it take?",
+      "a": "It depends on the size of the project and how quickly content (texts, photos) is provided. A small website usually takes a few weeks."
+    },
+    {
+      "q": "Can you help with the domain and hosting?",
+      "a": "Yes. If needed, I will help you choose and set up a domain and hosting."
+    },
+    {
+      "q": "Will the website work on phones?",
+      "a": "Yes. Every website is built to work on phones, tablets and desktops."
+    },
+    {
+      "q": "Can you do SEO?",
+      "a": "I do the technical SEO basics: metadata, heading structure, sitemap and speed, so your site is ready for further SEO. I don’t guarantee Google rankings — honestly, nobody can."
+    },
+    {
+      "q": "Will I be able to edit the content myself?",
+      "a": "It depends on the chosen solution. If you want to edit texts or photos yourself, we will discuss a content management option before starting."
+    },
+    {
+      "q": "Can you update my current website?",
+      "a": "Yes. I can modernise your existing website or build a new one, keeping what already works well."
+    },
+    {
+      "q": "Do you only work with businesses in Kaunas?",
+      "a": "No. I’m based in Kaunas, so we can meet in person there, but I also work remotely with businesses across Lithuania and abroad."
+    },
+    {
+      "q": "Do you maintain the website after launch?",
+      "a": "Yes. Maintenance starts from €25 per month: content changes, updates, backups and help whenever you need it."
+    }
+  ]
+}

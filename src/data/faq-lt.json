@@ -1,0 +1,40 @@
+{
+  "items": [
+    {
+      "q": "Kiek kainuoja svetainės sukūrimas?",
+      "a": "Kainos prasideda nuo 450 € (Start paketas), landing page – nuo 350 €. Galutinė kaina priklauso nuo puslapių skaičiaus, dizaino ir reikalingų funkcijų. Domenas ir talpinimas (apie 40–60 € per metus) apmokami atskirai."
+    },
+    {
+      "q": "Per kiek laiko sukuriama svetainė?",
+      "a": "Terminas priklauso nuo projekto dydžio ir nuo to, kaip greitai pateikiamas turinys (tekstai, nuotraukos). Nedidelė svetainė paprastai sukuriama per kelias savaites."
+    },
+    {
+      "q": "Ar padedate su domenu ir talpinimu?",
+      "a": "Taip. Jei reikia, padėsiu pasirinkti ir sukonfigūruoti domeną bei talpinimą (hostingą)."
+    },
+    {
+      "q": "Ar svetainė gerai veiks telefone?",
+      "a": "Taip. Visos svetainės kuriamos pritaikant jas telefonams, planšetėms ir kompiuteriams."
+    },
+    {
+      "q": "Ar galite sutvarkyti SEO?",
+      "a": "Atlieku bazinius techninius SEO darbus: metaduomenis, antraščių struktūrą, sitemap, greitį. Svetainė bus paruošta tolimesniam SEO. Konkrečių pozicijų Google negarantuoju – to sąžiningai negali pažadėti niekas."
+    },
+    {
+      "q": "Ar galėsiu vėliau pats keisti svetainės turinį?",
+      "a": "Tai priklauso nuo pasirinkto sprendimo. Jei norite patys redaguoti tekstus ar nuotraukas, turinio valdymo galimybę aptarsime prieš pradedant projektą."
+    },
+    {
+      "q": "Ar galite atnaujinti mano dabartinę svetainę?",
+      "a": "Taip. Galiu modernizuoti esamą svetainę arba sukurti naują, išsaugodamas tai, kas jau veikia gerai."
+    },
+    {
+      "q": "Ar dirbate tik su Kauno verslais?",
+      "a": "Ne. Esu įsikūręs Kaune, todėl su Kauno klientais galime susitikti ir gyvai, tačiau dirbu ir nuotoliu – su verslais visoje Lietuvoje bei užsienyje."
+    },
+    {
+      "q": "Ar prižiūrite svetainę po paleidimo?",
+      "a": "Taip. Priežiūra kainuoja nuo 25 € per mėnesį: turinio pakeitimai, atnaujinimai, atsarginės kopijos ir pagalba, kai jos reikia."
+    }
+  ]
+}

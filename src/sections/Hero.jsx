@@ -49,11 +49,11 @@ const Hero = () => {
               <i className='bx bx-right-arrow-alt' aria-hidden='true'></i>
             </a>
             <a
-              href='#work'
+              href='#pricing'
               className='btn btn--ghost'
               onClick={(e) => {
                 e.preventDefault();
-                scrollToId('work');
+                scrollToId('pricing');
               }}
             >
               {hero.secondary}

@@ -36,7 +36,7 @@ const About = () => {
               </li>
             ))}
           </ul>
-          <p className='about__personal'>{about.personal}</p>
+          {about.personal && <p className='about__personal'>{about.personal}</p>}
         </div>
       </div>
     </section>

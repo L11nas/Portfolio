@@ -3,7 +3,7 @@ import { goToContact } from '../utils';
 import './Pricing.css';
 
 const Pricing = () => {
-  const { pricing } = useContent();
+  const { pricing, guarantee } = useContent();
 
   return (
     <section className='section' id='pricing' aria-labelledby='pricing-title'>
@@ -25,10 +25,11 @@ const Pricing = () => {
               {plan.featured && <span className='plan__badge'>{pricing.badge}</span>}
               <h3 className='plan__name'>{plan.name}</h3>
               <p className='plan__price'>
-                <span className='plan__from'>{pricing.from}</span>
+                {plan.from !== false && <span className='plan__from'>{pricing.from}</span>}
                 <span className='plan__amount'>{plan.price}&nbsp;€</span>
+                {plan.unit && <span className='plan__from'>{plan.unit}</span>}
               </p>
-              <p className='plan__fit'>{plan.fit}</p>
+              {plan.fit && <p className='plan__fit'>{plan.fit}</p>}
               <ul className='check-list plan__features'>
                 {plan.features.map((feature) => (
                   <li key={feature}>
@@ -51,28 +52,38 @@ const Pricing = () => {
           ))}
         </ul>
 
-        <div className='extras reveal'>
-          <h3 className='extras__title'>{pricing.extrasTitle}</h3>
-          <ul className='extras__list'>
-            {pricing.extras.map((extra) => (
-              <li className='extra' key={extra.name}>
-                <div>
-                  <p className='extra__name'>{extra.name}</p>
-                  <p className='extra__text'>{extra.text}</p>
-                </div>
-                <p className='extra__price'>
-                  <span className='plan__from'>{pricing.from}</span> {extra.price}&nbsp;€
-                  {extra.unit && <span className='extra__unit'> {extra.unit}</span>}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {pricing.extras?.length > 0 && (
+          <div className='extras reveal'>
+            <h3 className='extras__title'>{pricing.extrasTitle}</h3>
+            <ul className='extras__list'>
+              {pricing.extras.map((extra) => (
+                <li className='extra' key={extra.name}>
+                  <div>
+                    <p className='extra__name'>{extra.name}</p>
+                    <p className='extra__text'>{extra.text}</p>
+                  </div>
+                  <p className='extra__price'>
+                    <span className='plan__from'>{pricing.from}</span> {extra.price}&nbsp;€
+                    {extra.unit && <span className='extra__unit'> {extra.unit}</span>}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         <div className='plans__notes reveal'>
           <p>{pricing.note}</p>
           <p>{pricing.excluded}</p>
         </div>
+
+        <aside className='guarantee reveal'>
+          <i className='bx bx-check-shield guarantee__icon' aria-hidden='true'></i>
+          <div>
+            <p className='guarantee__title'>{guarantee.title}</p>
+            <p className='guarantee__text'>{guarantee.text}</p>
+          </div>
+        </aside>
       </div>
     </section>
   );

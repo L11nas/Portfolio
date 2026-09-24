@@ -1,66 +1,66 @@
 {
-  "note": "Galutinė kaina priklauso nuo projekto apimties ir funkcionalumo. Parašykite, ko reikia – pateiksiu preliminarų pasiūlymą.",
+  "note": "Tiksli kaina priklauso nuo to, ko jums reikia. Pasakysiu ją iš karto po pokalbio, dar prieš pradedant darbą.",
   "plans": [
     {
       "id": "start",
       "name": "Start",
       "price": "450",
-      "fit": "Mažam verslui ar specialistui, kuriam reikia profesionalaus puslapio internete.",
+      "from": true,
+      "unit": "",
+      "fit": "Mažam verslui ar specialistui, kuriam reikia tvarkingo puslapio internete.",
       "features": [
         "Iki 5 puslapių",
-        "Pritaikymas telefonams",
+        "Gerai atrodo telefone",
         "Kontaktų forma",
-        "Bazinis SEO",
-        "Google Analytics",
-        "Paleidimas"
+        "Jus ras Google",
+        "Lankytojų statistika",
+        "Galite patys keisti tekstus ir kainas"
       ],
-      "cta": "Gauti pasiūlymą"
+      "cta": "Parašykite man"
     },
     {
       "id": "business",
       "name": "Verslas",
       "price": "750",
+      "from": true,
+      "unit": "",
       "featured": true,
       "fit": "Įmonei, kuri nori aiškiai pristatyti kelias paslaugas ir gauti užklausas.",
       "features": [
         "Individualus dizainas",
         "Iki 10 puslapių",
-        "Paslaugų puslapių struktūra",
-        "SEO pagrindai",
-        "Google Analytics",
-        "Kontaktų integracijos",
-        "Greičio optimizavimas"
+        "Atskiras puslapis kiekvienai paslaugai",
+        "Jus ras Google",
+        "Lankytojų statistika",
+        "Skambučio ir žinučių mygtukai",
+        "Greitai atsidaro"
       ],
-      "cta": "Gauti pasiūlymą"
+      "cta": "Parašykite man"
     },
     {
       "id": "custom",
       "name": "Individualus",
       "price": "1 200",
-      "fit": "Projektui, kuriam reikia sudėtingesnės struktūros ar specifinių funkcijų.",
+      "from": true,
+      "unit": "",
+      "fit": "Projektui, kuriam reikia daugiau puslapių ar specialių funkcijų.",
       "features": [
-        "Individualus sprendimas",
+        "Sprendimas pagal jūsų poreikius",
         "Sudėtingesnė struktūra",
-        "Integracijos su kitomis sistemomis",
-        "Specifinis funkcionalumas"
+        "Sujungimas su kitomis jūsų sistemomis",
+        "Specialios funkcijos"
       ],
       "cta": "Aptarti projektą"
     }
   ],
-  "extrasTitle": "Papildomos paslaugos",
+  "extrasTitle": "Po paleidimo",
   "extras": [
-    {
-      "name": "Landing page",
-      "price": "350",
-      "unit": "",
-      "text": "Vienas koncentruotas puslapis paslaugai, produktui ar reklamos kampanijai."
-    },
     {
       "name": "Priežiūra",
       "price": "25",
       "unit": "/ mėn.",
-      "text": "Turinio pakeitimai, atnaujinimai, atsarginės kopijos ir pagalba, kai jos reikia."
+      "text": "Hostingas, atsarginės kopijos, atnaujinimai ir smulkūs pakeitimai. Jums nereikia apie nieką galvoti."
     }
   ],
-  "excluded": "Domenas ir talpinimas (apie 40–60 € per metus) apmokami atskirai. Tekstus ir nuotraukas pateikia klientas, arba jų paruošimą aptariame atskirai."
+  "excluded": "Domenas registruojamas jūsų vardu ir apmokamas atskirai, o hostingas įskaičiuotas į priežiūrą. Tekstus ir nuotraukas pateikiate jūs, arba jų paruošimą aptariame atskirai."
 }

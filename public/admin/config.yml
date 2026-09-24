@@ -24,11 +24,13 @@ collections:
             name: plans
             widget: list
             allow_add: false
-            summary: '{{fields.name}} – nuo {{fields.price}} €'
+            summary: '{{fields.name}} – {{fields.price}} €'
             fields:
               - { label: ID, name: id, widget: hidden }
               - { label: Pavadinimas, name: name, widget: string }
-              - { label: Kaina (nuo, €), name: price, widget: string }
+              - { label: Kaina (€), name: price, widget: string }
+              - { label: Rodyti „nuo“, name: from, widget: boolean, required: false, default: true }
+              - { label: Vienetas (pvz. / mėn.), name: unit, widget: string, required: false }
               - { label: Rekomenduojamas, name: featured, widget: boolean, required: false, default: false }
               - { label: Kam tinka, name: fit, widget: text }
               - { label: Kas įskaičiuota, name: features, widget: list, field: { label: Punktas, name: item, widget: string } }
@@ -38,10 +40,10 @@ collections:
           - label: Papildomos paslaugos
             name: extras
             widget: list
-            summary: '{{fields.name}} – nuo {{fields.price}} €'
+            summary: '{{fields.name}} – {{fields.price}} €'
             fields:
               - { label: Pavadinimas, name: name, widget: string }
-              - { label: Kaina (nuo, €), name: price, widget: string }
+              - { label: Kaina (€), name: price, widget: string }
               - { label: Vienetas (pvz. / mėn.), name: unit, widget: string, required: false }
               - { label: Aprašymas, name: text, widget: text }
           - { label: Kas neįskaičiuota, name: excluded, widget: text }
@@ -53,11 +55,13 @@ collections:
             name: plans
             widget: list
             allow_add: false
-            summary: '{{fields.name}} – nuo {{fields.price}} €'
+            summary: '{{fields.name}} – {{fields.price}} €'
             fields:
               - { label: ID, name: id, widget: hidden }
               - { label: Pavadinimas, name: name, widget: string }
-              - { label: Kaina (nuo, €), name: price, widget: string }
+              - { label: Kaina (€), name: price, widget: string }
+              - { label: Rodyti „nuo“, name: from, widget: boolean, required: false, default: true }
+              - { label: Vienetas (pvz. / mėn.), name: unit, widget: string, required: false }
               - { label: Rekomenduojamas, name: featured, widget: boolean, required: false, default: false }
               - { label: Kam tinka, name: fit, widget: text }
               - { label: Kas įskaičiuota, name: features, widget: list, field: { label: Punktas, name: item, widget: string } }
@@ -67,10 +71,10 @@ collections:
           - label: Papildomos paslaugos
             name: extras
             widget: list
-            summary: '{{fields.name}} – nuo {{fields.price}} €'
+            summary: '{{fields.name}} – {{fields.price}} €'
             fields:
               - { label: Pavadinimas, name: name, widget: string }
-              - { label: Kaina (nuo, €), name: price, widget: string }
+              - { label: Kaina (€), name: price, widget: string }
               - { label: Vienetas (pvz. / mėn.), name: unit, widget: string, required: false }
               - { label: Aprašymas, name: text, widget: text }
           - { label: Kas neįskaičiuota, name: excluded, widget: text }
@@ -115,5 +119,4 @@ collections:
           - { label: Messenger nuoroda, name: messenger, widget: string }
           - { label: Facebook, name: facebook, widget: string }
           - { label: LinkedIn, name: linkedin, widget: string }
-          - { label: GitHub, name: github, widget: string }
           - { label: Google Business nuoroda, name: googleBusiness, widget: string }

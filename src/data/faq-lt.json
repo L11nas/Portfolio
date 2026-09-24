@@ -2,31 +2,35 @@
   "items": [
     {
       "q": "Kiek kainuoja svetainės sukūrimas?",
-      "a": "Kainos prasideda nuo 450 € (Start paketas), landing page – nuo 350 €. Galutinė kaina priklauso nuo puslapių skaičiaus, dizaino ir reikalingų funkcijų. Domenas ir talpinimas (apie 40–60 € per metus) apmokami atskirai."
+      "a": "Svetainė kainuoja nuo 450 € (Start), verslo svetainė su keliomis paslaugomis – nuo 750 €. Tikslią kainą pasakysiu iš karto po pokalbio, dar prieš pradedant darbą. Domenas apmokamas atskirai, o hostingas įskaičiuotas į priežiūrą."
+    },
+    {
+      "q": "Kam priklausys svetainė ir domenas?",
+      "a": "Jums. Domenas, hostingas ir el. paštas registruojami jūsų vardu. Jei kada nuspręsite išeiti, pasiimsite viską be jokių klausimų."
     },
     {
       "q": "Per kiek laiko sukuriama svetainė?",
-      "a": "Terminas priklauso nuo projekto dydžio ir nuo to, kaip greitai pateikiamas turinys (tekstai, nuotraukos). Nedidelė svetainė paprastai sukuriama per kelias savaites."
+      "a": "Terminas priklauso nuo projekto dydžio ir nuo to, kaip greitai pateikiamas turinys (tekstai, nuotraukos). Nedidelė svetainė paprastai sukuriama per kelias savaites. Tikslų terminą gausite raštu kartu su pasiūlymu."
     },
     {
       "q": "Ar padedate su domenu ir talpinimu?",
-      "a": "Taip. Jei reikia, padėsiu pasirinkti ir sukonfigūruoti domeną bei talpinimą (hostingą)."
+      "a": "Taip. Padėsiu pasirinkti ir sukonfigūruoti domeną bei talpinimą (hostingą), o registruosime juos jūsų vardu."
     },
     {
-      "q": "Ar svetainė gerai veiks telefone?",
-      "a": "Taip. Visos svetainės kuriamos pritaikant jas telefonams, planšetėms ir kompiuteriams."
+      "q": "Ar svetainė gerai atrodys telefone?",
+      "a": "Taip. Kiekviena svetainė kuriama taip, kad gerai atrodytų telefone, planšetėje ir kompiuteryje."
     },
     {
-      "q": "Ar galite sutvarkyti SEO?",
-      "a": "Atlieku bazinius techninius SEO darbus: metaduomenis, antraščių struktūrą, sitemap, greitį. Svetainė bus paruošta tolimesniam SEO. Konkrečių pozicijų Google negarantuoju – to sąžiningai negali pažadėti niekas."
+      "q": "Ar mane ras Google?",
+      "a": "Sutvarkau tai, ko reikia, kad Google suprastų jūsų svetainę: puslapių pavadinimus, aprašymus, struktūrą, greitį. Pirmos vietos Google negarantuoju – to sąžiningai negali pažadėti niekas."
     },
     {
       "q": "Ar galėsiu vėliau pats keisti svetainės turinį?",
-      "a": "Tai priklauso nuo pasirinkto sprendimo. Jei norite patys redaguoti tekstus ar nuotraukas, turinio valdymo galimybę aptarsime prieš pradedant projektą."
+      "a": "Taip. Tekstus ir kainas galėsite keisti patys, o jei nenorite – pakeisiu aš."
     },
     {
       "q": "Ar galite atnaujinti mano dabartinę svetainę?",
-      "a": "Taip. Galiu modernizuoti esamą svetainę arba sukurti naują, išsaugodamas tai, kas jau veikia gerai."
+      "a": "Taip. Galiu atnaujinti esamą svetainę arba sukurti naują, išsaugodamas tai, kas jau veikia gerai."
     },
     {
       "q": "Ar dirbate tik su Kauno verslais?",
@@ -34,7 +38,7 @@
     },
     {
       "q": "Ar prižiūrite svetainę po paleidimo?",
-      "a": "Taip. Priežiūra kainuoja nuo 25 € per mėnesį: turinio pakeitimai, atnaujinimai, atsarginės kopijos ir pagalba, kai jos reikia."
+      "a": "Taip. Pirmus 3 mėnesius po paleidimo viską, kas neveikia, taisau nemokamai. Vėliau priežiūra kainuoja nuo 25 € per mėnesį: hostingas, atsarginės kopijos, atnaujinimai ir smulkūs pakeitimai."
     }
   ]
 }

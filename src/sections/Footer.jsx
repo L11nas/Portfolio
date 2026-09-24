@@ -10,7 +10,6 @@ const socials = [
   { href: CONTACTS.googleBusiness, icon: 'bxl-google', label: 'Google' },
   { href: CONTACTS.facebook, icon: 'bxl-facebook', label: 'Facebook' },
   { href: CONTACTS.linkedin, icon: 'bxl-linkedin', label: 'LinkedIn' },
-  { href: CONTACTS.github, icon: 'bxl-github', label: 'GitHub' },
 ];
 
 const Footer = () => {

@@ -72,8 +72,8 @@ const Page = () => {
         <Value />
         <Services />
         <Work />
-        <Pricing />
         <Process />
+        <Pricing />
         <About />
         <Faq />
         <Cta />

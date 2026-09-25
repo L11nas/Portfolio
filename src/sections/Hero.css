@@ -12,7 +12,20 @@
   align-items: center;
 }
 
+.hero__heading {
+  margin: 0;
+}
+
+.hero__heading .eyebrow {
+  display: block;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+}
+
 .hero__title {
+  display: block;
+  color: var(--ink);
+  font-weight: 800;
   font-size: var(--fs-h1);
   line-height: 1.04;
   letter-spacing: -0.035em;

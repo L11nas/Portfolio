@@ -1,6 +1,7 @@
 import { useContent } from '../context/LanguageContext';
 import { CONTACTS } from '../content';
 import './Contact.css';
+import Icon from '../components/Icon';
 
 const Contact = () => {
   const { contact } = useContent();
@@ -32,7 +33,7 @@ const Contact = () => {
           </h2>
           <p className='section-lead'>{contact.lead}</p>
           <p className='contact__location'>
-            <i className='bx bx-map' aria-hidden='true'></i>
+            <Icon name='bx-map' />
             {contact.location}
           </p>
         </div>
@@ -42,14 +43,14 @@ const Contact = () => {
             {channels.map((channel) => (
               <li key={channel.label}>
                 <a href={channel.href} className='channel'>
-                  <i className={`bx ${channel.icon} channel__icon`} aria-hidden='true'></i>
+                  <Icon name={channel.icon} className='channel__icon' />
                   <span className='channel__text'>
                     <span className='channel__label'>{channel.label}</span>
                     <span className='channel__value'>{channel.value}</span>
                   </span>
                   <span className='channel__action'>
                     {channel.action}
-                    <i className='bx bx-right-arrow-alt' aria-hidden='true'></i>
+                    <Icon name='bx-right-arrow-alt' />
                   </span>
                 </a>
               </li>

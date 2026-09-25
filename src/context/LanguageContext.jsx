@@ -14,7 +14,13 @@ const readSavedLanguage = () => {
 };
 
 export const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState(readSavedLanguage);
+  // Pradžioje visada LT – toks HTML sugeneruojamas iš anksto (prerender).
+  // Išsaugotą kalbą pritaikome tik naršyklėje, kad nebūtų hidratacijos neatitikimo.
+  const [language, setLanguage] = useState('LT');
+
+  useEffect(() => {
+    setLanguage(readSavedLanguage());
+  }, []);
 
   useEffect(() => {
     document.documentElement.lang = language.toLowerCase();

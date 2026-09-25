@@ -1,6 +1,7 @@
 import { useContent } from '../context/LanguageContext';
 import photo from '../assets/portfolio.jpg';
 import './About.css';
+import Icon from '../components/Icon';
 
 const About = () => {
   const { about } = useContent();
@@ -31,7 +32,7 @@ const About = () => {
           <ul className='check-list about__points'>
             {about.points.map((point) => (
               <li key={point}>
-                <i className='bx bx-check' aria-hidden='true'></i>
+                <Icon name='bx-check' />
                 {point}
               </li>
             ))}

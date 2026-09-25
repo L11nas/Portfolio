@@ -1,9 +1,7 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import {
-  createTheme,
-  ThemeProvider as MuiThemeProvider,
-} from '@mui/material/styles';
+import { createContext, useContext, useState, useEffect } from 'react';
 
+// Tamsaus režimo jungiklio svetainėje nebėra, bet kontekstą naudoja slapukų juosta.
+// MUI tema čia nebenaudojama – ji pakraudavo visą MUI biblioteką su pirmu puslapiu.
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
@@ -17,18 +15,8 @@ export const ThemeProvider = ({ children }) => {
     document.body.classList.toggle('dark-mode', darkMode);
   }, [darkMode]);
 
-  const darkTheme = createTheme({
-    palette: {
-      mode: darkMode ? 'dark' : 'light',
-    },
-  });
-
   return (
-    <ThemeContext.Provider value={{ darkMode, toggleDarkMode }}>
-      <MuiThemeProvider theme={darkTheme}>
-        {children}
-      </MuiThemeProvider>
-    </ThemeContext.Provider>
+    <ThemeContext.Provider value={{ darkMode, toggleDarkMode }}>{children}</ThemeContext.Provider>
   );
 };
 

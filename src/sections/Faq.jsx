@@ -1,5 +1,6 @@
 import { useContent } from '../context/LanguageContext';
 import './Faq.css';
+import Icon from '../components/Icon';
 
 const Faq = () => {
   const { faq } = useContent();
@@ -19,7 +20,7 @@ const Faq = () => {
             <details className='faq__item' key={item.q}>
               <summary>
                 <span>{item.q}</span>
-                <i className='bx bx-plus' aria-hidden='true'></i>
+                <Icon name='bx-plus' />
               </summary>
               <p>{item.a}</p>
             </details>

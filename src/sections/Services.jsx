@@ -1,6 +1,7 @@
 import { useContent } from '../context/LanguageContext';
 import { goToContact } from '../utils';
 import './Services.css';
+import Icon from '../components/Icon';
 
 const Services = () => {
   const { services } = useContent();
@@ -31,7 +32,7 @@ const Services = () => {
                 }}
               >
                 {featured.cta}
-                <i className='bx bx-right-arrow-alt' aria-hidden='true'></i>
+                <Icon name='bx-right-arrow-alt' />
               </a>
             </div>
             <div>
@@ -39,7 +40,7 @@ const Services = () => {
               <ul className='check-list'>
                 {featured.includes.map((item) => (
                   <li key={item}>
-                    <i className='bx bx-check' aria-hidden='true'></i>
+                    <Icon name='bx-check' />
                     {item}
                   </li>
                 ))}
@@ -50,7 +51,7 @@ const Services = () => {
           <ul className='services__grid'>
             {services.items.map((item) => (
               <li className='service-card reveal' key={item.title}>
-                <i className={`bx ${item.icon} service-card__icon`} aria-hidden='true'></i>
+                <Icon name={item.icon} className='service-card__icon' />
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
               </li>

@@ -16,9 +16,9 @@ const projectImages = {
 export const content = {
   LT: {
     meta: {
-      title: 'Svetainių kūrimas smulkiam verslui Kaune | Linas – linaswebdev.lt',
+      title: 'Svetainių kūrimas Kaune smulkiam verslui | LinasWebDev',
       description:
-        'Paprasta svetainė smulkiam verslui su aiškia kaina. Viskas registruojama jūsų vardu. Kaunas ir visa Lietuva.',
+        'Svetainių kūrimas smulkiam verslui Kaune ir visoje Lietuvoje. Aiški kaina nuo 450 €, viskas registruojama jūsų vardu. Paskambinkite arba parašykite.',
     },
     nav: {
       links: [
@@ -172,7 +172,7 @@ export const content = {
     },
     pricing: {
       eyebrow: 'Kainos',
-      title: 'Kiek kainuoja?',
+      title: 'Kiek kainuoja svetainės sukūrimas?',
       lead: 'Jokio „kaina sutartinė“. Prieš pradedant žinote, kiek mokėsite ir už ką.',
       from: 'nuo',
       badge: 'Dažniausiai renkamasi',
@@ -420,7 +420,7 @@ export const content = {
     },
     pricing: {
       eyebrow: 'Pricing',
-      title: 'How much is it?',
+      title: 'How much does a website cost?',
       lead: 'No “price on request”. Before we start, you know what you will pay and what for.',
       from: 'from',
       badge: 'Most popular',

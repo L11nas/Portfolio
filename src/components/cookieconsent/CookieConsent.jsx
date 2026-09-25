@@ -1,8 +1,11 @@
-import { useState, useEffect } from 'react';
-import PrivacyPolicyModal from '../privacyPolicy/PrivacyPolicyModal';
+import { lazy, Suspense, useState, useEffect } from 'react';
+
+// Įkeliamas tik paspaudus „Privatumo politika“
+const PrivacyPolicyModal = lazy(() => import('../privacyPolicy/PrivacyPolicyModal'));
 import { useLanguage } from '../../context/LanguageContext';
 import { useDarkMode } from '../../ThemeContext';
 import './cookieconsent.css';
+import Icon from '../Icon';
 
 const GOOGLE_ANALYTICS_ID = 'G-JPV4WJL4C4';
 
@@ -121,7 +124,9 @@ const CookieConsent = ({ onConsentChange }) => {
 
   return (
     <>
-      <PrivacyPolicyModal isOpen={isModalOpen} onClose={handleCloseModal} />
+      <Suspense fallback={null}>
+        {isModalOpen && <PrivacyPolicyModal isOpen onClose={handleCloseModal} />}
+      </Suspense>
 
       <div
         className={`cookie-consent ${darkMode ? 'dark-mode' : ''} ${
@@ -131,7 +136,7 @@ const CookieConsent = ({ onConsentChange }) => {
         <div className='cookie-consent__container'>
           <div className='cookie-consent__content'>
             <div className='cookie-consent__icon'>
-              <i className='bx bx-cookie'></i>
+              <Icon name='bx-cookie' />
             </div>
 
             <div className='cookie-consent__text'>

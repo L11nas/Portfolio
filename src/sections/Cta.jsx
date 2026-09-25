@@ -1,6 +1,7 @@
 import { useContent } from '../context/LanguageContext';
 import { goToContact, scrollToId } from '../utils';
 import './Cta.css';
+import Icon from '../components/Icon';
 
 const Cta = () => {
   const { cta } = useContent();
@@ -23,7 +24,7 @@ const Cta = () => {
               }}
             >
               {cta.primary}
-              <i className='bx bx-right-arrow-alt' aria-hidden='true'></i>
+              <Icon name='bx-right-arrow-alt' />
             </a>
             <a
               href='#work'

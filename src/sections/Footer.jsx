@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import { useContent } from '../context/LanguageContext';
 import { CONTACTS } from '../content';
 import { scrollToId } from '../utils';
-import PrivacyPolicyModal from '../components/privacyPolicy/PrivacyPolicyModal';
-import TermsOfServiceModal from '../components/privacyPolicy/TermsOfServiceModal';
 import './Footer.css';
+import Icon from '../components/Icon';
+
+// Teisiniai langai (su MUI) įkeliami tik juos atidarius – pirmas puslapis kraunasi greičiau
+const PrivacyPolicyModal = lazy(() => import('../components/privacyPolicy/PrivacyPolicyModal'));
+const TermsOfServiceModal = lazy(() => import('../components/privacyPolicy/TermsOfServiceModal'));
 
 const socials = [
   { href: CONTACTS.googleBusiness, icon: 'bxl-google', label: 'Google' },
@@ -30,7 +33,7 @@ const Footer = () => {
               {socials.map((s) => (
                 <li key={s.label}>
                   <a href={s.href} target='_blank' rel='noopener noreferrer' aria-label={s.label}>
-                    <i className={`bx ${s.icon}`} aria-hidden='true'></i>
+                    <Icon name={s.icon} />
                   </a>
                 </li>
               ))}
@@ -84,8 +87,10 @@ const Footer = () => {
         </div>
       </div>
 
-      <PrivacyPolicyModal isOpen={privacyOpen} onClose={() => setPrivacyOpen(false)} />
-      <TermsOfServiceModal isOpen={termsOpen} onClose={() => setTermsOpen(false)} />
+      <Suspense fallback={null}>
+        {privacyOpen && <PrivacyPolicyModal isOpen onClose={() => setPrivacyOpen(false)} />}
+        {termsOpen && <TermsOfServiceModal isOpen onClose={() => setTermsOpen(false)} />}
+      </Suspense>
     </footer>
   );
 };

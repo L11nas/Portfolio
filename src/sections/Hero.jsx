@@ -1,8 +1,9 @@
 import { useContent } from '../context/LanguageContext';
 import { goToContact, scrollToId } from '../utils';
 import './Hero.css';
+import Icon from '../components/Icon';
 
-const BrowserShot = ({ domain, image, className, eager }) => (
+const BrowserShot = ({ domain, image, alt, className, eager }) => (
   <figure className={`browser ${className}`}>
     <div className='browser__bar' aria-hidden='true'>
       <span className='browser__dot' />
@@ -12,7 +13,7 @@ const BrowserShot = ({ domain, image, className, eager }) => (
     </div>
     <img
       src={image}
-      alt=''
+      alt={alt}
       width='1440'
       height='900'
       loading={eager ? 'eager' : 'lazy'}
@@ -30,9 +31,9 @@ const Hero = () => {
     <section className='hero' id='top' aria-labelledby='hero-title'>
       <div className='hero__inner container'>
         <div className='hero__copy'>
-          <p className='eyebrow'>{hero.eyebrow}</p>
-          <h1 id='hero-title' className='hero__title'>
-            {hero.title}
+          <h1 id='hero-title' className='hero__heading'>
+            <span className='eyebrow'>{hero.eyebrow}</span>{' '}
+            <span className='hero__title'>{hero.title}</span>
           </h1>
           <p className='hero__lead'>{hero.lead}</p>
 
@@ -46,7 +47,7 @@ const Hero = () => {
               }}
             >
               {hero.primary}
-              <i className='bx bx-right-arrow-alt' aria-hidden='true'></i>
+              <Icon name='bx-right-arrow-alt' />
             </a>
             <a
               href='#pricing'
@@ -63,23 +64,25 @@ const Hero = () => {
           <ul className='hero__checks'>
             {hero.checks.map((item) => (
               <li key={item}>
-                <i className='bx bx-check' aria-hidden='true'></i>
+                <Icon name='bx-check' />
                 {item}
               </li>
             ))}
           </ul>
         </div>
 
-        <div className='hero__visual' role='img' aria-label={hero.visualLabel}>
+        <div className='hero__visual'>
           <BrowserShot
             className='hero__shot hero__shot--back'
             domain={builders.domain}
             image={builders.image}
+            alt={`${builders.name}: ${builders.type}`}
           />
           <BrowserShot
             className='hero__shot hero__shot--front'
             domain={kirpeja.domain}
             image={kirpeja.image}
+            alt={`${kirpeja.name}: ${kirpeja.type}`}
             eager
           />
         </div>

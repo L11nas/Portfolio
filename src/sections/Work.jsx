@@ -1,5 +1,6 @@
 import { useContent } from '../context/LanguageContext';
 import './Work.css';
+import Icon from '../components/Icon';
 
 const Work = () => {
   const { work } = useContent();
@@ -40,7 +41,7 @@ const Work = () => {
                   </div>
                   <img
                     src={project.image}
-                    alt=''
+                    alt={`${project.name}: ${project.type}`}
                     width='1440'
                     height='900'
                     loading='lazy'
@@ -85,7 +86,7 @@ const Work = () => {
                 >
                   {labels.visit}
                   <span className='sr-only'>: {project.name}</span>
-                  <i className='bx bx-right-arrow-alt' aria-hidden='true'></i>
+                  <Icon name='bx-right-arrow-alt' />
                 </a>
               </div>
             </article>
@@ -104,7 +105,7 @@ const Work = () => {
               />
             ) : (
               <div className='case-side__img case-side__placeholder' aria-hidden='true'>
-                <i className={`bx ${side.icon}`}></i>
+                <Icon name={side.icon} />
               </div>
             )}
             <div>
@@ -120,7 +121,7 @@ const Work = () => {
                 >
                   {labels.visit}
                   <span className='sr-only'>: {side.name}</span>
-                  <i className='bx bx-right-arrow-alt' aria-hidden='true'></i>
+                  <Icon name='bx-right-arrow-alt' />
                 </a>
               )}
             </div>

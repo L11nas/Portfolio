@@ -1,6 +1,7 @@
 import { useContent } from '../context/LanguageContext';
 import { goToContact } from '../utils';
 import './Pricing.css';
+import Icon from '../components/Icon';
 
 const Pricing = () => {
   const { pricing, guarantee } = useContent();
@@ -33,7 +34,7 @@ const Pricing = () => {
               <ul className='check-list plan__features'>
                 {plan.features.map((feature) => (
                   <li key={feature}>
-                    <i className='bx bx-check' aria-hidden='true'></i>
+                    <Icon name='bx-check' />
                     {feature}
                   </li>
                 ))}
@@ -78,7 +79,7 @@ const Pricing = () => {
         </div>
 
         <aside className='guarantee reveal'>
-          <i className='bx bx-check-shield guarantee__icon' aria-hidden='true'></i>
+          <Icon name='bx-check-shield' className='guarantee__icon' />
           <div>
             <p className='guarantee__title'>{guarantee.title}</p>
             <p className='guarantee__text'>{guarantee.text}</p>

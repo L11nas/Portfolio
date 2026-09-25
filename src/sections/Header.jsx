@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useContent, useLanguage } from '../context/LanguageContext';
 import { scrollToId } from '../utils';
 import './Header.css';
+import Icon from '../components/Icon';
 
 const Header = () => {
   const t = useContent().nav;
@@ -105,7 +106,7 @@ const Header = () => {
             aria-controls='mobile-menu'
             aria-label={menuOpen ? t.closeMenu : t.openMenu}
           >
-            <i className={`bx ${menuOpen ? 'bx-x' : 'bx-menu'}`} aria-hidden='true'></i>
+            <Icon name={menuOpen ? 'bx-x' : 'bx-menu'} />
           </button>
         </div>
       </div>

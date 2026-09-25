@@ -1,5 +1,6 @@
 import { useContent } from '../context/LanguageContext';
 import './Value.css';
+import Icon from '../components/Icon';
 
 const Value = () => {
   const { value } = useContent();
@@ -18,7 +19,7 @@ const Value = () => {
         <ul className='value__grid'>
           {value.cards.map((card) => (
             <li className='value__card reveal' key={card.title}>
-              <i className={`bx ${card.icon} value__icon`} aria-hidden='true'></i>
+              <Icon name={card.icon} className='value__icon' />
               <h3>{card.title}</h3>
               <p>{card.text}</p>
             </li>

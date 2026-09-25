@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Modal, Box, Typography, Button } from '@mui/material';
 import { useLanguage } from '../../context/LanguageContext';
 import { Helmet } from 'react-helmet-async';
@@ -24,18 +24,6 @@ const modalStyle = {
 
 const PrivacyPolicyModal = ({ isOpen, onClose }) => {
   const { language } = useLanguage();
-
-  // Blokuojame slinkimą, kai modalinis langas atidarytas
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isOpen]);
 
   const translations = {
     LT: {

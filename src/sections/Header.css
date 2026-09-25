@@ -117,11 +117,18 @@
     display: inline-flex;
   }
 
+  /* Ne position: fixed – antraštės backdrop-filter paverčia ją fiksuotų
+     elementų konteineriu, todėl meniu aukštis būdavo tik ~1 eilutė */
   .nav--mobile.is-open {
     display: block;
-    position: fixed;
-    inset: var(--header-h) 0 0 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: calc(100vh - var(--header-h));
+    height: calc(100dvh - var(--header-h));
     overflow-y: auto;
+    overscroll-behavior: contain;
     background: var(--bg);
     border-top: 1px solid var(--line);
     padding-block: 1rem 2rem;
